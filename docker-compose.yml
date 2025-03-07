@@ -1,0 +1,153 @@
+version: '3.9'
+
+services:
+  # ✅ PostgreSQL Database
+  postgres:
+    image: postgres:latest
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: spark
+      POSTGRES_PASSWORD: spark
+      POSTGRES_DB: public
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres_backup:/backup
+      - ./postgres-init.sql:/docker-entrypoint-initdb.d/postgres-init.sql
+    networks:
+      - db_network
+
+  # ✅ ClickHouse Database
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    container_name: clickhouse_db
+    restart: always
+    environment:
+      CLICKHOUSE_USER: spark
+      CLICKHOUSE_PASSWORD: spark
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "1"
+    ports:
+      - "8123:8123"  # HTTP interface
+      - "9000:9000"  # Native TCP interface
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+      - ./clickhouse-init.sql:/docker-entrypoint-initdb.d/clickhouse-init.sql
+      - ./clickhouse-config.xml:/etc/clickhouse-server/config.xml
+      - ./clickhouse-user.xml:/etc/clickhouse-server/users.xml
+    networks:
+      - db_network
+
+  # ✅ Airflow Database (Metadata Store)
+  airflow_db:
+    image: postgres:latest
+    container_name: airflow_db
+    restart: always
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    ports:
+      - "5433:5432"  # Change external port to avoid conflict with main PostgreSQL
+    volumes:
+      - airflow_db:/var/lib/postgresql/data
+    networks:
+      - db_network
+
+  # ✅ Airflow Webserver
+  airflow_webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: airflow_webserver
+    restart: always
+    depends_on:
+      - airflow_db
+      - airflow_scheduler
+      - airflow_worker
+    environment:
+      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow_db:5432/airflow
+      AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@airflow_db:5432/airflow
+      AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
+      AIRFLOW__WEBSERVER__RBAC: "True"
+      AIRFLOW__WEBSERVER__DEFAULT_USER: "admin"
+      AIRFLOW__WEBSERVER__DEFAULT_PASSWORD: "admin"
+    ports:
+      - "8080:8080"  # Airflow UI
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+      - ./airflow-init.sh:/entrypoint.sh
+      - ./variables.json:/opt/airflow/variables.json
+    entrypoint: ["/bin/bash", "/entrypoint.sh"]
+    networks:
+      - db_network
+
+  # ✅ Airflow Scheduler
+  airflow_scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: airflow_scheduler
+    restart: always
+    depends_on:
+      - airflow_db
+      - airflow_worker
+    environment:
+      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow_db:5432/airflow
+      AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@airflow_db:5432/airflow
+      AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+      - ./variables.json:/opt/airflow/variables.json
+    command: ["scheduler"]
+    networks:
+      - db_network
+
+  # ✅ Airflow Worker
+  airflow_worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: airflow_worker
+    restart: always
+    depends_on:
+      - airflow_db
+    environment:
+      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow_db:5432/airflow
+      AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow_db:5432/airflow
+      AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+      - ./variables.json:/opt/airflow/variables.json
+    command: ["worker"]
+    networks:
+      - db_network
+
+  # ✅ Redis (for Airflow CeleryExecutor)
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - db_network
+
+volumes:
+  postgres_data:
+  clickhouse_data:
+  airflow_db:
+
+networks:
+  db_network:
+    driver: bridge

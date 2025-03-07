@@ -1,0 +1,528 @@
+[2025-03-07T06:11:27.604+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2025-03-07T06:11:27.604+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-03-07T06:11:27.605+0000] {manager.py:485} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-03-07T06:11:27.605+0000] {manager.py:821} INFO - Searching for files in /opt/airflow/dags
+[2025-03-07T06:11:27.679+0000] {manager.py:824} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-07T06:11:29.896+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  1.19s           2025-03-07T06:11:29                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0                                                            0
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     34  0.11s             0           0                                                            0
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0                                                            0
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar         35  0.00s             0           0                                                            0
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0                                                            0
+================================================================================
+[2025-03-07T06:12:01.079+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.54s           2025-03-07T06:12:01                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     40  0.01s             0           0  0.19s           2025-03-07T06:11:29                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.06s           2025-03-07T06:11:30                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.06s           2025-03-07T06:11:30                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.06s           2025-03-07T06:11:29                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.05s           2025-03-07T06:11:30                       3
+================================================================================
+[2025-03-07T06:12:32.134+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.50s           2025-03-07T06:12:32                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     46  0.01s             0           0  0.12s           2025-03-07T06:12:01                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.04s           2025-03-07T06:12:01                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.03s           2025-03-07T06:12:01                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.03s           2025-03-07T06:12:01                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.02s           2025-03-07T06:12:01                       3
+================================================================================
+[2025-03-07T06:13:03.212+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.54s           2025-03-07T06:13:03                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     52  0.01s             0           0  0.11s           2025-03-07T06:12:32                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.04s           2025-03-07T06:12:32                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.04s           2025-03-07T06:12:32                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.02s           2025-03-07T06:12:32                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:12:32                       3
+================================================================================
+[2025-03-07T06:13:34.223+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.51s           2025-03-07T06:13:34                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     58  0.01s             0           0  0.10s           2025-03-07T06:13:03                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.05s           2025-03-07T06:13:03                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.03s           2025-03-07T06:13:03                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:13:03                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.02s           2025-03-07T06:13:03                       3
+================================================================================
+[2025-03-07T06:14:05.695+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.57s           2025-03-07T06:14:05                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     64  0.01s             0           0  0.11s           2025-03-07T06:13:34                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.04s           2025-03-07T06:13:34                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.03s           2025-03-07T06:13:34                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:13:34                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.02s           2025-03-07T06:13:34                       3
+================================================================================
+[2025-03-07T06:14:37.110+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.72s           2025-03-07T06:14:37                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     70  0.01s             0           0  0.11s           2025-03-07T06:14:05                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.05s           2025-03-07T06:14:05                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.03s           2025-03-07T06:14:05                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:14:05                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.02s           2025-03-07T06:14:05                       3
+================================================================================
+[2025-03-07T06:15:08.431+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.68s           2025-03-07T06:15:08                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     76  0.01s             0           0  0.16s           2025-03-07T06:14:37                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.06s           2025-03-07T06:14:37                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.04s           2025-03-07T06:14:37                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.04s           2025-03-07T06:14:37                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.03s           2025-03-07T06:14:37                       3
+================================================================================
+[2025-03-07T06:15:40.372+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  1.30s           2025-03-07T06:15:40                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     82  0.03s             0           0  0.59s           2025-03-07T06:15:09                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.04s           2025-03-07T06:15:08                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.04s           2025-03-07T06:15:08                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.03s           2025-03-07T06:15:08                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.03s           2025-03-07T06:15:08                       3
+================================================================================
+[2025-03-07T06:16:11.590+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.54s           2025-03-07T06:16:11                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     88  0.01s             0           0  0.18s           2025-03-07T06:15:40                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.06s           2025-03-07T06:15:40                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.06s           2025-03-07T06:15:40                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.06s           2025-03-07T06:15:40                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.04s           2025-03-07T06:15:40                       3
+================================================================================
+[2025-03-07T06:16:27.927+0000] {manager.py:821} INFO - Searching for files in /opt/airflow/dags
+[2025-03-07T06:16:27.990+0000] {manager.py:824} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-07T06:16:41.760+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py         93  0.07s             0           1  0.54s           2025-03-07T06:16:11                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar                           0           0  0.11s           2025-03-07T06:16:11                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.03s           2025-03-07T06:16:11                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar         94  0.00s             0           0  0.03s           2025-03-07T06:16:11                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:16:11                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.02s           2025-03-07T06:16:11                       3
+================================================================================
+[2025-03-07T06:17:13.288+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.56s           2025-03-07T06:17:13                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.50s           2025-03-07T06:16:42                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar    100  0.01s             0           0  0.08s           2025-03-07T06:16:42                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.04s           2025-03-07T06:16:42                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.03s           2025-03-07T06:16:42                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.02s           2025-03-07T06:16:42                       3
+================================================================================
+[2025-03-07T06:17:33.928+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2025-03-07T06:18:06.401+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2025-03-07T06:18:06.401+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-03-07T06:18:06.401+0000] {manager.py:485} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-03-07T06:18:06.402+0000] {manager.py:821} INFO - Searching for files in /opt/airflow/dags
+[2025-03-07T06:18:06.438+0000] {manager.py:824} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-07T06:18:07.963+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.68s           2025-03-07T06:18:07                       5
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0                                                            0
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     34  0.05s             0           0                                                            0
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0                                                            0
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar         35  0.00s             0           0                                                            0
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0                                                            0
+================================================================================
+[2025-03-07T06:18:39.081+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.56s           2025-03-07T06:18:39                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     40  0.02s             0           0  0.11s           2025-03-07T06:18:08                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.05s           2025-03-07T06:18:08                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.03s           2025-03-07T06:18:07                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:18:08                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.02s           2025-03-07T06:18:08                       3
+================================================================================
+[2025-03-07T06:18:55.779+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2025-03-07T06:19:10.379+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2025-03-07T06:19:10.379+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-03-07T06:19:10.380+0000] {manager.py:485} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-03-07T06:19:10.380+0000] {manager.py:821} INFO - Searching for files in /opt/airflow/dags
+[2025-03-07T06:19:10.415+0000] {manager.py:824} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-07T06:19:11.888+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.72s           2025-03-07T06:19:11                       5
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0                                                            0
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     34  0.04s             0           0                                                            0
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0                                                            0
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar         35  0.00s             0           0                                                            0
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0                                                            0
+================================================================================
+[2025-03-07T06:19:42.967+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.55s           2025-03-07T06:19:42                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     40  0.01s             0           0  0.10s           2025-03-07T06:19:11                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.06s           2025-03-07T06:19:12                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.03s           2025-03-07T06:19:11                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:19:12                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.02s           2025-03-07T06:19:11                       3
+================================================================================
+[2025-03-07T06:20:14.039+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.51s           2025-03-07T06:20:14                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     46  0.01s             0           0  0.10s           2025-03-07T06:19:43                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.05s           2025-03-07T06:19:43                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.03s           2025-03-07T06:19:43                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:19:43                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.02s           2025-03-07T06:19:43                       3
+================================================================================
+[2025-03-07T06:20:45.032+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.50s           2025-03-07T06:20:45                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     52  0.01s             0           0  0.10s           2025-03-07T06:20:14                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.05s           2025-03-07T06:20:14                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.03s           2025-03-07T06:20:14                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:20:14                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.02s           2025-03-07T06:20:14                       3
+================================================================================
+[2025-03-07T06:21:16.186+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.54s           2025-03-07T06:21:16                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     58  0.01s             0           0  0.11s           2025-03-07T06:20:45                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.05s           2025-03-07T06:20:45                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.04s           2025-03-07T06:20:45                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.03s           2025-03-07T06:20:45                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:20:45                       3
+================================================================================
+[2025-03-07T06:21:47.459+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.52s           2025-03-07T06:21:47                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     64  0.01s             0           0  0.12s           2025-03-07T06:21:16                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.05s           2025-03-07T06:21:16                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.03s           2025-03-07T06:21:16                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:21:16                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.02s           2025-03-07T06:21:16                       3
+================================================================================
+[2025-03-07T06:22:18.488+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.50s           2025-03-07T06:22:18                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     70  0.01s             0           0  0.11s           2025-03-07T06:21:47                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.04s           2025-03-07T06:21:47                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.03s           2025-03-07T06:21:47                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.02s           2025-03-07T06:21:47                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:21:47                       3
+================================================================================
+[2025-03-07T06:22:49.701+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.58s           2025-03-07T06:22:49                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     76  0.01s             0           0  0.40s           2025-03-07T06:22:18                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.04s           2025-03-07T06:22:18                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.04s           2025-03-07T06:22:18                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.03s           2025-03-07T06:22:18                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.03s           2025-03-07T06:22:18                       3
+================================================================================
+[2025-03-07T06:23:21.077+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.69s           2025-03-07T06:23:21                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     82  0.01s             0           0  0.32s           2025-03-07T06:22:50                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.06s           2025-03-07T06:22:49                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.04s           2025-03-07T06:22:49                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.03s           2025-03-07T06:22:49                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.03s           2025-03-07T06:22:49                       3
+================================================================================
+[2025-03-07T06:23:52.165+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.55s           2025-03-07T06:23:52                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     88  0.01s             0           0  0.11s           2025-03-07T06:23:21                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.04s           2025-03-07T06:23:21                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.04s           2025-03-07T06:23:21                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:23:21                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.02s           2025-03-07T06:23:21                       3
+================================================================================
+[2025-03-07T06:24:10.543+0000] {manager.py:821} INFO - Searching for files in /opt/airflow/dags
+[2025-03-07T06:24:10.602+0000] {manager.py:824} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-07T06:24:22.367+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py         93  0.07s             0           1  0.55s           2025-03-07T06:23:52                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar                           0           0  0.12s           2025-03-07T06:23:52                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar         94  0.00s             0           0  0.04s           2025-03-07T06:23:52                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.04s           2025-03-07T06:23:52                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:23:52                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.02s           2025-03-07T06:23:52                       3
+================================================================================
+[2025-03-07T06:24:52.508+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.50s           2025-03-07T06:24:22                       3
+/opt/airflow/dags/dag_daily_transaction_summary.py         99  0.04s             0           1  0.09s           2025-03-07T06:24:22                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar                           0           0  0.09s           2025-03-07T06:24:22                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.04s           2025-03-07T06:24:22                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.03s           2025-03-07T06:24:23                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:24:23                       3
+================================================================================
+[2025-03-07T06:25:22.534+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar                           0           0  0.11s           2025-03-07T06:24:54                       3
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.09s           2025-03-07T06:24:52                       5
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.05s           2025-03-07T06:24:54                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.03s           2025-03-07T06:24:54                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.02s           2025-03-07T06:24:54                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:24:54                       3
+================================================================================
+[2025-03-07T06:25:52.643+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar                           0           0  0.11s           2025-03-07T06:25:25                       3
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.07s           2025-03-07T06:25:23                       5
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.05s           2025-03-07T06:25:25                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.04s           2025-03-07T06:25:25                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.03s           2025-03-07T06:25:25                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.03s           2025-03-07T06:25:25                       3
+================================================================================
+[2025-03-07T06:26:22.665+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar                           0           0  0.11s           2025-03-07T06:25:56                       3
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.07s           2025-03-07T06:25:53                       5
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.05s           2025-03-07T06:25:56                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.04s           2025-03-07T06:25:56                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:25:56                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.02s           2025-03-07T06:25:56                       3
+================================================================================
+[2025-03-07T06:26:53.198+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar                           0           0  0.64s           2025-03-07T06:26:27                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.13s           2025-03-07T06:26:27                       3
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.09s           2025-03-07T06:26:24                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.06s           2025-03-07T06:26:27                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.04s           2025-03-07T06:26:27                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.04s           2025-03-07T06:26:27                       3
+================================================================================
+[2025-03-07T06:27:23.378+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar                           0           0  0.10s           2025-03-07T06:26:59                       3
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.09s           2025-03-07T06:26:55                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.04s           2025-03-07T06:26:58                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.03s           2025-03-07T06:26:59                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:26:59                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.02s           2025-03-07T06:26:59                       3
+================================================================================
+[2025-03-07T06:27:53.561+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar                           0           0  0.18s           2025-03-07T06:27:30                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.09s           2025-03-07T06:27:30                       3
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.08s           2025-03-07T06:27:25                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.03s           2025-03-07T06:27:30                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:27:30                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.02s           2025-03-07T06:27:30                       3
+================================================================================
+[2025-03-07T06:28:14.487+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2025-03-07T06:28:42.545+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2025-03-07T06:28:42.554+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-03-07T06:28:42.554+0000] {manager.py:485} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-03-07T06:28:42.554+0000] {manager.py:821} INFO - Searching for files in /opt/airflow/dags
+[2025-03-07T06:28:42.616+0000] {manager.py:824} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-07T06:28:44.141+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.72s           2025-03-07T06:28:44                       5
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0                                                            0
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     34  0.06s             0           0                                                            0
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0                                                            0
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar         35  0.00s             0           0                                                            0
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0                                                            0
+================================================================================
+[2025-03-07T06:29:15.168+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.51s           2025-03-07T06:29:15                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     40  0.01s             0           0  0.12s           2025-03-07T06:28:44                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.04s           2025-03-07T06:28:44                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.04s           2025-03-07T06:28:44                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.03s           2025-03-07T06:28:44                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.02s           2025-03-07T06:28:44                       3
+================================================================================
+[2025-03-07T06:29:46.205+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.50s           2025-03-07T06:29:46                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     46  0.01s             0           0  0.10s           2025-03-07T06:29:15                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.05s           2025-03-07T06:29:15                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.03s           2025-03-07T06:29:15                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:29:15                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.02s           2025-03-07T06:29:15                       3
+================================================================================
+[2025-03-07T06:30:17.256+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.53s           2025-03-07T06:30:17                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     52  0.01s             0           0  0.11s           2025-03-07T06:29:46                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.05s           2025-03-07T06:29:46                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.03s           2025-03-07T06:29:46                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.02s           2025-03-07T06:29:46                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:29:46                       3
+================================================================================
+[2025-03-07T06:30:48.322+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.50s           2025-03-07T06:30:48                       5
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     58  0.01s             0           0  0.11s           2025-03-07T06:30:17                       3
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0  0.05s           2025-03-07T06:30:17                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar                               0           0  0.04s           2025-03-07T06:30:17                       3
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0  0.02s           2025-03-07T06:30:17                       3
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0  0.02s           2025-03-07T06:30:17                       3
+================================================================================
+[2025-03-07T06:31:13.887+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2025-03-07T07:23:22.621+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2025-03-07T07:23:22.622+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-03-07T07:23:22.622+0000] {manager.py:485} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-03-07T07:23:22.622+0000] {manager.py:821} INFO - Searching for files in /opt/airflow/dags
+[2025-03-07T07:23:22.656+0000] {manager.py:824} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-07T07:23:23.967+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dag_daily_transaction_summary.py                               0           1  0.71s           2025-03-07T07:23:23                       4
+/opt/airflow/dags/driver/postgresql-42.7.5.jar                                   0           0                                                            0
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6-all.jar     68  0.04s             0           0                                                            0
+/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar                               0           0                                                            0
+/opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar         69  0.00s             0           0                                                            0
+/opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar                             0           0                                                            0
+================================================================================
+[2025-03-07T07:23:35.047+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
