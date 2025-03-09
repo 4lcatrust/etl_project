@@ -1,4 +1,7 @@
 #!/bin/bash
+set -e
+
+/bin/bash /install-spark.sh
 
 echo "🔄 Initializing Airflow database..."
 airflow db check

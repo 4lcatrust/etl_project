@@ -73,6 +73,10 @@ services:
       AIRFLOW__WEBSERVER__RBAC: "True"
       AIRFLOW__WEBSERVER__DEFAULT_USER: "admin"
       AIRFLOW__WEBSERVER__DEFAULT_PASSWORD: "admin"
+      JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64
+      SPARK_HOME: /opt/spark
+      PYSPARK_PYTHON: python3
+      PYSPARK_DRIVER_PYTHON: python3
     ports:
       - "8080:8080"  # Airflow UI
     volumes:
@@ -80,6 +84,7 @@ services:
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
       - ./airflow-init.sh:/entrypoint.sh
+      - ./install-spark.sh:/install-spark.sh
       - ./variables.json:/opt/airflow/variables.json
     entrypoint: ["/bin/bash", "/entrypoint.sh"]
     networks:
@@ -100,10 +105,15 @@ services:
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow_db:5432/airflow
       AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql+psycopg2://airflow:airflow@airflow_db:5432/airflow
       AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
+      JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64
+      SPARK_HOME: /opt/spark
+      PYSPARK_PYTHON: python3
+      PYSPARK_DRIVER_PYTHON: python3
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
+      - ./install-spark.sh:/install-spark.sh
       - ./variables.json:/opt/airflow/variables.json
     # command: "airflow scheduler"
     entrypoint: ["/bin/bash", "-c", "airflow scheduler"]
@@ -125,10 +135,15 @@ services:
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow_db:5432/airflow
       AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql+psycopg2://airflow:airflow@airflow_db:5432/airflow
       AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
+      JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64
+      SPARK_HOME: /opt/spark
+      PYSPARK_PYTHON: python3
+      PYSPARK_DRIVER_PYTHON: python3
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
+      - ./install-spark.sh:/install-spark.sh
       - ./variables.json:/opt/airflow/variables.json
     # command: "airflow celery worker"
     entrypoint: ["/bin/bash", "-c", "airflow db check && airflow celery worker"]

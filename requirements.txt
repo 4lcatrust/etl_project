@@ -2,6 +2,6 @@ apache-airflow
 apache-airflow-providers-postgres
 apache-airflow-providers-redis
 apache-airflow-providers-cncf-kubernetes
-pyspark
+pyspark==3.5.0
 clickhouse-connect
 pendulum

@@ -1,9 +1,9 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from airflow.models import Variable
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, count, when, isnan, isnull, length, current_timestamp, current_date, date_diff, round, sum as spark_sum, lit, regexp_replace, trim, expr, count_distinct
 from pyspark.sql.types import *
+from module.utilities import get_airflow_variables
 import clickhouse_connect
 import pendulum
 import time
@@ -28,6 +28,15 @@ logger = logging.getLogger(__name__)
 
 DAG_ID = "dag_daily_transaction_summary"
 CURRENT_DATE_STR = pendulum.today().to_date_string()
+SINK_TABLENAME = "daily_transaction_summary"
+
+ch_client = clickhouse_connect.get_client(
+    host = get_airflow_variables("CLICKHOUSE_CONN"),
+    port = 8123,
+    username = get_airflow_variables("CLICKHOUSE_USER"),
+    password = get_airflow_variables("CLICKHOUSE_PASSWORD")
+)
+
 TABLE_SOURCE = [
     ("public", "fct_transactions"),
     ("public", "dim_item"),
@@ -67,29 +76,12 @@ EXPECTED_SCHEMA = {
     }
 }
 
-# Airflow Variables for parameterization
-AIRFLOW_PATH = Variable.get("LOCAL_AIRFLOW_PATH")
-POSTGRES_JDBC_URL = Variable.get("POSTGRES_JDBC_URL")
-POSTGRES_USER = Variable.get("POSTGRES_USER")
-POSTGRES_PASSWORD = Variable.get("POSTGRES_PASSWORD")
-CLICKHOUSE_CONN = Variable.get("CLICKHOUSE_CONN")
-CLICKHOUSE_USER = Variable.get("CLICKHOUSE_USER")
-CLICKHOUSE_PASSWORD = Variable.get("CLICKHOUSE_PASSWORD")
-SINK_TABLENAME = "daily_transaction_summary"
-
-ch_client = clickhouse_connect.get_client(
-    host = CLICKHOUSE_CONN,
-    port = 8123,
-    username = CLICKHOUSE_USER,
-    password = CLICKHOUSE_PASSWORD
-)
-
 def create_spark_session(app_name: str):
     """
     Create a SparkSession with necessary configurations
     """
-    clickhouse_jar = os.path.abspath(AIRFLOW_PATH + "driver/clickhouse-jdbc-0.4.6.jar")
-    postgres_jar = os.path.abspath(AIRFLOW_PATH + "driver/postgresql-42.7.5.jar")
+    clickhouse_jar = os.path.abspath(get_airflow_variables("AIRFLOW_PATH") + "driver/clickhouse-jdbc-0.4.6.jar")
+    postgres_jar = os.path.abspath(get_airflow_variables("AIRFLOW_PATH") + "driver/postgresql-42.7.5.jar")
     jars = f"{clickhouse_jar},{postgres_jar}"
     logger.info(f"Creating SparkSession...")
     try:
@@ -179,10 +171,10 @@ def extract(table_source : dict):
         for schemaname, tablename in table_source:
             df = spark.read \
                 .format("jdbc") \
-                .option("url", POSTGRES_JDBC_URL) \
+                .option("url", get_airflow_variables("POSTGRES_JDBC_URL")) \
                 .option("dbtable", f"{schemaname}.{tablename}") \
-                .option("user", POSTGRES_USER) \
-                .option("password", POSTGRES_PASSWORD) \
+                .option("user", get_airflow_variables("POSTGRES_USER")) \
+                .option("password", get_airflow_variables("POSTGRES_PASSWORD")) \
                 .option("driver", "org.postgresql.Driver") \
                 .option("numPartitions", 8) \
                 .load()
@@ -252,7 +244,7 @@ def extract(table_source : dict):
         logger.info("Initiate storing extracted data into staging phase...")
         try:
             for schemaname, tablename in table_source:
-                staging_path_write = AIRFLOW_PATH + f"staging/{CURRENT_DATE_STR}.{schemaname}.{tablename}.parquet"
+                staging_path_write = get_airflow_variables("AIRFLOW_PATH") + f"staging/{CURRENT_DATE_STR}.{schemaname}.{tablename}.parquet"
                 dataframes[tablename].write.parquet(staging_path_write, mode="overwrite")
                 end_time = time.perf_counter()
                 logger.info(f"Success storing staging data in {end_time - start_time:.2f} : {tablename}")
@@ -269,7 +261,7 @@ def transform(table_source : dict):
     dataframes = {}
     try:
         for schemaname, tablename in table_source:
-            staging_path_write = AIRFLOW_PATH + f"staging/{CURRENT_DATE_STR}.{schemaname}.{tablename}.parquet"
+            staging_path_write = get_airflow_variables("AIRFLOW_PATH") + f"staging/{CURRENT_DATE_STR}.{schemaname}.{tablename}.parquet"
             df = spark.read \
                 .format("parquet") \
                 .load(staging_path_write)
@@ -306,7 +298,7 @@ def transform(table_source : dict):
                 count_distinct("customer_key").alias("count_transacting_customer")
             )
         )
-        transformed_path_write = AIRFLOW_PATH + f"transformed/{CURRENT_DATE_STR}.{SINK_TABLENAME}.parquet"
+        transformed_path_write = get_airflow_variables("AIRFLOW_PATH") + f"transformed/{CURRENT_DATE_STR}.{SINK_TABLENAME}.parquet"
         transformed_df.write.parquet(transformed_path_write, mode="overwrite")
         end_time = time.perf_counter()
         logger.info(f"Data transformed succesfully in {end_time - start_time:.2f} : {SINK_TABLENAME}")
@@ -350,7 +342,7 @@ def load(sink_tablename : str):
     """
     ch_client.command(ch_prod_ddl)
 
-    transformed_path = AIRFLOW_PATH + f"transformed/{CURRENT_DATE_STR}.{sink_tablename}.parquet"
+    transformed_path = get_airflow_variables("AIRFLOW_PATH") + f"transformed/{CURRENT_DATE_STR}.{sink_tablename}.parquet"
     try:
         transformed_df = spark.read.parquet(transformed_path)
         logger.info(f"Read from transformed success : {sink_tablename}")
@@ -363,10 +355,10 @@ def load(sink_tablename : str):
     try:
         transformed_df.write \
             .format("jdbc") \
-            .option("url", f"jdbc:clickhouse://{CLICKHOUSE_CONN}:8123/default") \
+            .option("url", f"jdbc:clickhouse://{get_airflow_variables("CLICKHOUSE_CONN")}:8123/default") \
             .option("dbtable", stg_table) \
-            .option("user", CLICKHOUSE_USER) \
-            .option("password", CLICKHOUSE_PASSWORD) \
+            .option("user", get_airflow_variables("CLICKHOUSE_USER")) \
+            .option("password", get_airflow_variables("CLICKHOUSE_PASSWORD")) \
             .option("driver", "com.clickhouse.jdbc.ClickHouseDriver") \
             .option("batchsize", "50000") \
             .option("numPartitions", 8) \
@@ -392,7 +384,7 @@ dag = DAG(
     dag_id = DAG_ID,
     default_args = default_args,
     description = f"ETL pipeline from PostgreSQL to ClickHouse for table {SINK_TABLENAME}",
-    schedule_interval = pendulum.duration(days=1),
+    schedule_interval = "0 0 * * *",
     catchup = False
 )
 

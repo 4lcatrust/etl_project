@@ -343,3 +343,818 @@
 [2025-03-09T13:42:27.378+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:42:27.378+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
 [2025-03-09T13:42:27.382+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
 [2025-03-09T13:42:27.389+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.015 seconds
+[2025-03-09T13:42:57.791+0000] {processor.py:186} INFO - Started process (PID=81) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:42:57.792+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:42:57.793+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:42:57.793+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:42:57.797+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:42:57.804+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.015 seconds
+[2025-03-09T13:44:49.888+0000] {processor.py:186} INFO - Started process (PID=18) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:44:49.890+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:44:49.893+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:44:49.893+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:44:49.903+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:44:49.916+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.035 seconds
+[2025-03-09T13:45:19.975+0000] {processor.py:186} INFO - Started process (PID=24) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:45:19.975+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:45:19.976+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:45:19.976+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:45:19.980+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:45:19.988+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T13:45:50.155+0000] {processor.py:186} INFO - Started process (PID=31) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:45:50.155+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:45:50.156+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:45:50.156+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:45:50.160+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:45:50.167+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T13:46:21.237+0000] {processor.py:186} INFO - Started process (PID=38) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:46:21.238+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:46:21.239+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:46:21.239+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:46:21.243+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:46:21.251+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T13:46:51.390+0000] {processor.py:186} INFO - Started process (PID=45) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:46:51.391+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:46:51.393+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:46:51.393+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:46:51.397+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:46:51.407+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.021 seconds
+[2025-03-09T13:47:21.750+0000] {processor.py:186} INFO - Started process (PID=52) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:47:21.751+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:47:21.752+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:47:21.752+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:47:21.755+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:47:21.767+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.021 seconds
+[2025-03-09T13:48:17.005+0000] {processor.py:186} INFO - Started process (PID=19) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:48:17.006+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:48:17.008+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:48:17.008+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:48:17.012+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:48:17.023+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.023 seconds
+[2025-03-09T13:48:47.889+0000] {processor.py:186} INFO - Started process (PID=25) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:48:47.890+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:48:47.891+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:48:47.891+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:48:47.894+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:48:47.902+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T13:49:18.161+0000] {processor.py:186} INFO - Started process (PID=32) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:49:18.162+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:49:18.163+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:49:18.163+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:49:18.166+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:49:18.174+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T13:49:48.295+0000] {processor.py:186} INFO - Started process (PID=39) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:49:48.296+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:49:48.297+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:49:48.297+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:49:48.300+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:49:48.307+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T13:50:18.501+0000] {processor.py:186} INFO - Started process (PID=46) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:50:18.501+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:50:18.503+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:50:18.503+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:50:18.506+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:50:18.514+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T13:50:48.702+0000] {processor.py:186} INFO - Started process (PID=53) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:50:48.703+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:50:48.704+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:50:48.704+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:50:48.708+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:50:48.717+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.018 seconds
+[2025-03-09T13:51:26.535+0000] {processor.py:186} INFO - Started process (PID=19) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:51:26.539+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:51:26.542+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:51:26.542+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:51:26.554+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:51:26.572+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.050 seconds
+[2025-03-09T13:51:57.553+0000] {processor.py:186} INFO - Started process (PID=25) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:51:57.554+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:51:57.555+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:51:57.555+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:51:57.564+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:51:57.575+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.026 seconds
+[2025-03-09T13:52:27.773+0000] {processor.py:186} INFO - Started process (PID=32) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:52:27.775+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:52:27.777+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:52:27.776+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:52:27.782+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:52:27.792+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.022 seconds
+[2025-03-09T13:52:57.986+0000] {processor.py:186} INFO - Started process (PID=39) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:52:57.988+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:52:57.991+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:52:57.991+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:52:57.995+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:52:58.006+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.023 seconds
+[2025-03-09T13:53:28.345+0000] {processor.py:186} INFO - Started process (PID=46) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:53:28.346+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:53:28.349+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:53:28.349+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:53:28.354+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:53:28.362+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.022 seconds
+[2025-03-09T13:53:58.600+0000] {processor.py:186} INFO - Started process (PID=53) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:53:58.602+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:53:58.604+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:53:58.604+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:53:58.609+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:53:58.620+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.025 seconds
+[2025-03-09T13:54:28.851+0000] {processor.py:186} INFO - Started process (PID=74) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:54:28.852+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:54:28.855+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:54:28.855+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:54:28.861+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:54:28.871+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.024 seconds
+[2025-03-09T13:54:59.110+0000] {processor.py:186} INFO - Started process (PID=81) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:54:59.111+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:54:59.113+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:54:59.113+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:54:59.117+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:54:59.125+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.019 seconds
+[2025-03-09T13:55:29.467+0000] {processor.py:186} INFO - Started process (PID=88) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:55:29.471+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:55:29.472+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:55:29.472+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:55:29.477+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:55:29.487+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.025 seconds
+[2025-03-09T13:55:59.578+0000] {processor.py:186} INFO - Started process (PID=95) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:55:59.579+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:55:59.580+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:55:59.580+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:55:59.583+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:55:59.591+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T13:56:30.376+0000] {processor.py:186} INFO - Started process (PID=102) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:56:30.377+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:56:30.378+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:56:30.378+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:56:30.382+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:56:30.390+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.018 seconds
+[2025-03-09T13:57:00.596+0000] {processor.py:186} INFO - Started process (PID=109) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:57:00.596+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:57:00.597+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:57:00.597+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:57:00.601+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:57:00.608+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.015 seconds
+[2025-03-09T13:57:30.936+0000] {processor.py:186} INFO - Started process (PID=116) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:57:30.936+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:57:30.938+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:57:30.937+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:57:30.941+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:57:30.950+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.018 seconds
+[2025-03-09T13:58:01.373+0000] {processor.py:186} INFO - Started process (PID=123) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:58:01.373+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:58:01.374+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:58:01.374+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:58:01.378+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:58:01.388+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.019 seconds
+[2025-03-09T13:58:31.643+0000] {processor.py:186} INFO - Started process (PID=130) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:58:31.644+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:58:31.645+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:58:31.645+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:58:31.649+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:58:31.659+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.020 seconds
+[2025-03-09T13:59:01.985+0000] {processor.py:186} INFO - Started process (PID=138) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:59:01.987+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:59:01.988+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:59:01.988+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:59:01.992+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:59:02.004+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.022 seconds
+[2025-03-09T13:59:44.026+0000] {processor.py:186} INFO - Started process (PID=19) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:59:44.027+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T13:59:44.029+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:59:44.029+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:59:44.036+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T13:59:44.057+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.037 seconds
+[2025-03-09T14:00:15.057+0000] {processor.py:186} INFO - Started process (PID=25) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:00:15.059+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:00:15.061+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:00:15.061+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:00:15.068+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:00:15.082+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.029 seconds
+[2025-03-09T14:00:45.398+0000] {processor.py:186} INFO - Started process (PID=32) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:00:45.402+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:00:45.406+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:00:45.406+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:00:45.413+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:00:45.423+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.035 seconds
+[2025-03-09T14:01:15.561+0000] {processor.py:186} INFO - Started process (PID=39) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:01:15.563+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:01:15.565+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:01:15.564+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:01:15.569+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:01:15.577+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.021 seconds
+[2025-03-09T14:01:45.884+0000] {processor.py:186} INFO - Started process (PID=46) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:01:45.886+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:01:45.888+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:01:45.888+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:01:45.894+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:01:45.904+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.024 seconds
+[2025-03-09T14:02:16.060+0000] {processor.py:186} INFO - Started process (PID=53) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:02:16.062+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:02:16.064+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:02:16.064+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:02:16.069+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:02:16.078+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.022 seconds
+[2025-03-09T14:02:46.294+0000] {processor.py:186} INFO - Started process (PID=60) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:02:46.295+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:02:46.297+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:02:46.297+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:02:46.301+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:02:46.309+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.023 seconds
+[2025-03-09T14:03:16.606+0000] {processor.py:186} INFO - Started process (PID=67) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:03:16.608+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:03:16.609+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:03:16.609+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:03:16.613+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:03:16.621+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.018 seconds
+[2025-03-09T14:03:46.963+0000] {processor.py:186} INFO - Started process (PID=74) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:03:46.965+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:03:46.967+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:03:46.967+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:03:46.972+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:03:46.980+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.021 seconds
+[2025-03-09T14:04:17.153+0000] {processor.py:186} INFO - Started process (PID=81) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:04:17.155+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:04:17.157+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:04:17.157+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:04:17.163+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:04:17.172+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.024 seconds
+[2025-03-09T14:04:48.026+0000] {processor.py:186} INFO - Started process (PID=88) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:04:48.028+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:04:48.031+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:04:48.030+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:04:48.036+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:04:48.044+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.022 seconds
+[2025-03-09T14:05:18.282+0000] {processor.py:186} INFO - Started process (PID=95) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:05:18.284+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:05:18.286+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:05:18.286+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:05:18.293+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:05:18.307+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.029 seconds
+[2025-03-09T14:05:48.590+0000] {processor.py:186} INFO - Started process (PID=102) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:05:48.592+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:05:48.594+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:05:48.594+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:05:48.599+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:05:48.608+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.021 seconds
+[2025-03-09T14:06:18.927+0000] {processor.py:186} INFO - Started process (PID=109) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:06:18.929+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:06:18.931+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:06:18.931+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:06:18.935+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:06:18.951+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.032 seconds
+[2025-03-09T14:06:49.120+0000] {processor.py:186} INFO - Started process (PID=116) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:06:49.121+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:06:49.123+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:06:49.123+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:06:49.129+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:06:49.138+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.024 seconds
+[2025-03-09T14:07:19.319+0000] {processor.py:186} INFO - Started process (PID=123) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:07:19.321+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:07:19.324+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:07:19.324+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:07:19.328+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:07:19.338+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.023 seconds
+[2025-03-09T14:07:49.427+0000] {processor.py:186} INFO - Started process (PID=130) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:07:49.430+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:07:49.432+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:07:49.432+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:07:49.438+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:07:49.448+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.026 seconds
+[2025-03-09T14:08:19.588+0000] {processor.py:186} INFO - Started process (PID=137) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:08:19.589+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:08:19.591+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:08:19.591+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:08:19.596+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:08:19.606+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.023 seconds
+[2025-03-09T14:08:49.922+0000] {processor.py:186} INFO - Started process (PID=144) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:08:49.924+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:08:49.925+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:08:49.925+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:08:49.929+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:08:49.939+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.020 seconds
+[2025-03-09T14:09:20.897+0000] {processor.py:186} INFO - Started process (PID=151) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:09:20.900+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:09:20.903+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:09:20.903+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:09:20.913+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:09:20.936+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.044 seconds
+[2025-03-09T14:09:51.817+0000] {processor.py:186} INFO - Started process (PID=158) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:09:51.819+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:09:51.821+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:09:51.821+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:09:51.828+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:09:51.836+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.023 seconds
+[2025-03-09T14:10:21.953+0000] {processor.py:186} INFO - Started process (PID=165) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:10:21.954+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:10:21.956+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:10:21.956+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:10:21.963+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:10:21.975+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.028 seconds
+[2025-03-09T14:10:52.210+0000] {processor.py:186} INFO - Started process (PID=172) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:10:52.212+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:10:52.215+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:10:52.215+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:10:52.219+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:10:52.227+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.021 seconds
+[2025-03-09T14:11:22.387+0000] {processor.py:186} INFO - Started process (PID=179) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:11:22.389+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:11:22.393+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:11:22.393+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:11:22.400+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:11:22.412+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.031 seconds
+[2025-03-09T14:11:52.475+0000] {processor.py:186} INFO - Started process (PID=186) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:11:52.476+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:11:52.479+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:11:52.479+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:11:52.484+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:11:52.493+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.022 seconds
+[2025-03-09T14:12:22.634+0000] {processor.py:186} INFO - Started process (PID=194) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:12:22.637+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:12:22.639+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:12:22.639+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:12:22.646+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:12:22.655+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.024 seconds
+[2025-03-09T14:12:52.828+0000] {processor.py:186} INFO - Started process (PID=201) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:12:52.830+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:12:52.832+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:12:52.832+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:12:52.840+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:12:52.849+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.025 seconds
+[2025-03-09T14:13:23.030+0000] {processor.py:186} INFO - Started process (PID=208) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:13:23.031+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:13:23.033+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:13:23.033+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:13:23.039+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:13:23.048+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.022 seconds
+[2025-03-09T14:13:54.072+0000] {processor.py:186} INFO - Started process (PID=216) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:13:54.073+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:13:54.075+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:13:54.074+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:13:54.081+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:13:54.102+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.034 seconds
+[2025-03-09T14:14:24.202+0000] {processor.py:186} INFO - Started process (PID=223) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:14:24.205+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:14:24.208+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:14:24.207+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:14:24.212+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:14:24.220+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.024 seconds
+[2025-03-09T14:15:00.266+0000] {processor.py:186} INFO - Started process (PID=19) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:15:00.267+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:15:00.269+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:15:00.269+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:15:00.273+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:15:00.295+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.037 seconds
+[2025-03-09T14:15:31.307+0000] {processor.py:186} INFO - Started process (PID=25) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:15:31.309+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:15:31.311+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:15:31.311+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:15:31.316+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:15:31.324+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.022 seconds
+[2025-03-09T14:16:01.518+0000] {processor.py:186} INFO - Started process (PID=32) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:16:01.519+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:16:01.522+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:16:01.522+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:16:01.529+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:16:01.540+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.027 seconds
+[2025-03-09T14:16:31.660+0000] {processor.py:186} INFO - Started process (PID=39) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:16:31.662+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:16:31.666+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:16:31.666+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:16:31.671+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:16:31.681+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.025 seconds
+[2025-03-09T14:17:01.905+0000] {processor.py:186} INFO - Started process (PID=46) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:17:01.907+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:17:01.909+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:17:01.909+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:17:01.916+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:17:01.930+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.031 seconds
+[2025-03-09T14:17:32.923+0000] {processor.py:186} INFO - Started process (PID=53) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:17:32.925+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:17:32.928+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:17:32.928+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:17:32.936+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:17:32.950+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.033 seconds
+[2025-03-09T14:18:03.614+0000] {processor.py:186} INFO - Started process (PID=60) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:18:03.617+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:18:03.620+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:18:03.620+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:18:03.626+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:18:03.637+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.028 seconds
+[2025-03-09T14:18:34.286+0000] {processor.py:186} INFO - Started process (PID=67) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:18:34.287+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:18:34.289+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:18:34.289+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:18:34.294+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:18:34.305+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.024 seconds
+[2025-03-09T14:19:04.613+0000] {processor.py:186} INFO - Started process (PID=75) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:19:04.615+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:19:04.617+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:19:04.617+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:19:04.624+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:19:04.634+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.025 seconds
+[2025-03-09T14:19:34.781+0000] {processor.py:186} INFO - Started process (PID=82) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:19:34.783+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:19:34.784+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:19:34.784+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:19:34.788+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:19:34.800+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.023 seconds
+[2025-03-09T14:20:05.721+0000] {processor.py:186} INFO - Started process (PID=89) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:20:05.723+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:20:05.726+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:20:05.726+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:20:05.732+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:20:05.753+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.042 seconds
+[2025-03-09T14:20:35.829+0000] {processor.py:186} INFO - Started process (PID=96) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:20:35.831+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:20:35.834+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:20:35.833+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:20:35.837+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:20:35.846+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.021 seconds
+[2025-03-09T14:21:06.107+0000] {processor.py:186} INFO - Started process (PID=103) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:21:06.108+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:21:06.111+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:21:06.111+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:21:06.119+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:21:06.128+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.026 seconds
+[2025-03-09T14:21:36.348+0000] {processor.py:186} INFO - Started process (PID=110) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:21:36.351+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:21:36.352+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:21:36.352+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:21:36.359+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:21:36.369+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.027 seconds
+[2025-03-09T14:22:06.495+0000] {processor.py:186} INFO - Started process (PID=117) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:22:06.496+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:22:06.499+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:22:06.499+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:22:06.503+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:22:06.514+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.023 seconds
+[2025-03-09T14:23:04.449+0000] {processor.py:186} INFO - Started process (PID=19) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:23:04.450+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:23:04.454+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:23:04.453+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:23:04.464+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:23:04.482+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.055 seconds
+[2025-03-09T14:23:35.447+0000] {processor.py:186} INFO - Started process (PID=25) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:23:35.448+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:23:35.450+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:23:35.449+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:23:35.453+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:23:35.461+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.018 seconds
+[2025-03-09T14:24:05.690+0000] {processor.py:186} INFO - Started process (PID=32) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:24:05.691+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:24:05.692+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:24:05.692+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:24:05.697+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:24:05.705+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.019 seconds
+[2025-03-09T14:24:35.858+0000] {processor.py:186} INFO - Started process (PID=39) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:24:35.860+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:24:35.863+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:24:35.862+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:24:35.869+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:24:35.880+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.027 seconds
+[2025-03-09T14:25:06.368+0000] {processor.py:186} INFO - Started process (PID=46) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:25:06.370+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:25:06.373+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:25:06.373+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:25:06.378+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:25:06.386+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.022 seconds
+[2025-03-09T14:25:36.733+0000] {processor.py:186} INFO - Started process (PID=53) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:25:36.734+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:25:36.735+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:25:36.735+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:25:36.745+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:25:36.766+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.038 seconds
+[2025-03-09T14:27:14.422+0000] {processor.py:186} INFO - Started process (PID=19) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:27:14.423+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:27:14.427+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:27:14.426+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:27:14.434+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:27:14.453+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.036 seconds
+[2025-03-09T14:27:45.377+0000] {processor.py:186} INFO - Started process (PID=25) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:27:45.379+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:27:45.380+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:27:45.380+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:27:45.383+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:27:45.392+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T14:28:15.823+0000] {processor.py:186} INFO - Started process (PID=32) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:28:15.823+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:28:15.824+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:28:15.824+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:28:15.828+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:28:15.835+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T14:28:45.963+0000] {processor.py:186} INFO - Started process (PID=39) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:28:45.964+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:28:45.965+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:28:45.965+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:28:45.968+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:28:45.976+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T14:29:16.129+0000] {processor.py:186} INFO - Started process (PID=46) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:29:16.129+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:29:16.131+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:29:16.130+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:29:16.134+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:29:16.143+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T14:29:46.710+0000] {processor.py:186} INFO - Started process (PID=53) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:29:46.711+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:29:46.713+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:29:46.713+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:29:46.718+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:29:46.727+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.021 seconds
+[2025-03-09T14:30:17.257+0000] {processor.py:186} INFO - Started process (PID=60) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:30:17.258+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:30:17.259+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:30:17.259+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:30:17.262+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:30:17.270+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.015 seconds
+[2025-03-09T14:30:47.708+0000] {processor.py:186} INFO - Started process (PID=67) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:30:47.709+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:30:47.710+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:30:47.710+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:30:47.714+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:30:47.722+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.018 seconds
+[2025-03-09T14:31:18.127+0000] {processor.py:186} INFO - Started process (PID=74) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:31:18.128+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:31:18.129+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:31:18.129+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:31:18.132+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:31:18.141+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T14:31:48.398+0000] {processor.py:186} INFO - Started process (PID=81) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:31:48.398+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:31:48.400+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:31:48.400+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:31:48.403+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:31:48.412+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T14:32:19.239+0000] {processor.py:186} INFO - Started process (PID=88) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:32:19.240+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:32:19.241+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:32:19.241+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:32:19.245+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:32:19.253+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T14:33:26.642+0000] {processor.py:186} INFO - Started process (PID=19) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:33:26.643+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:33:26.644+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:33:26.644+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:33:26.650+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:33:26.704+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.069 seconds
+[2025-03-09T14:33:57.720+0000] {processor.py:186} INFO - Started process (PID=25) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:33:57.722+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:33:57.725+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:33:57.725+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:33:57.730+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:33:57.745+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.030 seconds
+[2025-03-09T14:34:27.928+0000] {processor.py:186} INFO - Started process (PID=32) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:34:27.929+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:34:27.933+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:34:27.933+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:34:27.939+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:34:27.948+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.024 seconds
+[2025-03-09T14:39:00.978+0000] {processor.py:186} INFO - Started process (PID=40) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:39:00.979+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:39:00.980+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:39:00.980+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:39:00.984+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:39:00.998+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.022 seconds
+[2025-03-09T14:39:31.364+0000] {processor.py:186} INFO - Started process (PID=46) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:39:31.366+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:39:31.367+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:39:31.367+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:39:31.370+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:39:31.379+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.018 seconds
+[2025-03-09T14:42:47.553+0000] {processor.py:186} INFO - Started process (PID=19) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:42:47.556+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:42:47.560+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:42:47.559+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:42:47.571+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:42:47.593+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.055 seconds
+[2025-03-09T14:43:17.717+0000] {processor.py:186} INFO - Started process (PID=25) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:43:17.717+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:43:17.718+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:43:17.718+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:43:17.722+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:43:17.730+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T14:43:47.891+0000] {processor.py:186} INFO - Started process (PID=32) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:43:47.891+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:43:47.892+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:43:47.892+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:43:47.896+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:43:47.903+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T14:44:18.330+0000] {processor.py:186} INFO - Started process (PID=39) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:44:18.331+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:44:18.332+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:44:18.332+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:44:18.335+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:44:18.344+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T14:45:54.250+0000] {processor.py:186} INFO - Started process (PID=19) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:45:54.253+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:45:54.256+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:45:54.256+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:45:54.262+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:45:54.279+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.037 seconds
+[2025-03-09T14:46:17.693+0000] {processor.py:186} INFO - Started process (PID=18) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:46:17.695+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:46:17.699+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:46:17.698+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:46:17.707+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:46:17.725+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.044 seconds
+[2025-03-09T14:46:47.792+0000] {processor.py:186} INFO - Started process (PID=24) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:46:47.792+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:46:47.793+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:46:47.793+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:46:47.797+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:46:47.804+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T14:47:18.109+0000] {processor.py:186} INFO - Started process (PID=31) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:47:18.110+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:47:18.111+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:47:18.111+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:47:18.115+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:47:18.124+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.019 seconds
+[2025-03-09T14:47:48.752+0000] {processor.py:186} INFO - Started process (PID=38) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:47:48.753+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:47:48.754+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:47:48.754+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:47:48.757+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:47:48.765+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T14:48:26.125+0000] {processor.py:186} INFO - Started process (PID=19) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:48:26.126+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:48:26.128+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:48:26.128+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:48:26.137+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:48:26.170+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.052 seconds
+[2025-03-09T14:48:56.301+0000] {processor.py:186} INFO - Started process (PID=25) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:48:56.302+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:48:56.303+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:48:56.302+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:48:56.306+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:48:56.314+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T14:49:26.537+0000] {processor.py:186} INFO - Started process (PID=32) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:49:26.537+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:49:26.540+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:49:26.539+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:49:26.544+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:49:26.554+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.021 seconds
+[2025-03-09T14:52:00.510+0000] {processor.py:186} INFO - Started process (PID=19) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:52:00.511+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:52:00.513+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:52:00.513+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:52:00.520+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:52:00.533+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.032 seconds
+[2025-03-09T14:52:31.349+0000] {processor.py:186} INFO - Started process (PID=25) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:52:31.350+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:52:31.351+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:52:31.351+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:52:31.354+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:52:31.363+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.018 seconds
+[2025-03-09T14:53:01.605+0000] {processor.py:186} INFO - Started process (PID=32) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:53:01.606+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:53:01.607+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:53:01.607+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:53:01.611+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:53:01.618+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T14:53:32.718+0000] {processor.py:186} INFO - Started process (PID=39) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:53:32.718+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:53:32.720+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:53:32.720+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:53:32.726+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:53:32.736+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.022 seconds
+[2025-03-09T14:54:02.909+0000] {processor.py:186} INFO - Started process (PID=46) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:54:02.909+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:54:02.910+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:54:02.910+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:54:02.914+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:54:02.921+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.015 seconds
+[2025-03-09T14:54:33.127+0000] {processor.py:186} INFO - Started process (PID=53) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:54:33.128+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:54:33.129+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:54:33.129+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:54:33.133+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:54:33.140+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.018 seconds
+[2025-03-09T14:55:03.228+0000] {processor.py:186} INFO - Started process (PID=60) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:55:03.229+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:55:03.230+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:55:03.230+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:55:03.234+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:55:03.241+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T14:55:33.360+0000] {processor.py:186} INFO - Started process (PID=67) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:55:33.360+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:55:33.361+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:55:33.361+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:55:33.365+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:55:33.373+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T14:56:03.630+0000] {processor.py:186} INFO - Started process (PID=74) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:56:03.631+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:56:03.632+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:56:03.632+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:56:03.636+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:56:03.644+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T14:56:33.932+0000] {processor.py:186} INFO - Started process (PID=81) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:56:33.933+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:56:33.935+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:56:33.935+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:56:33.940+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:56:33.951+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.024 seconds
+[2025-03-09T14:57:04.887+0000] {processor.py:186} INFO - Started process (PID=88) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:57:04.888+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:57:04.889+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:57:04.889+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:57:04.893+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:57:04.902+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.019 seconds
+[2025-03-09T14:57:35.263+0000] {processor.py:186} INFO - Started process (PID=95) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:57:35.264+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:57:35.265+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:57:35.265+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:57:35.270+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:57:35.283+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.025 seconds
+[2025-03-09T14:58:05.577+0000] {processor.py:186} INFO - Started process (PID=102) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:58:05.577+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:58:05.578+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:58:05.578+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:58:05.582+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:58:05.590+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T14:58:35.822+0000] {processor.py:186} INFO - Started process (PID=109) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:58:35.823+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:58:35.824+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:58:35.824+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:58:35.828+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:58:35.836+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T14:59:06.166+0000] {processor.py:186} INFO - Started process (PID=116) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:59:06.166+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:59:06.168+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:59:06.167+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:59:06.171+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:59:06.180+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.018 seconds
+[2025-03-09T14:59:36.367+0000] {processor.py:186} INFO - Started process (PID=123) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:59:36.368+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T14:59:36.370+0000] {logging_mixin.py:190} INFO - [2025-03-09T14:59:36.369+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:59:36.373+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T14:59:36.382+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.020 seconds
+[2025-03-09T15:00:06.620+0000] {processor.py:186} INFO - Started process (PID=130) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:00:06.621+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:00:06.622+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:00:06.622+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:00:06.625+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:00:06.633+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T15:00:53.380+0000] {processor.py:186} INFO - Started process (PID=20) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:00:53.383+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:00:53.387+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:00:53.387+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:00:53.395+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:00:53.410+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.054 seconds
+[2025-03-09T15:01:24.224+0000] {processor.py:186} INFO - Started process (PID=27) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:01:24.225+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:01:24.228+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:01:24.228+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:01:24.233+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:01:24.248+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.027 seconds
+[2025-03-09T15:01:54.561+0000] {processor.py:186} INFO - Started process (PID=35) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:01:54.562+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:01:54.564+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:01:54.564+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:01:54.568+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:01:54.576+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.018 seconds
+[2025-03-09T15:02:24.765+0000] {processor.py:186} INFO - Started process (PID=43) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:02:24.766+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:02:24.767+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:02:24.767+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:02:24.771+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:02:24.778+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.015 seconds
+[2025-03-09T15:02:55.135+0000] {processor.py:186} INFO - Started process (PID=51) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:02:55.136+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:02:55.139+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:02:55.139+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:02:55.143+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:02:55.150+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.019 seconds
+[2025-03-09T15:03:25.532+0000] {processor.py:186} INFO - Started process (PID=59) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:03:25.533+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:03:25.534+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:03:25.534+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:03:25.541+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:03:25.549+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.019 seconds
+[2025-03-09T15:03:55.701+0000] {processor.py:186} INFO - Started process (PID=67) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:03:55.702+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:03:55.705+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:03:55.704+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:03:55.710+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:03:55.720+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.022 seconds
+[2025-03-09T15:04:25.890+0000] {processor.py:186} INFO - Started process (PID=75) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:04:25.890+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:04:25.891+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:04:25.891+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:04:25.895+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:04:25.902+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.015 seconds
+[2025-03-09T15:04:56.130+0000] {processor.py:186} INFO - Started process (PID=83) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:04:56.131+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:04:56.132+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:04:56.132+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:04:56.135+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:04:56.142+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.014 seconds
+[2025-03-09T15:05:26.550+0000] {processor.py:186} INFO - Started process (PID=91) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:05:26.551+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:05:26.552+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:05:26.552+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:05:26.555+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:05:26.563+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T15:05:57.341+0000] {processor.py:186} INFO - Started process (PID=99) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:05:57.342+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:05:57.343+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:05:57.343+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:05:57.347+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:05:57.356+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.018 seconds
+[2025-03-09T15:06:27.892+0000] {processor.py:186} INFO - Started process (PID=107) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:06:27.893+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:06:27.897+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:06:27.897+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:06:27.901+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:06:27.910+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.021 seconds
+[2025-03-09T15:08:05.231+0000] {processor.py:186} INFO - Started process (PID=19) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:08:05.232+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:08:05.234+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:08:05.234+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:08:05.245+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:08:05.274+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.048 seconds
+[2025-03-09T15:08:36.066+0000] {processor.py:186} INFO - Started process (PID=26) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:08:36.066+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:08:36.067+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:08:36.067+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:08:36.070+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:08:36.078+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.015 seconds
+[2025-03-09T15:09:06.448+0000] {processor.py:186} INFO - Started process (PID=34) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:09:06.449+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:09:06.452+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:09:06.452+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:09:06.458+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:09:06.471+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.027 seconds
+[2025-03-09T15:09:36.843+0000] {processor.py:186} INFO - Started process (PID=42) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:09:36.843+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:09:36.844+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:09:36.844+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:09:36.848+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:09:36.855+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.015 seconds
+[2025-03-09T15:10:07.100+0000] {processor.py:186} INFO - Started process (PID=50) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:10:07.101+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:10:07.102+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:10:07.102+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:10:07.105+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:10:07.113+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.015 seconds
+[2025-03-09T15:10:37.227+0000] {processor.py:186} INFO - Started process (PID=58) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:10:37.228+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:10:37.229+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:10:37.229+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:10:37.232+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:10:37.240+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T15:11:07.514+0000] {processor.py:186} INFO - Started process (PID=66) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:11:07.514+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:11:07.516+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:11:07.515+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:11:07.519+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:11:07.527+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T15:11:38.027+0000] {processor.py:186} INFO - Started process (PID=74) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:11:38.028+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:11:38.030+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:11:38.030+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:11:38.034+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:11:38.041+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T15:12:08.400+0000] {processor.py:186} INFO - Started process (PID=82) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:12:08.401+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:12:08.405+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:12:08.404+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:12:08.408+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:12:08.425+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.027 seconds
+[2025-03-09T15:12:38.969+0000] {processor.py:186} INFO - Started process (PID=90) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:12:38.971+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:12:38.972+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:12:38.972+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:12:38.976+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:12:38.984+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T15:13:09.870+0000] {processor.py:186} INFO - Started process (PID=98) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:13:09.871+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:13:09.874+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:13:09.874+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:13:09.878+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:13:09.885+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.018 seconds
+[2025-03-09T15:13:40.329+0000] {processor.py:186} INFO - Started process (PID=106) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:13:40.330+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:13:40.331+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:13:40.331+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:13:40.335+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:13:40.343+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T15:14:10.637+0000] {processor.py:186} INFO - Started process (PID=114) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:14:10.640+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:14:10.641+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:14:10.641+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:14:10.650+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:14:10.663+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.029 seconds
+[2025-03-09T15:14:40.889+0000] {processor.py:186} INFO - Started process (PID=122) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:14:40.890+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:14:40.891+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:14:40.891+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:14:40.894+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:14:40.902+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.016 seconds
+[2025-03-09T15:15:11.282+0000] {processor.py:186} INFO - Started process (PID=130) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:15:11.283+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:15:11.286+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:15:11.286+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:15:11.291+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:15:11.299+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.019 seconds
+[2025-03-09T15:15:41.821+0000] {processor.py:186} INFO - Started process (PID=138) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:15:41.823+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:15:41.831+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:15:41.831+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:15:41.835+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:15:41.845+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.056 seconds
+[2025-03-09T15:16:12.282+0000] {processor.py:186} INFO - Started process (PID=146) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:16:12.285+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:16:12.287+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:16:12.287+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:16:12.293+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:16:12.300+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.022 seconds
+[2025-03-09T15:16:42.526+0000] {processor.py:186} INFO - Started process (PID=154) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:16:42.527+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:16:42.528+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:16:42.528+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:16:42.532+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:16:42.540+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T15:17:13.247+0000] {processor.py:186} INFO - Started process (PID=162) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:17:13.248+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:17:13.251+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:17:13.251+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:17:13.259+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:17:13.266+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.022 seconds
+[2025-03-09T15:17:43.796+0000] {processor.py:186} INFO - Started process (PID=170) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:17:43.797+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:17:43.798+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:17:43.798+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:17:43.802+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:17:43.811+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.018 seconds
+[2025-03-09T15:18:14.813+0000] {processor.py:186} INFO - Started process (PID=178) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:18:14.814+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:18:14.815+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:18:14.815+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:18:14.819+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:18:14.826+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
+[2025-03-09T15:18:45.258+0000] {processor.py:186} INFO - Started process (PID=186) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:18:45.261+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:18:45.263+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:18:45.263+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:18:45.271+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:18:45.293+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.038 seconds
+[2025-03-09T15:20:58.066+0000] {processor.py:186} INFO - Started process (PID=20) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:20:58.067+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:20:58.068+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:20:58.068+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:20:58.072+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:20:58.084+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.023 seconds
+[2025-03-09T15:21:28.988+0000] {processor.py:186} INFO - Started process (PID=27) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:21:28.989+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:21:28.992+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:21:28.992+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:21:28.998+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:21:29.007+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.022 seconds
+[2025-03-09T15:21:59.283+0000] {processor.py:186} INFO - Started process (PID=35) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:21:59.285+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:21:59.287+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:21:59.287+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:21:59.293+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:21:59.307+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.027 seconds
+[2025-03-09T15:22:29.417+0000] {processor.py:186} INFO - Started process (PID=43) to work on /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:22:29.417+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar for tasks to queue
+[2025-03-09T15:22:29.419+0000] {logging_mixin.py:190} INFO - [2025-03-09T15:22:29.418+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:22:29.423+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar
+[2025-03-09T15:22:29.430+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/clickhouse-jdbc-0.8.0.jar took 0.017 seconds
