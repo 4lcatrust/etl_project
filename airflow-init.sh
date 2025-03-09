@@ -1,10 +1,7 @@
 #!/bin/bash
 
-echo "⏳ Waiting for database to be ready..."
-sleep 10
-
 echo "🔄 Initializing Airflow database..."
-airflow db init
+airflow db check || airflow db init
 
 echo "👤 Creating Airflow Admin User..."
 airflow users create \
@@ -15,6 +12,15 @@ airflow users create \
     --role Admin \
     --email admin@example.com
 
+if [[ -f /opt/airflow/variables.json ]]; then
+    airflow variables import /opt/airflow/variables.json
+fi
+
+
 echo "✅ Airflow DB and User Setup Complete!"
+
+echo "🚀 Starting Airflow Scheduler..."
+exec airflow scheduler
+
 echo "🚀 Starting Airflow Webserver..."
 exec airflow webserver

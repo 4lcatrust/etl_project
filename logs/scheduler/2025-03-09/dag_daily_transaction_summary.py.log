@@ -1,0 +1,601 @@
+[2025-03-09T10:17:04.301+0000] {processor.py:186} INFO - Started process (PID=75) to work on /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:17:04.302+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dag_daily_transaction_summary.py for tasks to queue
+[2025-03-09T10:17:04.304+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:17:04.303+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:17:04.778+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:17:04.776+0000] {dagbag.py:387} ERROR - Failed to import: /opt/airflow/dags/dag_daily_transaction_summary.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 383, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_daily_transaction_summary.py", line 71, in <module>
+    AIRFLOW_PATH = Variable.get("LOCAL_AIRFLOW_PATH")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 145, in get
+    raise KeyError(f"Variable {key} does not exist")
+KeyError: 'Variable LOCAL_AIRFLOW_PATH does not exist'
+[2025-03-09T10:17:04.779+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:17:04.796+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_daily_transaction_summary.py took 0.498 seconds
+[2025-03-09T10:17:35.630+0000] {processor.py:186} INFO - Started process (PID=82) to work on /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:17:35.631+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dag_daily_transaction_summary.py for tasks to queue
+[2025-03-09T10:17:35.633+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:17:35.633+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:17:35.848+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:17:35.847+0000] {dagbag.py:387} ERROR - Failed to import: /opt/airflow/dags/dag_daily_transaction_summary.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 383, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_daily_transaction_summary.py", line 71, in <module>
+    AIRFLOW_PATH = Variable.get("LOCAL_AIRFLOW_PATH")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 145, in get
+    raise KeyError(f"Variable {key} does not exist")
+KeyError: 'Variable LOCAL_AIRFLOW_PATH does not exist'
+[2025-03-09T10:17:35.849+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:17:35.853+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_daily_transaction_summary.py took 0.227 seconds
+[2025-03-09T10:18:07.973+0000] {processor.py:186} INFO - Started process (PID=89) to work on /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:18:07.975+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dag_daily_transaction_summary.py for tasks to queue
+[2025-03-09T10:18:07.977+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:18:07.977+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:18:09.721+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:18:09.684+0000] {dagbag.py:387} ERROR - Failed to import: /opt/airflow/dags/dag_daily_transaction_summary.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 383, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_daily_transaction_summary.py", line 71, in <module>
+    AIRFLOW_PATH = Variable.get("LOCAL_AIRFLOW_PATH")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 145, in get
+    raise KeyError(f"Variable {key} does not exist")
+KeyError: 'Variable LOCAL_AIRFLOW_PATH does not exist'
+[2025-03-09T10:18:09.723+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:18:09.744+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_daily_transaction_summary.py took 1.777 seconds
+[2025-03-09T10:18:39.840+0000] {processor.py:186} INFO - Started process (PID=96) to work on /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:18:39.842+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dag_daily_transaction_summary.py for tasks to queue
+[2025-03-09T10:18:39.844+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:18:39.844+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:18:40.254+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:18:40.253+0000] {dagbag.py:387} ERROR - Failed to import: /opt/airflow/dags/dag_daily_transaction_summary.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 383, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_daily_transaction_summary.py", line 71, in <module>
+    AIRFLOW_PATH = Variable.get("LOCAL_AIRFLOW_PATH")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 145, in get
+    raise KeyError(f"Variable {key} does not exist")
+KeyError: 'Variable LOCAL_AIRFLOW_PATH does not exist'
+[2025-03-09T10:18:40.254+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:18:40.268+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_daily_transaction_summary.py took 0.435 seconds
+[2025-03-09T10:19:10.310+0000] {processor.py:186} INFO - Started process (PID=103) to work on /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:19:10.311+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dag_daily_transaction_summary.py for tasks to queue
+[2025-03-09T10:19:10.312+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:19:10.312+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:19:10.667+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:19:10.666+0000] {dagbag.py:387} ERROR - Failed to import: /opt/airflow/dags/dag_daily_transaction_summary.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 383, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_daily_transaction_summary.py", line 71, in <module>
+    AIRFLOW_PATH = Variable.get("LOCAL_AIRFLOW_PATH")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 145, in get
+    raise KeyError(f"Variable {key} does not exist")
+KeyError: 'Variable LOCAL_AIRFLOW_PATH does not exist'
+[2025-03-09T10:19:10.668+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:19:10.675+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_daily_transaction_summary.py took 0.368 seconds
+[2025-03-09T10:19:41.729+0000] {processor.py:186} INFO - Started process (PID=110) to work on /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:19:41.730+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dag_daily_transaction_summary.py for tasks to queue
+[2025-03-09T10:19:41.733+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:19:41.733+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:19:42.081+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:19:42.080+0000] {dagbag.py:387} ERROR - Failed to import: /opt/airflow/dags/dag_daily_transaction_summary.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 383, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_daily_transaction_summary.py", line 71, in <module>
+    AIRFLOW_PATH = Variable.get("LOCAL_AIRFLOW_PATH")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 145, in get
+    raise KeyError(f"Variable {key} does not exist")
+KeyError: 'Variable LOCAL_AIRFLOW_PATH does not exist'
+[2025-03-09T10:19:42.082+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:19:42.089+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_daily_transaction_summary.py took 0.368 seconds
+[2025-03-09T10:20:13.142+0000] {processor.py:186} INFO - Started process (PID=117) to work on /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:20:13.144+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dag_daily_transaction_summary.py for tasks to queue
+[2025-03-09T10:20:13.145+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:20:13.145+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:20:13.473+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:20:13.472+0000] {dagbag.py:387} ERROR - Failed to import: /opt/airflow/dags/dag_daily_transaction_summary.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 383, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_daily_transaction_summary.py", line 71, in <module>
+    AIRFLOW_PATH = Variable.get("LOCAL_AIRFLOW_PATH")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 145, in get
+    raise KeyError(f"Variable {key} does not exist")
+KeyError: 'Variable LOCAL_AIRFLOW_PATH does not exist'
+[2025-03-09T10:20:13.473+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:20:13.489+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_daily_transaction_summary.py took 0.358 seconds
+[2025-03-09T10:20:44.562+0000] {processor.py:186} INFO - Started process (PID=124) to work on /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:20:44.563+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dag_daily_transaction_summary.py for tasks to queue
+[2025-03-09T10:20:44.564+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:20:44.564+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:20:44.752+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:20:44.750+0000] {dagbag.py:387} ERROR - Failed to import: /opt/airflow/dags/dag_daily_transaction_summary.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 383, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_daily_transaction_summary.py", line 71, in <module>
+    AIRFLOW_PATH = Variable.get("LOCAL_AIRFLOW_PATH")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 145, in get
+    raise KeyError(f"Variable {key} does not exist")
+KeyError: 'Variable LOCAL_AIRFLOW_PATH does not exist'
+[2025-03-09T10:20:44.752+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:20:44.756+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_daily_transaction_summary.py took 0.198 seconds
+[2025-03-09T10:29:09.437+0000] {processor.py:186} INFO - Started process (PID=36) to work on /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:29:09.438+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dag_daily_transaction_summary.py for tasks to queue
+[2025-03-09T10:29:09.440+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:29:09.440+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:29:10.393+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:29:10.393+0000] {connectionpool.py:868} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=0, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff90d10560>: Failed to establish a new connection: [Errno 111] Connection refused')': /?
+[2025-03-09T10:29:10.393+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:29:10.393+0000] {httpclient.py:459} WARNING - Unexpected Http Driver Exception
+[2025-03-09T10:29:10.397+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:29:10.393+0000] {dagbag.py:387} ERROR - Failed to import: /opt/airflow/dags/dag_daily_transaction_summary.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0xffff7a8be0f0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 449, in _raw_request
+    response = self.http.request(method, url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/poolmanager.py", line 443, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8123): Max retries exceeded with url: /? (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff7a8be0f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 383, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_daily_transaction_summary.py", line 77, in <module>
+    ch_client = clickhouse_connect.get_client(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/__init__.py", line 122, in create_client
+    return HttpClient(interface, host, port, username, password, database, access_token,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 161, in __init__
+    super().__init__(database=database,
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/client.py", line 69, in __init__
+    self._init_common_settings(apply_server_timezone)
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/client.py", line 74, in _init_common_settings
+    tuple(self.command('SELECT version(), timezone()', use_database=False))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 361, in command
+    response = self._raw_request(payload, params, headers, method, fields=fields, server_wait=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 461, in _raw_request
+    raise OperationalError(f'Error {ex} executing HTTP request attempt {attempts}{err_url}') from ex
+clickhouse_connect.driver.exceptions.OperationalError: Error HTTPConnectionPool(host='127.0.0.1', port=8123): Max retries exceeded with url: /? (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff7a8be0f0>: Failed to establish a new connection: [Errno 111] Connection refused')) executing HTTP request attempt 1 (http://127.0.0.1:8123)
+[2025-03-09T10:29:10.398+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:29:10.404+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_daily_transaction_summary.py took 0.971 seconds
+[2025-03-09T10:29:41.395+0000] {processor.py:186} INFO - Started process (PID=43) to work on /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:29:41.397+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dag_daily_transaction_summary.py for tasks to queue
+[2025-03-09T10:29:41.398+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:29:41.398+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:29:41.667+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:29:41.666+0000] {connectionpool.py:868} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=0, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff7a14f560>: Failed to establish a new connection: [Errno 111] Connection refused')': /?
+[2025-03-09T10:29:41.667+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:29:41.667+0000] {httpclient.py:459} WARNING - Unexpected Http Driver Exception
+[2025-03-09T10:29:41.671+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:29:41.667+0000] {dagbag.py:387} ERROR - Failed to import: /opt/airflow/dags/dag_daily_transaction_summary.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0xffff7a78fe90>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 449, in _raw_request
+    response = self.http.request(method, url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/poolmanager.py", line 443, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8123): Max retries exceeded with url: /? (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff7a78fe90>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 383, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_daily_transaction_summary.py", line 77, in <module>
+    ch_client = clickhouse_connect.get_client(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/__init__.py", line 122, in create_client
+    return HttpClient(interface, host, port, username, password, database, access_token,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 161, in __init__
+    super().__init__(database=database,
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/client.py", line 69, in __init__
+    self._init_common_settings(apply_server_timezone)
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/client.py", line 74, in _init_common_settings
+    tuple(self.command('SELECT version(), timezone()', use_database=False))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 361, in command
+    response = self._raw_request(payload, params, headers, method, fields=fields, server_wait=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 461, in _raw_request
+    raise OperationalError(f'Error {ex} executing HTTP request attempt {attempts}{err_url}') from ex
+clickhouse_connect.driver.exceptions.OperationalError: Error HTTPConnectionPool(host='127.0.0.1', port=8123): Max retries exceeded with url: /? (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff7a78fe90>: Failed to establish a new connection: [Errno 111] Connection refused')) executing HTTP request attempt 1 (http://127.0.0.1:8123)
+[2025-03-09T10:29:41.672+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:29:41.677+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_daily_transaction_summary.py took 0.293 seconds
+[2025-03-09T10:30:11.753+0000] {processor.py:186} INFO - Started process (PID=50) to work on /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:30:11.754+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dag_daily_transaction_summary.py for tasks to queue
+[2025-03-09T10:30:11.756+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:30:11.756+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:30:12.148+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:30:12.148+0000] {connectionpool.py:868} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=0, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff90dd5670>: Failed to establish a new connection: [Errno 111] Connection refused')': /?
+[2025-03-09T10:30:12.149+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:30:12.149+0000] {httpclient.py:459} WARNING - Unexpected Http Driver Exception
+[2025-03-09T10:30:12.151+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:30:12.149+0000] {dagbag.py:387} ERROR - Failed to import: /opt/airflow/dags/dag_daily_transaction_summary.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0xffff90d57e90>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 449, in _raw_request
+    response = self.http.request(method, url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/poolmanager.py", line 443, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8123): Max retries exceeded with url: /? (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff90d57e90>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 383, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_daily_transaction_summary.py", line 77, in <module>
+    ch_client = clickhouse_connect.get_client(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/__init__.py", line 122, in create_client
+    return HttpClient(interface, host, port, username, password, database, access_token,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 161, in __init__
+    super().__init__(database=database,
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/client.py", line 69, in __init__
+    self._init_common_settings(apply_server_timezone)
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/client.py", line 74, in _init_common_settings
+    tuple(self.command('SELECT version(), timezone()', use_database=False))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 361, in command
+    response = self._raw_request(payload, params, headers, method, fields=fields, server_wait=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 461, in _raw_request
+    raise OperationalError(f'Error {ex} executing HTTP request attempt {attempts}{err_url}') from ex
+clickhouse_connect.driver.exceptions.OperationalError: Error HTTPConnectionPool(host='127.0.0.1', port=8123): Max retries exceeded with url: /? (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff90d57e90>: Failed to establish a new connection: [Errno 111] Connection refused')) executing HTTP request attempt 1 (http://127.0.0.1:8123)
+[2025-03-09T10:30:12.152+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:30:12.155+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_daily_transaction_summary.py took 0.409 seconds
+[2025-03-09T10:30:43.198+0000] {processor.py:186} INFO - Started process (PID=57) to work on /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:30:43.199+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dag_daily_transaction_summary.py for tasks to queue
+[2025-03-09T10:30:43.200+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:30:43.200+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:30:43.583+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:30:43.583+0000] {connectionpool.py:868} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=0, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff79bdcda0>: Failed to establish a new connection: [Errno 111] Connection refused')': /?
+[2025-03-09T10:30:43.584+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:30:43.584+0000] {httpclient.py:459} WARNING - Unexpected Http Driver Exception
+[2025-03-09T10:30:43.587+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:30:43.584+0000] {dagbag.py:387} ERROR - Failed to import: /opt/airflow/dags/dag_daily_transaction_summary.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0xffff7a091970>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 449, in _raw_request
+    response = self.http.request(method, url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/poolmanager.py", line 443, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8123): Max retries exceeded with url: /? (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff7a091970>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 383, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_daily_transaction_summary.py", line 77, in <module>
+    ch_client = clickhouse_connect.get_client(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/__init__.py", line 122, in create_client
+    return HttpClient(interface, host, port, username, password, database, access_token,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 161, in __init__
+    super().__init__(database=database,
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/client.py", line 69, in __init__
+    self._init_common_settings(apply_server_timezone)
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/client.py", line 74, in _init_common_settings
+    tuple(self.command('SELECT version(), timezone()', use_database=False))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 361, in command
+    response = self._raw_request(payload, params, headers, method, fields=fields, server_wait=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 461, in _raw_request
+    raise OperationalError(f'Error {ex} executing HTTP request attempt {attempts}{err_url}') from ex
+clickhouse_connect.driver.exceptions.OperationalError: Error HTTPConnectionPool(host='127.0.0.1', port=8123): Max retries exceeded with url: /? (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff7a091970>: Failed to establish a new connection: [Errno 111] Connection refused')) executing HTTP request attempt 1 (http://127.0.0.1:8123)
+[2025-03-09T10:30:43.588+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:30:43.591+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_daily_transaction_summary.py took 0.398 seconds
+[2025-03-09T10:31:14.599+0000] {processor.py:186} INFO - Started process (PID=64) to work on /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:31:14.600+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dag_daily_transaction_summary.py for tasks to queue
+[2025-03-09T10:31:14.601+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:31:14.601+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:31:14.947+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:31:14.947+0000] {connectionpool.py:868} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=0, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff90c0baa0>: Failed to establish a new connection: [Errno 111] Connection refused')': /?
+[2025-03-09T10:31:14.947+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:31:14.947+0000] {httpclient.py:459} WARNING - Unexpected Http Driver Exception
+[2025-03-09T10:31:14.950+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:31:14.947+0000] {dagbag.py:387} ERROR - Failed to import: /opt/airflow/dags/dag_daily_transaction_summary.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0xffff969860f0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 449, in _raw_request
+    response = self.http.request(method, url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/poolmanager.py", line 443, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8123): Max retries exceeded with url: /? (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff969860f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 383, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_daily_transaction_summary.py", line 77, in <module>
+    ch_client = clickhouse_connect.get_client(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/__init__.py", line 122, in create_client
+    return HttpClient(interface, host, port, username, password, database, access_token,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 161, in __init__
+    super().__init__(database=database,
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/client.py", line 69, in __init__
+    self._init_common_settings(apply_server_timezone)
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/client.py", line 74, in _init_common_settings
+    tuple(self.command('SELECT version(), timezone()', use_database=False))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 361, in command
+    response = self._raw_request(payload, params, headers, method, fields=fields, server_wait=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 461, in _raw_request
+    raise OperationalError(f'Error {ex} executing HTTP request attempt {attempts}{err_url}') from ex
+clickhouse_connect.driver.exceptions.OperationalError: Error HTTPConnectionPool(host='127.0.0.1', port=8123): Max retries exceeded with url: /? (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff969860f0>: Failed to establish a new connection: [Errno 111] Connection refused')) executing HTTP request attempt 1 (http://127.0.0.1:8123)
+[2025-03-09T10:31:14.951+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_daily_transaction_summary.py
+[2025-03-09T10:31:14.955+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dag_daily_transaction_summary.py took 0.359 seconds

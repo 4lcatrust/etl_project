@@ -106,7 +106,7 @@ services:
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
       - ./variables.json:/opt/airflow/variables.json
-    command: ["scheduler"]
+    command: ["bash", "/entrypoint.sh"]
     networks:
       - db_network
 
