@@ -1,0 +1,6 @@
+logs
+
+dags/__pycache__/
+
+.DS_Store
+dags/.DS_Store
