@@ -70,14 +70,17 @@ EXPECTED_SCHEMA = {
 # Airflow Variables for parameterization
 AIRFLOW_PATH = Variable.get("LOCAL_AIRFLOW_PATH")
 POSTGRES_JDBC_URL = Variable.get("POSTGRES_JDBC_URL")
+POSTGRES_USER = Variable.get("POSTGRES_USER")
 POSTGRES_PASSWORD = Variable.get("POSTGRES_PASSWORD")
+CLICKHOUSE_CONN = Variable.get("CLICKHOUSE_CONN")
+CLICKHOUSE_USER = Variable.get("CLICKHOUSE_USER")
 CLICKHOUSE_PASSWORD = Variable.get("CLICKHOUSE_PASSWORD")
 SINK_TABLENAME = "daily_transaction_summary"
 
 ch_client = clickhouse_connect.get_client(
-    host = "127.0.0.1",
+    host = CLICKHOUSE_CONN,
     port = 8123,
-    username = "spark",
+    username = CLICKHOUSE_USER,
     password = CLICKHOUSE_PASSWORD
 )
 
@@ -178,7 +181,7 @@ def extract(table_source : dict):
                 .format("jdbc") \
                 .option("url", POSTGRES_JDBC_URL) \
                 .option("dbtable", f"{schemaname}.{tablename}") \
-                .option("user", "spark") \
+                .option("user", POSTGRES_USER) \
                 .option("password", POSTGRES_PASSWORD) \
                 .option("driver", "org.postgresql.Driver") \
                 .option("numPartitions", 8) \
@@ -360,9 +363,9 @@ def load(sink_tablename : str):
     try:
         transformed_df.write \
             .format("jdbc") \
-            .option("url", "jdbc:clickhouse://127.0.0.1:8123/default") \
+            .option("url", f"jdbc:clickhouse://{CLICKHOUSE_CONN}:8123/default") \
             .option("dbtable", stg_table) \
-            .option("user", "spark") \
+            .option("user", CLICKHOUSE_USER) \
             .option("password", CLICKHOUSE_PASSWORD) \
             .option("driver", "com.clickhouse.jdbc.ClickHouseDriver") \
             .option("batchsize", "50000") \

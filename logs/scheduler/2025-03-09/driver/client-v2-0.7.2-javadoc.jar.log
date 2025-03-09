@@ -253,3 +253,93 @@
 [2025-03-09T13:32:56.455+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:32:56.455+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
 [2025-03-09T13:32:56.458+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
 [2025-03-09T13:32:56.468+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.023 seconds
+[2025-03-09T13:33:26.964+0000] {processor.py:186} INFO - Started process (PID=52) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:33:26.965+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:33:26.967+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:33:26.967+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:33:26.970+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:33:26.979+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.022 seconds
+[2025-03-09T13:33:57.133+0000] {processor.py:186} INFO - Started process (PID=59) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:33:57.134+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:33:57.137+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:33:57.136+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:33:57.139+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:33:57.147+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.018 seconds
+[2025-03-09T13:34:27.655+0000] {processor.py:186} INFO - Started process (PID=66) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:34:27.656+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:34:27.659+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:34:27.659+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:34:27.662+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:34:27.683+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.033 seconds
+[2025-03-09T13:34:57.969+0000] {processor.py:186} INFO - Started process (PID=73) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:34:57.974+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:34:57.978+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:34:57.978+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:34:57.986+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:34:58.001+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.037 seconds
+[2025-03-09T13:35:28.348+0000] {processor.py:186} INFO - Started process (PID=80) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:35:28.349+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:35:28.353+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:35:28.353+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:35:28.360+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:35:28.389+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.048 seconds
+[2025-03-09T13:35:58.567+0000] {processor.py:186} INFO - Started process (PID=87) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:35:58.569+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:35:58.572+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:35:58.572+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:35:58.576+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:35:58.593+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.031 seconds
+[2025-03-09T13:36:28.746+0000] {processor.py:186} INFO - Started process (PID=94) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:36:28.748+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:36:28.750+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:36:28.750+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:36:28.756+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:36:28.765+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.023 seconds
+[2025-03-09T13:36:58.939+0000] {processor.py:186} INFO - Started process (PID=101) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:36:58.940+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:36:58.943+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:36:58.943+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:36:58.948+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:36:58.964+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.030 seconds
+[2025-03-09T13:37:29.070+0000] {processor.py:186} INFO - Started process (PID=108) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:37:29.073+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:37:29.074+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:37:29.074+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:37:29.078+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:37:29.095+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.032 seconds
+[2025-03-09T13:38:24.122+0000] {processor.py:186} INFO - Started process (PID=16) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:38:24.126+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:38:24.130+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:38:24.129+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:38:24.145+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:38:24.162+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.047 seconds
+[2025-03-09T13:38:55.192+0000] {processor.py:186} INFO - Started process (PID=23) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:38:55.193+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:38:55.199+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:38:55.199+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:38:55.206+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:38:55.235+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.047 seconds
+[2025-03-09T13:39:25.376+0000] {processor.py:186} INFO - Started process (PID=30) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:39:25.377+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:39:25.379+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:39:25.379+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:39:25.383+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:39:25.398+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.027 seconds
+[2025-03-09T13:39:55.638+0000] {processor.py:186} INFO - Started process (PID=37) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:39:55.639+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:39:55.642+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:39:55.641+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:39:55.648+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:39:55.660+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.026 seconds
+[2025-03-09T13:40:26.289+0000] {processor.py:186} INFO - Started process (PID=44) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:40:26.290+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:40:26.292+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:40:26.292+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:40:26.296+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:40:26.307+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.025 seconds
+[2025-03-09T13:40:56.438+0000] {processor.py:186} INFO - Started process (PID=51) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:40:56.439+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:40:56.441+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:40:56.441+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:40:56.444+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:40:56.453+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.020 seconds
+[2025-03-09T13:41:26.583+0000] {processor.py:186} INFO - Started process (PID=57) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:41:26.584+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:41:26.587+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:41:26.586+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:41:26.591+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:41:26.613+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.048 seconds
+[2025-03-09T13:41:57.086+0000] {processor.py:186} INFO - Started process (PID=65) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:41:57.087+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:41:57.089+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:41:57.088+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:41:57.092+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:41:57.102+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.023 seconds
+[2025-03-09T13:42:27.325+0000] {processor.py:186} INFO - Started process (PID=73) to work on /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:42:27.326+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar for tasks to queue
+[2025-03-09T13:42:27.328+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:42:27.328+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:42:27.334+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar
+[2025-03-09T13:42:27.349+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/client-v2-0.7.2-javadoc.jar took 0.033 seconds
