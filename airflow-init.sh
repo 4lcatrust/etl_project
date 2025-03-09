@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "🔄 Initializing Airflow database..."
-airflow db check || airflow db init
+airflow db check
+airflow db init
 
 echo "👤 Creating Airflow Admin User..."
 airflow users create \
@@ -18,9 +19,6 @@ fi
 
 
 echo "✅ Airflow DB and User Setup Complete!"
-
-echo "🚀 Starting Airflow Scheduler..."
-exec airflow scheduler
 
 echo "🚀 Starting Airflow Webserver..."
 exec airflow webserver

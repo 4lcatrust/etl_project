@@ -63,3 +63,193 @@
 [2025-03-09T10:31:10.892+0000] {logging_mixin.py:190} INFO - [2025-03-09T10:31:10.892+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
 [2025-03-09T10:31:10.899+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
 [2025-03-09T10:31:10.913+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.034 seconds
+[2025-03-09T11:05:18.447+0000] {processor.py:186} INFO - Started process (PID=29) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T11:05:18.449+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T11:05:18.453+0000] {logging_mixin.py:190} INFO - [2025-03-09T11:05:18.453+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T11:05:18.470+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T11:05:18.502+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.061 seconds
+[2025-03-09T11:06:22.014+0000] {processor.py:186} INFO - Started process (PID=30) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T11:06:22.016+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T11:06:22.018+0000] {logging_mixin.py:190} INFO - [2025-03-09T11:06:22.018+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T11:06:22.031+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T11:06:22.047+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.036 seconds
+[2025-03-09T11:06:52.137+0000] {processor.py:186} INFO - Started process (PID=37) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T11:06:52.141+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T11:06:52.143+0000] {logging_mixin.py:190} INFO - [2025-03-09T11:06:52.142+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T11:06:52.149+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T11:06:52.161+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.029 seconds
+[2025-03-09T13:09:23.666+0000] {processor.py:186} INFO - Started process (PID=76) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:09:23.668+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:09:23.670+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:09:23.670+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:09:23.682+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:09:23.695+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.033 seconds
+[2025-03-09T13:09:53.820+0000] {processor.py:186} INFO - Started process (PID=83) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:09:53.827+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:09:53.835+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:09:53.835+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:09:53.843+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:09:53.857+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.046 seconds
+[2025-03-09T13:11:38.858+0000] {processor.py:186} INFO - Started process (PID=18) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:11:38.861+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:11:38.864+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:11:38.864+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:11:38.881+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:11:38.896+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.044 seconds
+[2025-03-09T13:12:09.195+0000] {processor.py:186} INFO - Started process (PID=25) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:12:09.197+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:12:09.201+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:12:09.201+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:12:09.230+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:12:09.244+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.057 seconds
+[2025-03-09T13:18:42.499+0000] {processor.py:186} INFO - Started process (PID=18) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:18:42.500+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:18:42.501+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:18:42.501+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:18:42.505+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:18:42.517+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.021 seconds
+[2025-03-09T13:19:13.430+0000] {processor.py:186} INFO - Started process (PID=25) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:19:13.432+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:19:13.434+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:19:13.434+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:19:13.440+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:19:13.472+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.048 seconds
+[2025-03-09T13:19:43.573+0000] {processor.py:186} INFO - Started process (PID=32) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:19:43.574+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:19:43.577+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:19:43.576+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:19:43.583+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:19:43.595+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.028 seconds
+[2025-03-09T13:20:20.510+0000] {processor.py:186} INFO - Started process (PID=18) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:20.511+0000] {processor.py:186} INFO - Started process (PID=18) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:20.511+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:20:20.512+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:20:20.512+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:20:20.512+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:20.513+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:20:20.513+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:20.517+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:20.520+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:20.535+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.029 seconds
+[2025-03-09T13:20:20.540+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.033 seconds
+[2025-03-09T13:20:25.767+0000] {processor.py:186} INFO - Started process (PID=18) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:25.767+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:20:25.769+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:20:25.769+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:25.784+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:25.812+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.049 seconds
+[2025-03-09T13:20:31.057+0000] {processor.py:186} INFO - Started process (PID=17) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:31.059+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:20:31.061+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:20:31.060+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:31.075+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:31.097+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.044 seconds
+[2025-03-09T13:20:36.324+0000] {processor.py:186} INFO - Started process (PID=18) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:36.325+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:20:36.327+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:20:36.327+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:36.338+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:36.351+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.030 seconds
+[2025-03-09T13:20:41.608+0000] {processor.py:186} INFO - Started process (PID=18) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:41.609+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:20:41.626+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:20:41.625+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:41.687+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:20:41.713+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.109 seconds
+[2025-03-09T13:23:35.053+0000] {processor.py:186} INFO - Started process (PID=16) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:23:35.054+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:23:35.057+0000] {processor.py:186} INFO - Started process (PID=16) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:23:35.057+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:23:35.057+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:23:35.058+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:23:35.061+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:23:35.060+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:23:35.078+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:23:35.080+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:23:35.093+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.047 seconds
+[2025-03-09T13:23:35.101+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.051 seconds
+[2025-03-09T13:24:05.450+0000] {processor.py:186} INFO - Started process (PID=23) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:24:05.452+0000] {processor.py:186} INFO - Started process (PID=23) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:24:05.452+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:24:05.455+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:24:05.455+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:24:05.454+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:24:05.458+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:24:05.458+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:24:05.464+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:24:05.469+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:24:05.486+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.056 seconds
+[2025-03-09T13:24:05.495+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.065 seconds
+[2025-03-09T13:24:35.639+0000] {processor.py:186} INFO - Started process (PID=30) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:24:35.641+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:24:35.645+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:24:35.645+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:24:35.670+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:24:35.689+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.056 seconds
+[2025-03-09T13:24:35.726+0000] {processor.py:186} INFO - Started process (PID=30) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:24:35.727+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:24:35.730+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:24:35.730+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:24:35.738+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:24:35.765+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.044 seconds
+[2025-03-09T13:25:05.887+0000] {processor.py:186} INFO - Started process (PID=37) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:25:05.888+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:25:05.890+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:25:05.890+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:25:05.897+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:25:05.916+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.034 seconds
+[2025-03-09T13:25:05.937+0000] {processor.py:186} INFO - Started process (PID=37) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:25:05.938+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:25:05.941+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:25:05.941+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:25:05.948+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:25:05.959+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.030 seconds
+[2025-03-09T13:25:36.692+0000] {processor.py:186} INFO - Started process (PID=44) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:25:36.694+0000] {processor.py:186} INFO - Started process (PID=44) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:25:36.696+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:25:36.698+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:25:36.702+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:25:36.701+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:25:36.703+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:25:36.703+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:25:36.770+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:25:36.774+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:25:36.806+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.130 seconds
+[2025-03-09T13:25:36.808+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.134 seconds
+[2025-03-09T13:26:09.069+0000] {processor.py:186} INFO - Started process (PID=16) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:26:09.069+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:26:09.071+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:26:09.071+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:26:09.080+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:26:09.096+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.032 seconds
+[2025-03-09T13:27:33.541+0000] {processor.py:186} INFO - Started process (PID=16) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:27:33.543+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:27:33.546+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:27:33.546+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:27:33.556+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:27:33.571+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.033 seconds
+[2025-03-09T13:28:03.830+0000] {processor.py:186} INFO - Started process (PID=23) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:28:03.832+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:28:03.835+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:28:03.835+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:28:03.845+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:28:03.860+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.037 seconds
+[2025-03-09T13:28:34.122+0000] {processor.py:186} INFO - Started process (PID=30) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:28:34.124+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:28:34.127+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:28:34.126+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:28:34.136+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:28:34.155+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.039 seconds
+[2025-03-09T13:29:04.469+0000] {processor.py:186} INFO - Started process (PID=37) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:29:04.471+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:29:04.476+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:29:04.476+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:29:04.486+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:29:04.498+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.035 seconds
+[2025-03-09T13:29:34.888+0000] {processor.py:186} INFO - Started process (PID=44) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:29:34.890+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:29:34.895+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:29:34.894+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:29:34.907+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:29:34.921+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.040 seconds
+[2025-03-09T13:30:05.298+0000] {processor.py:186} INFO - Started process (PID=51) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:30:05.300+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:30:05.302+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:30:05.302+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:30:05.309+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:30:05.322+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.030 seconds
+[2025-03-09T13:30:54.314+0000] {processor.py:186} INFO - Started process (PID=16) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:30:54.317+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:30:54.332+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:30:54.331+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:30:54.367+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:30:54.399+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.097 seconds
+[2025-03-09T13:31:25.351+0000] {processor.py:186} INFO - Started process (PID=23) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:31:25.353+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:31:25.356+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:31:25.355+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:31:25.365+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:31:25.416+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.074 seconds
+[2025-03-09T13:31:55.883+0000] {processor.py:186} INFO - Started process (PID=30) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:31:55.885+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:31:55.894+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:31:55.893+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:31:55.902+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:31:55.919+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.047 seconds
+[2025-03-09T13:32:26.197+0000] {processor.py:186} INFO - Started process (PID=37) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:32:26.200+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:32:26.207+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:32:26.207+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:32:26.216+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:32:26.247+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.057 seconds
+[2025-03-09T13:32:56.380+0000] {processor.py:186} INFO - Started process (PID=44) to work on /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:32:56.381+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/driver/postgresql-42.7.5.jar for tasks to queue
+[2025-03-09T13:32:56.385+0000] {logging_mixin.py:190} INFO - [2025-03-09T13:32:56.384+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:32:56.391+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/driver/postgresql-42.7.5.jar
+[2025-03-09T13:32:56.411+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/driver/postgresql-42.7.5.jar took 0.046 seconds

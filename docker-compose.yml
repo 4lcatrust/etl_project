@@ -64,12 +64,11 @@ services:
     restart: always
     depends_on:
       - airflow_db
-      - airflow_scheduler
-      - airflow_worker
+      - redis
     environment:
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow_db:5432/airflow
-      AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@airflow_db:5432/airflow
+      AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql+psycopg2://airflow:airflow@airflow_db:5432/airflow
       AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
       AIRFLOW__WEBSERVER__RBAC: "True"
       AIRFLOW__WEBSERVER__DEFAULT_USER: "admin"
@@ -95,18 +94,19 @@ services:
     restart: always
     depends_on:
       - airflow_db
-      - airflow_worker
+      - redis
     environment:
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow_db:5432/airflow
-      AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@airflow_db:5432/airflow
+      AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql+psycopg2://airflow:airflow@airflow_db:5432/airflow
       AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
       - ./variables.json:/opt/airflow/variables.json
-    command: ["bash", "/entrypoint.sh"]
+    # command: "airflow scheduler"
+    entrypoint: ["/bin/bash", "-c", "airflow scheduler"]
     networks:
       - db_network
 
@@ -118,18 +118,20 @@ services:
     container_name: airflow_worker
     restart: always
     depends_on:
-      - airflow_db
+      - airflow_webserver
+      - redis
     environment:
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow_db:5432/airflow
-      AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow_db:5432/airflow
+      AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql+psycopg2://airflow:airflow@airflow_db:5432/airflow
       AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
       - ./variables.json:/opt/airflow/variables.json
-    command: ["worker"]
+    # command: "airflow celery worker"
+    entrypoint: ["/bin/bash", "-c", "airflow db check && airflow celery worker"]
     networks:
       - db_network
 
