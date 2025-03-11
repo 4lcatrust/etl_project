@@ -1,5 +1,7 @@
 # ETL Pipeline: Postgres to ClickHouse
 
+#### This project implements an ETL pipeline to transfer data from PostgreSQL to ClickHouse using Apache Airflow and PySpark.
+
 ```mermaid
 flowchart LR
     subgraph Sources
@@ -8,22 +10,20 @@ flowchart LR
 
     subgraph Airflow["Apache Airflow"]
         direction TB
-        E[ PySpark Extract ]
-        DQ1[ Staging Data Quality ]
-        T[Transform]
-        L[Load]
+        E( PySpark Extract )
+        DQ1( Staging Data Quality )
+        T( Transform )
+        L( Load )
     end
 
     subgraph Processing["Data Processing"]
         direction TB
-        Spark[ PySpark Engine ]
+        Spark( PySpark Engine )
     end
 
     subgraph Storage
-        S1[(Staging
-		        Parquet)]
-        S2[(Processed
-		        Parquet)]
+        S1[(Staging Parquet)]
+        S2[(Transformed Parquet)]
     end
 
     subgraph Target
@@ -43,3 +43,4 @@ flowchart LR
     class PG,CH sourceTarget
     class Airflow,Processing processing
     class Storage storage
+```
