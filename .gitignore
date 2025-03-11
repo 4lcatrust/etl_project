@@ -3,4 +3,5 @@ logs
 dags/__pycache__/
 
 .DS_Store
+.ipynb
 dags/.DS_Store
