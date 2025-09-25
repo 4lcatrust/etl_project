@@ -66,7 +66,8 @@ with DAG(
             "--pg_user", get_airflow_variables("POSTGRES_USER"),
             "--pg_pass", get_airflow_variables("POSTGRES_PASSWORD"),
             "--exec_date", "{{ ds }}",
-        ]
+        ],
+        polling_interval=20
     )
 
     end_task = DummyOperator(
