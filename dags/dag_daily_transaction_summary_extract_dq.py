@@ -31,35 +31,37 @@ with DAG(
         livy_conn_id="livy",
         file="/opt/bitnami/spark/jobs/daily_transaction_summary_extract_dq.py",
         conf = {
-        "spark.app.name": "daily_transaction_summary_extract_and_dq",
-        "spark.pyspark.python": "python3",
+            "spark.app.name": "daily_transaction_summary_extract_and_dq",
+            "spark.pyspark.python": "python3",
 
-        # keep local FS defaults to avoid HDFS touches during submit
-        "spark.hadoop.fs.defaultFS": "file:///",
-        "spark.sql.warehouse.dir": "file:/tmp/spark-warehouse",
+            # --- resources (safe starter) ---
+            "spark.executor.instances": "1",          # keep 1 while stabilizing
+            "spark.executor.cores": "1",
+            "spark.executor.memory": "2g",            # was 1g
+            "spark.executor.memoryOverhead": "512m",  # add this
+            "spark.driver.memory": "2g",              # was 1g
 
-        # hadoop “simple” mode (still useful once app starts)
-        "spark.hadoop.security.authentication": "simple",
-        "spark.hadoop.security.authorization": "false",
+            # --- stability / modest shuffle ---
+            "spark.network.timeout": "600s",
+            "spark.executor.heartbeatInterval": "60s",
+            "spark.sql.shuffle.partitions": "8",
+            "spark.sql.files.maxRecordsPerFile": "500000",
 
-        # MinIO
-        "spark.hadoop.fs.s3a.aws.credentials.provider": "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider",
-        "spark.hadoop.fs.s3a.access.key": get_airflow_variables("MINIO_ACCESS_KEY"),
-        "spark.hadoop.fs.s3a.secret.key": get_airflow_variables("MINIO_SECRET_KEY"),
-        "spark.hadoop.fs.s3a.endpoint": "http://minio:9000",
-        "spark.hadoop.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",
-        "spark.hadoop.fs.s3a.path.style.access": "true",
-        "spark.hadoop.fs.s3a.connection.ssl.enabled": "false",
-        # JDBC jar via Maven (no extraClassPath/globs)
-        "spark.jars.packages": "org.postgresql:postgresql:42.7.4",
+            # --- keep your S3A / JDBC package settings ---
+            "spark.hadoop.fs.defaultFS": "file:///",
+            "spark.sql.warehouse.dir": "file:/tmp/spark-warehouse",
+            "spark.hadoop.security.authentication": "simple",
+            "spark.hadoop.security.authorization": "false",
 
-        # resources
-        "spark.driver.memory": "1g",
-        "spark.executor.memory": "1g",
-        "spark.executor.cores": "1",
-        "spark.executor.instances": "1",
-        "spark.yarn.submit.waitAppCompletion": "true",
-        "spark.livy.server.interactive": "false"
+            "spark.hadoop.fs.s3a.aws.credentials.provider": "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider",
+            "spark.hadoop.fs.s3a.access.key": get_airflow_variables("MINIO_ACCESS_KEY"),
+            "spark.hadoop.fs.s3a.secret.key": get_airflow_variables("MINIO_SECRET_KEY"),
+            "spark.hadoop.fs.s3a.endpoint": "http://minio:9000",
+            "spark.hadoop.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",
+            "spark.hadoop.fs.s3a.path.style.access": "true",
+            "spark.hadoop.fs.s3a.connection.ssl.enabled": "false",
+
+            "spark.jars.packages": "org.postgresql:postgresql:42.7.4",
         },
         args=[
             "--pg_url", get_airflow_variables("POSTGRES_JDBC_URL"),
@@ -67,7 +69,7 @@ with DAG(
             "--pg_pass", get_airflow_variables("POSTGRES_PASSWORD"),
             "--exec_date", "{{ ds }}",
         ],
-        polling_interval=20
+        polling_interval=60
     )
 
     end_task = DummyOperator(
