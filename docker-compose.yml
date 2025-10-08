@@ -170,6 +170,12 @@ services:
       POSTGRES_PASSWORD: airflow 
       POSTGRES_DB: airflow
       AIRFLOW_DB_HOST: airflow_db 
+      AIRFLOW__WEBSERVER__WORKERS: "1"
+      AIRFLOW__WEBSERVER__WEB_SERVER_WORKER_TIMEOUT: "240"
+      AIRFLOW__WEBSERVER__WORKER_REFRESH_INTERVAL: "3600"
+      AIRFLOW__LOGGING__LOGGING_LEVEL: "INFO"
+    cpus: "0.8"
+    mem_limit: "2g"
     ports:
       - "8080:8080"
     volumes:

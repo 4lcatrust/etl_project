@@ -1,19 +1,13 @@
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, count_distinct, regexp_replace, trim, sum as spark_sum
+from pyspark.sql import SparkSession, functions as F
 from pyspark.sql.types import *
-import os
-import time
-import logging
-import json
-import argparse
-import sys
 from datetime import datetime
+import argparse, logging, json
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+# ---------- logging ----------
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+log = logging.getLogger("daily_txn_extract_dq")
 
-# Define expected schema
+# ---------- expected schema ----------
 EXPECTED_SCHEMA = {
     "fct_transactions": {
         "payment_key": StringType(),
@@ -24,7 +18,7 @@ EXPECTED_SCHEMA = {
         "quantity": IntegerType(),
         "unit": StringType(),
         "unit_price": IntegerType(),
-        "total_price": IntegerType()
+        "total_price": IntegerType(),
     },
     "dim_item": {
         "item_key": StringType(),
@@ -33,7 +27,7 @@ EXPECTED_SCHEMA = {
         "unit_price": FloatType(),
         "man_country": StringType(),
         "supplier": StringType(),
-        "unit": StringType()
+        "unit": StringType(),
     },
     "dim_time": {
         "time_key": StringType(),
@@ -43,149 +37,161 @@ EXPECTED_SCHEMA = {
         "week": StringType(),
         "month": IntegerType(),
         "quarter": StringType(),
-        "year": IntegerType()
-    }
+        "year": IntegerType(),
+    },
 }
 
 TABLE_SOURCE = [
     ("public", "fct_transactions"),
     ("public", "dim_item"),
-    ("public", "dim_time")
+    ("public", "dim_time"),
 ]
 
-def create_spark_session(app_name: str):
-    os.environ["HADOOP_USER_NAME"] = "airflow"
-    spark = SparkSession.builder \
-        .appName(app_name) \
-        .config("spark.hadoop.fs.s3a.access.key", os.getenv("MINIO_ACCESS_KEY", "minioadmin")) \
-        .config("spark.hadoop.fs.s3a.secret.key", os.getenv("MINIO_SECRET_KEY", "minioadmin")) \
-        .config("spark.hadoop.fs.s3a.endpoint", os.getenv("MINIO_ENDPOINT", "http://minio:9000")) \
-        .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem") \
-        .config("spark.hadoop.fs.s3a.path.style.access", "true") \
-        .config("spark.hadoop.fs.s3a.connection.ssl.enabled", "false") \
-        .config("spark.hadoop.security.authentication", "simple") \
-        .config("spark.hadoop.security.authorization", "false") \
-        .config("spark.hadoop.fs.defaultFS", "file:///") \
-        .config("spark.sql.warehouse.dir", "file:/tmp/spark-warehouse") \
+# ---------- args ----------
+def parse_args():
+    p = argparse.ArgumentParser()
+    p.add_argument("--pg_url", required=True, help="JDBC URL, include timeouts if possible")
+    p.add_argument("--pg_user", required=True)
+    p.add_argument("--pg_pass", required=True)
+    p.add_argument("--exec_date", default=datetime.today().strftime("%Y-%m-%d"))
+    p.add_argument("--staging_path", default="s3a://staging")
+    p.add_argument("--dq_path", default="s3a://staging-dq")
+    p.add_argument("--shuffle_partitions", default="8")
+    p.add_argument("--records_per_file", default="500000")
+    p.add_argument("--coalesce_out", type=int, default=1)  # small while stabilizing
+    return p.parse_args()
+
+# ---------- spark ----------
+def make_spark(app_name: str) -> SparkSession:
+    spark = (
+        SparkSession.builder.appName(app_name)
+        # keep FS local to avoid HDFS touches during submit
+        .config("spark.hadoop.fs.defaultFS", "file:///")
+        .config("spark.sql.warehouse.dir", "file:/tmp/spark-warehouse")
         .getOrCreate()
+    )
+    # quiet and lean UI/logging
+    spark.sparkContext.setLogLevel("WARN")
+    spark.conf.set("spark.ui.enabled", "false")
+    spark.conf.set("spark.eventLog.enabled", "false")
     return spark
 
-def dq_check(df, tablename):
-    expected_schema = EXPECTED_SCHEMA[tablename]
-    actual_columns = set(df.columns)
-    expected_columns = set(expected_schema.keys())
+# ---------- helpers ----------
+def schema_validity(df, tablename):
+    exp = set(EXPECTED_SCHEMA[tablename].keys())
+    return 100 if set(df.columns) == exp else 0
 
-    quality_metrics = {}
-    quality_metrics[f"{tablename}_schema_validity"] = int(actual_columns == expected_columns) * 100
+def dq_metrics_single_pass(tablename, df):
+    df = df.cache()
+    n = df.count()
+    metrics = {f"{tablename}_schema_validity": schema_validity(df, tablename)}
+    if n == 0:
+        return metrics
 
     if tablename == "fct_transactions":
-        for col_name in ["customer_key", "item_key", "time_key", "quantity", "unit_price", "total_price"]:
-            quality_metrics[f"{tablename}_null_{col_name}"] = (
-                df.filter(col(col_name).isNotNull()).count() / df.count() * 100 if df.count() > 0 else 0
-            )
-        for col_name in ["quantity", "unit_price", "total_price"]:
-            quality_metrics[f"{tablename}_negative_{col_name}"] = (
-                df.filter(col(col_name) > 0).count() / df.count() * 100 if df.count() > 0 else 0
-            )
-
+        row = df.agg(
+            F.sum(F.col("customer_key").isNotNull().cast("int")).alias("nn_customer_key"),
+            F.sum(F.col("item_key").isNotNull().cast("int")).alias("nn_item_key"),
+            F.sum(F.col("time_key").isNotNull().cast("int")).alias("nn_time_key"),
+            F.sum(F.when(F.col("quantity") > 0, 1).otherwise(0)).alias("pos_quantity"),
+            F.sum(F.when(F.col("unit_price") > 0, 1).otherwise(0)).alias("pos_unit_price"),
+            F.sum(F.when(F.col("total_price") > 0, 1).otherwise(0)).alias("pos_total_price"),
+        ).first()
+        metrics.update({
+            f"{tablename}_null_customer_key": 100.0 * row.nn_customer_key / n,
+            f"{tablename}_null_item_key":     100.0 * row.nn_item_key / n,
+            f"{tablename}_null_time_key":     100.0 * row.nn_time_key / n,
+            f"{tablename}_negative_quantity": 100.0 * row.pos_quantity / n,
+            f"{tablename}_negative_unit_price": 100.0 * row.pos_unit_price / n,
+            f"{tablename}_negative_total_price": 100.0 * row.pos_total_price / n,
+        })
     elif tablename == "dim_item":
-        for col_name in ["item_key", "desc", "item_name", "unit_price"]:
-            quality_metrics[f"{tablename}_null_{col_name}"] = (
-                df.filter(col(col_name).isNotNull()).count() / df.count() * 100 if df.count() > 0 else 0
-            )
-        quality_metrics[f"{tablename}_negative_unit_price"] = (
-            df.filter(col("unit_price") > 0).count() / df.count() * 100 if df.count() > 0 else 0
-        )
-
+        row = df.agg(
+            F.sum(F.col("item_key").isNotNull().cast("int")).alias("nn_item_key"),
+            F.sum(F.col("desc").isNotNull().cast("int")).alias("nn_desc"),
+            F.sum(F.col("item_name").isNotNull().cast("int")).alias("nn_item_name"),
+            F.sum(F.when(F.col("unit_price") > 0, 1).otherwise(0)).alias("pos_unit_price"),
+        ).first()
+        metrics.update({
+            f"{tablename}_null_item_key": 100.0 * row.nn_item_key / n,
+            f"{tablename}_null_desc": 100.0 * row.nn_desc / n,
+            f"{tablename}_null_item_name": 100.0 * row.nn_item_name / n,
+            f"{tablename}_negative_unit_price": 100.0 * row.pos_unit_price / n,
+        })
     elif tablename == "dim_time":
-        quality_metrics[f"{tablename}_null_time_key"] = (
-            df.filter(col("time_key").isNotNull()).count() / df.count() * 100 if df.count() > 0 else 0
-        )
+        row = df.agg(F.sum(F.col("time_key").isNotNull().cast("int")).alias("nn_time_key")).first()
+        metrics.update({f"{tablename}_null_time_key": 100.0 * row.nn_time_key / n})
+    return metrics
 
-    return quality_metrics
+def read_table(spark, url, user, pwd, schema, table):
+    # Tip: add fetchsize; add numeric partitioning later if tables are large
+    return (
+        spark.read.format("jdbc")
+        .option("url", url)
+        .option("dbtable", f"{schema}.{table}")
+        .option("user", user)
+        .option("password", pwd)
+        .option("driver", "org.postgresql.Driver")
+        .option("fetchsize", 10000)
+        .load()
+    )
 
-def parse_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--pg_url", required=True)
-    parser.add_argument("--pg_user", required=True)
-    parser.add_argument("--pg_pass", required=True)
-    parser.add_argument("--exec_date", default=datetime.today().strftime("%Y-%m-%d"))  # optional
-    return parser.parse_args()
-
-
+# ---------- main ----------
 def main():
     args = parse_args()
-    
-    spark = create_spark_session("Daily-Transaction-Summary-Extract-and-DQ")
-    sc = spark.sparkContext
-    jdbc_url = args.pg_url
-    jdbc_user = args.pg_user
-    jdbc_pass = args.pg_pass
-    staging_path = "s3a://staging"
-    dq_path = "s3a://staging-dq"
-    current_date = args.exec_date
-    
+    spark = make_spark("Daily-Transaction-Summary-Extract-and-DQ")
+
+    # small, object-store-friendly settings
+    spark.conf.set("spark.sql.shuffle.partitions", args.shuffle_partitions)
+    spark.conf.set("spark.sql.files.maxRecordsPerFile", args.records_per_file)
+    spark.conf.set("spark.sql.parquet.compression.codec", "snappy")
+
+    # early probe write (clear S3A misconfig fast)
+    probe = f"{args.staging_path.rstrip('/')}/_probe_{datetime.now().strftime('%Y%m%d%H%M%S')}"
+    from pyspark.sql import Row
+    spark.createDataFrame([Row(ok=1)]).write.mode("overwrite").parquet(probe)
+    log.info(f"✅ S3A probe write OK at {probe}")
+
     dataframes = {}
-
     for schema, table in TABLE_SOURCE:
-        df = spark.read \
-            .format("jdbc") \
-            .option("url", jdbc_url) \
-            .option("dbtable", f"{schema}.{table}") \
-            .option("user", jdbc_user) \
-            .option("password", jdbc_pass) \
-            .option("driver", "org.postgresql.Driver") \
-            .load()
-
+        df = read_table(spark, args.pg_url, args.pg_user, args.pg_pass, schema, table)
+        out = df.coalesce(args.coalesce_out) if args.coalesce_out > 0 else df
+        path = f"{args.staging_path.rstrip('/')}/{args.exec_date}.{schema}.{table}.parquet"
+        try:
+            out.write.mode("overwrite").parquet(path)
+            log.info(f"✅ Extracted & saved {table} → {path}")
+        except Exception as e:
+            log.error(f"❌ Failed writing {table} → {path}: {e}")
+            raise
         dataframes[table] = df
-        df.write.parquet(f"{staging_path}/{current_date}.{schema}.{table}.parquet", mode="overwrite")
-        logger.info(f"✅ Extracted and saved: {table}")
 
-    all_metrics = {}
-    dq_records = []
-
+    # DQ (single pass per table)
+    all_metrics, dq_rows = {}, []
     for table, df in dataframes.items():
-        metrics = dq_check(df, table)
-        all_metrics[table] = metrics
-        for metric, val in metrics.items():
-            dq_records.append({
-                "dag_id": "dag_daily_transaction_summary",
+        m = dq_metrics_single_pass(table, df)
+        all_metrics[table] = m
+        for k, v in m.items():
+            dq_rows.append({
+                "dag_id": "dag_daily_transaction_summary_extract_dq",
                 "table_name": table,
-                "metric": metric,
-                "value": float(val),
+                "metric": k,
+                "value": float(v),
                 "processed_at": datetime.now().isoformat(),
-                "exec_date": current_date
+                "exec_date": args.exec_date,
             })
 
-    dq_df = spark.createDataFrame(dq_records)
-    dq_df.write.mode("overwrite").partitionBy("exec_date").parquet(f"{dq_path}/metrics.parquet")
-    logger.info(f"Writing {len(dq_records)} DQ records for {current_date}")
-    logger.info("✅ DQ metrics saved to MinIO (staging-dq)")
+    dq_df = spark.createDataFrame(dq_rows)
+    dq_out = f"{args.dq_path.rstrip('/')}/metrics.parquet"
+    dq_df.write.mode("overwrite").partitionBy("exec_date").parquet(dq_out)
+    log.info(f"✅ Wrote {len(dq_rows)} DQ metrics → {dq_out}")
 
-    logger.info(json.dumps(all_metrics, indent=2))
-
-    failed = {
-        table: {m: v for m, v in metrics.items() if v < 90}
-        for table, metrics in all_metrics.items()
-        if any(v < 90 for v in metrics.values())
-    }
-
+    # thresholds
+    failed = {t: {k: v for k, v in m.items() if v < 90} for t, m in all_metrics.items() if any(v < 90 for v in m.values())}
     if failed:
-        raise Exception(f"❌ DQ check failed: {json.dumps(failed, indent=2)}")
-    else:
-        logger.info("✅ All DQ checks passed")
+        raise RuntimeError(f"DQ thresholds breached: {json.dumps(failed)}")
+    log.info("✅ All DQ checks passed")
 
-    try:
-        spark.stop()
-        sc.stop()
-        logger.info("✅ Spark stopped cleanly")
-
-        jvm = sc._gateway.jvm
-        jvm.java.lang.System.exit(0)
-    except Exception as e:
-        logger.warning(f"Error during Spark shutdown: {e}")
-    finally:
-        os._exit(0)
+    spark.stop()  # clean shutdown (no System.exit / os._exit)
 
 if __name__ == "__main__":
     main()
