@@ -41,7 +41,7 @@ services:
       - ./clickhouse/clickhouse-config.xml:/etc/clickhouse-server/config.xml
       - ./clickhouse/clickhouse-user.xml:/etc/clickhouse-server/users.xml
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:8123/ping || exit 1"]
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8123/ping || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 10
