@@ -157,6 +157,9 @@ services:
 
   airflow_webserver:
     image: custom-airflow:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
     container_name: airflow_webserver
     restart: always
     env_file:
@@ -213,6 +216,9 @@ services:
 
   airflow_scheduler:
     image: custom-airflow:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
     container_name: airflow_scheduler
     restart: always
     env_file:
@@ -240,6 +246,9 @@ services:
 
   airflow_worker:
     image: custom-airflow:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
     container_name: airflow_worker
     restart: always
     env_file:
