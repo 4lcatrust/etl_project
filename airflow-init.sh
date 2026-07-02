@@ -20,16 +20,20 @@ add_connection_if_not_exists() {
     fi
 }
 
+# Admin credentials come from the environment (.env); fall back to demo defaults.
+AIRFLOW_ADMIN_USER="${AIRFLOW_ADMIN_USER:-admin}"
+AIRFLOW_ADMIN_PASSWORD="${AIRFLOW_ADMIN_PASSWORD:-admin}"
+
 # Check if user already exists to avoid errors on restart
-if ! airflow users list 2>/dev/null | grep -q "admin"; then
+if ! airflow users list 2>/dev/null | grep -q "^${AIRFLOW_ADMIN_USER} \|${AIRFLOW_ADMIN_USER}$"; then
     echo "👤 Creating admin user..."
     airflow users create \
-      --username admin \
+      --username "${AIRFLOW_ADMIN_USER}" \
       --firstname Admin \
       --lastname User \
       --role Admin \
       --email admin@example.com \
-      --password admin
+      --password "${AIRFLOW_ADMIN_PASSWORD}"
 else
     echo "👤 Admin user already exists, skipping creation"
 fi
@@ -38,7 +42,7 @@ echo "⏳ Waiting for services to be ready..."
 
 # Wait for PostgreSQL
 echo "🔍 Checking PostgreSQL..."
-until pg_isready -h postgres_db -p 5432 -U spark 2>/dev/null; do
+until pg_isready -h postgres_db -p 5432 -U "${POSTGRES_USER:-postgres}" 2>/dev/null; do
     echo "Waiting for PostgreSQL..."
     sleep 2
 done
@@ -74,13 +78,6 @@ done
 
 echo "🔗 Creating connections..."
 
-# Delete existing connections (ignore errors if not present)
-airflow connections delete livy || true
-airflow connections delete spark || true
-airflow connections delete postgres || true
-airflow connections delete clickhouse || true
-airflow connections delete minio || true
-
 # Spark connection
 add_connection_if_not_exists 'spark' \
   --conn-type 'spark' \
@@ -94,29 +91,29 @@ add_connection_if_not_exists 'livy' \
   --conn-port 8998 \
   --conn-extra '{"auth_type": "NONE"}'
 
-# PostgreSQL connection
+# PostgreSQL connection (credentials from .env)
 add_connection_if_not_exists 'postgres' \
   --conn-type 'postgres' \
   --conn-host 'postgres_db' \
   --conn-port 5432 \
-  --conn-login 'postgres' \
-  --conn-password 'postgres' \
+  --conn-login "${POSTGRES_USER}" \
+  --conn-password "${POSTGRES_PASSWORD}" \
   --conn-schema 'public'
 
-# ClickHouse connection
+# ClickHouse connection (credentials from .env)
 add_connection_if_not_exists 'clickhouse' \
   --conn-type 'http' \
   --conn-host 'clickhouse_db' \
   --conn-port 8123 \
-  --conn-login 'clickhouse' \
-  --conn-password 'clickhouse' \
+  --conn-login "${CLICKHOUSE_USER}" \
+  --conn-password "${CLICKHOUSE_PASSWORD}"
 
-# MinIO connection
+# MinIO connection (credentials from .env)
 add_connection_if_not_exists 'minio' \
   --conn-type 'aws' \
   --conn-host 'http://minio:9000' \
-  --conn-login 'minioadmin' \
-  --conn-password 'minioadmin' \
+  --conn-login "${MINIO_ROOT_USER}" \
+  --conn-password "${MINIO_ROOT_PASSWORD}" \
   --conn-extra '{"endpoint_url": "http://minio:9000"}'
 
 echo "📊 Importing variables..."
@@ -131,4 +128,4 @@ else
 fi
 
 echo "🎉 Airflow initialization completed successfully!"
-echo "🌐 Web UI will be available at http://localhost:8080 (admin/admin)"
+echo "🌐 Web UI will be available at http://localhost:8080 (user: ${AIRFLOW_ADMIN_USER})"

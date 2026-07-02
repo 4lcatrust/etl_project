@@ -13,7 +13,7 @@ done
 
 echo "✅ MinIO live. Waiting for mc to connect..."
 
-until mc alias set minio http://localhost:9000 minioadmin minioadmin >/dev/null 2>&1; do
+until mc alias set minio http://localhost:9000 "${MINIO_ROOT_USER}" "${MINIO_ROOT_PASSWORD}" >/dev/null 2>&1; do
   echo "🔁 Retrying mc alias set..."
   sleep 2
 done

@@ -3,6 +3,7 @@ logs/dag_processor_manager/*.log
 .log
 xl.meta
 __pycache__/*.pyc
+**/__pycache__/
 spark/jars/*.jar
 .DS_Store
 .ipynb
@@ -16,3 +17,7 @@ dags/.pytest_cache/
 **/.minio.sys/**
 minio/data/
 pat.key
+
+# Secrets — never commit. Copy the *.example templates and fill in real values.
+.env
+variables.json
