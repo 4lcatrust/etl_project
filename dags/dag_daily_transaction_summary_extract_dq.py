@@ -1,6 +1,6 @@
 from airflow import DAG
 from airflow.operators.empty import EmptyOperator
-from airflow.providers.apache.livy.operators.livy import LivyOperator
+from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 from datetime import datetime, timedelta
 from module.utilities import get_airflow_variables
 
@@ -14,22 +14,73 @@ default_args = {
     "retry_delay": timedelta(minutes=5),
 }
 
+# The Spark job now lives on the Airflow worker filesystem (bind-mounted), so the
+# client-mode driver can find it.
+SPARK_JOB = "/opt/airflow/spark/jobs/daily_transaction_summary_extract_dq.py"
+
+# Resolved by Ivy at submit time: PostgreSQL JDBC + S3A (MinIO) for Spark 4.0 / Hadoop 3.4.
+SPARK_PACKAGES = ",".join([
+    "org.postgresql:postgresql:42.7.5",
+    "org.apache.hadoop:hadoop-aws:3.4.1",
+])
+
+SPARK_CONF = {
+    "spark.pyspark.python": "python3",
+
+    # resources (stable on small cluster)
+    "spark.executor.instances": "1",
+    "spark.executor.cores": "1",
+    "spark.executor.memory": "2g",
+    "spark.executor.memoryOverhead": "512m",
+    "spark.driver.memory": "2g",
+
+    # stability
+    "spark.network.timeout": "600s",
+    "spark.executor.heartbeatInterval": "60s",
+
+    # modest shuffle/file sizes (also passed as script args)
+    "spark.sql.shuffle.partitions": "8",
+    "spark.sql.files.maxRecordsPerFile": "500000",
+
+    # object-store friendly commit settings
+    "spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version": "2",
+    "spark.hadoop.fs.s3a.committer.name": "directory",
+    "spark.hadoop.fs.s3a.fast.upload": "true",
+
+    # client deploy mode: executors must be able to reach the driver, which runs
+    # inside the airflow_worker container.
+    "spark.driver.host": "airflow_worker",
+    "spark.driver.bindAddress": "0.0.0.0",
+
+    # MinIO (S3A). NOTE: credentials still passed via conf here; hardened to a
+    # Hadoop JCEKS credential provider in the follow-up cred step.
+    "spark.hadoop.fs.s3a.aws.credentials.provider": "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider",
+    "spark.hadoop.fs.s3a.access.key": get_airflow_variables("MINIO_ACCESS_KEY"),
+    "spark.hadoop.fs.s3a.secret.key": get_airflow_variables("MINIO_SECRET_KEY"),
+    "spark.hadoop.fs.s3a.endpoint": "http://minio:9000",
+    "spark.hadoop.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",
+    "spark.hadoop.fs.s3a.path.style.access": "true",
+    "spark.hadoop.fs.s3a.connection.ssl.enabled": "false",
+}
+
 with DAG(
     dag_id="dag_daily_transaction_summary_extract_dq",
     default_args=default_args,
     schedule_interval=None,
     catchup=False,
-    tags=["spark", "livy"],
+    tags=["spark", "etl"],
 ) as dag:
 
     start = EmptyOperator(task_id="start")
 
-    extract_dq = LivyOperator(
+    extract_dq = SparkSubmitOperator(
         task_id="extract_dq",
-        livy_conn_id="livy",
-        file="/opt/bitnami/spark/jobs/daily_transaction_summary_extract_dq.py",
-        # pass runtime args to the script
-        args=[
+        conn_id="spark",
+        application=SPARK_JOB,
+        name="daily_transaction_summary_extract_and_dq",
+        packages=SPARK_PACKAGES,
+        conf=SPARK_CONF,
+        application_args=[
             "--pg_url", get_airflow_variables("POSTGRES_JDBC_URL"),
             "--pg_user", get_airflow_variables("POSTGRES_USER"),
             "--pg_pass", get_airflow_variables("POSTGRES_PASSWORD"),
@@ -40,53 +91,7 @@ with DAG(
             "--records_per_file", "500000",
             "--coalesce_out", "1",
         ],
-        conf={
-            "spark.app.name": "daily_transaction_summary_extract_and_dq",
-            "spark.pyspark.python": "python3",
-
-            # resources (stable on small cluster)
-            "spark.executor.instances": "1",
-            "spark.executor.cores": "1",
-            "spark.executor.memory": "2g",
-            "spark.executor.memoryOverhead": "512m",
-            "spark.driver.memory": "2g",
-
-            # stability
-            "spark.network.timeout": "600s",
-            "spark.executor.heartbeatInterval": "60s",
-
-            # modest shuffle/file sizes (also passed as script args)
-            "spark.sql.shuffle.partitions": "8",
-            "spark.sql.files.maxRecordsPerFile": "500000",
-
-            # object-store friendly commit settings (IMPORTANT)
-            "mapreduce.fileoutputcommitter.algorithm.version": "2",
-            "spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version": "2",
-            "spark.hadoop.fs.s3a.committer.name": "directory",
-            "spark.sql.parquet.output.committer.class": "org.apache.parquet.hadoop.ParquetOutputCommitter",
-            "spark.hadoop.fs.s3a.fast.upload": "true",
-
-            # local FS defaults
-            "spark.hadoop.fs.defaultFS": "file:///",
-            "spark.sql.warehouse.dir": "file:/tmp/spark-warehouse",
-
-            # hadoop simple mode
-            "spark.hadoop.security.authentication": "simple",
-            "spark.hadoop.security.authorization": "false",
-
-            # MinIO (S3A)
-            "spark.hadoop.fs.s3a.aws.credentials.provider": "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider",
-            "spark.hadoop.fs.s3a.access.key": get_airflow_variables("MINIO_ACCESS_KEY"),
-            "spark.hadoop.fs.s3a.secret.key": get_airflow_variables("MINIO_SECRET_KEY"),
-            "spark.hadoop.fs.s3a.endpoint": "http://minio:9000",
-            "spark.hadoop.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",
-            "spark.hadoop.fs.s3a.path.style.access": "true",
-            "spark.hadoop.fs.s3a.connection.ssl.enabled": "false",
-
-            # JDBC
-            "spark.jars.packages": "org.postgresql:postgresql:42.7.4",
-        },
-        polling_interval=60,  # keep gentle on the webserver; you can lower later
+        verbose=False,
     )
 
     end = EmptyOperator(task_id="end")

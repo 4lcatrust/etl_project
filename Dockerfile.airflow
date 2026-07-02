@@ -3,14 +3,31 @@ FROM apache/airflow:2.10.5
 USER root
 WORKDIR /opt/airflow
 
-# Install only necessary system packages
+# System packages + Java 17 (spark-submit needs a JRE) + procps (ps, used by spark scripts)
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         bash \
         gcc \
         curl \
         wget \
+        procps \
+        openjdk-17-jre-headless \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+
+# Spark 4.0.3 client distribution — provides the spark-submit that SparkSubmitOperator
+# invokes. Version matches the apache/spark:4.0.3 cluster. Extra jars (postgres JDBC,
+# hadoop-aws) are resolved at submit time via spark.jars.packages, so none are baked here.
+ARG SPARK_VERSION=4.0.3
+ENV SPARK_HOME=/opt/spark
+RUN set -eux; \
+    curl -fSL "https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.tgz" -o /tmp/spark.tgz; \
+    mkdir -p "${SPARK_HOME}"; \
+    tar -xzf /tmp/spark.tgz -C "${SPARK_HOME}" --strip-components=1; \
+    rm /tmp/spark.tgz; \
+    test -x "${SPARK_HOME}/bin/spark-submit"
+ENV PATH="${SPARK_HOME}/bin:${PATH}"
 
 # Copy Airflow initialization script
 COPY airflow-init.sh /opt/airflow/init.sh

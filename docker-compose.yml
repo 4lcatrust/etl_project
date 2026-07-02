@@ -1,5 +1,3 @@
-version: '3.9'
-    
 services:
   # DB Sources
   postgres:
@@ -15,6 +13,13 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./postgres:/backup
       - ./postgres-init.sql:/docker-entrypoint-initdb.d/postgres-init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 90s
+    restart: unless-stopped
     networks:
       - db_network
 
@@ -35,6 +40,12 @@ services:
       - ./clickhouse/clickhouse-init.sql:/docker-entrypoint-initdb.d/clickhouse-init.sql
       - ./clickhouse/clickhouse-config.xml:/etc/clickhouse-server/config.xml
       - ./clickhouse/clickhouse-user.xml:/etc/clickhouse-server/users.xml
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8123/ping || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
     networks:
       - db_network
 
@@ -52,73 +63,58 @@ services:
     volumes:
       - ./minio/data:/data
       - ./minio/minio-init.sh:/entrypoint.sh
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:9000/minio/health/live || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    restart: unless-stopped
     networks:
       - db_network
 
 
-  # Spark Master
+  # Spark Master (official image, standalone mode)
   spark-master:
-    image: bitnamilegacy/spark:3.5.6
+    image: apache/spark:4.0.3-scala2.13-java17-python3-ubuntu
     container_name: spark-master
-    environment:
-      - SPARK_MODE=master
-      - SPARK_MASTER_HOST=spark-master
-      - SPARK_MASETER_PORT=7077
-      - SPARK_MASTER_WEBUI_PORT=8080
-      - SPARK_MASTER_OPTS=-Dspark.master.rest.enabled=true
-      # - SPARK_SUBMIT_OPTIONS=--conf spark.jars.ivy=/opt/bitnami/.ivy2
+    entrypoint: ["/opt/spark/bin/spark-class"]
+    command: ["org.apache.spark.deploy.master.Master", "--host", "spark-master", "--port", "7077", "--webui-port", "8080"]
     ports:
       - "7077:7077"
       - "8000:8080"
-      - "6066:6066"
     volumes:
-      - ./spark/jobs:/opt/bitnami/spark/jobs
-      - ./spark/jars/:/opt/bitnami/spark/user-jars
-      - ./spark/conf:/opt/bitnami/spark/conf
-      - ./spark/etc_passwd:/etc/passwd
+      - ./spark/jobs:/opt/spark/jobs
+    healthcheck:
+      test: ["CMD-SHELL", "python3 -c \"import socket; socket.create_connection(('localhost', 8080), 5)\" || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    restart: unless-stopped
     networks:
       - db_network
 
-  # Spark Worker
+  # Spark Worker (official image, standalone mode)
   spark-worker-1:
-    image: bitnamilegacy/spark:3.5.6
+    image: apache/spark:4.0.3-scala2.13-java17-python3-ubuntu
     container_name: spark-worker-1
-    depends_on:
-      - spark-master
+    entrypoint: ["/opt/spark/bin/spark-class"]
+    command: ["org.apache.spark.deploy.worker.Worker", "spark://spark-master:7077", "--cores", "2", "--memory", "4G", "--webui-port", "8081"]
     environment:
-      - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark-master:7077
-      - SPARK_WORKER_CORES=2
-      - SPARK_WORKER_MEMORY=4G
       - PYSPARK_PYTHON=python3
-      # - SPARK_SUBMIT_OPTIONS=--conf spark.jars.ivy=/opt/bitnami/.ivy2
-    volumes:
-      - ./spark/jobs:/opt/bitnami/spark/jobs
-      - ./spark/jars/:/opt/bitnami/spark/user-jars
-      - ./spark/etc_passwd:/etc/passwd
-    networks:
-      - db_network
-
-  # Livy
-  livy:
-    build:
-      context: .
-      dockerfile: Dockerfile.livy
-    image: custom-livy:0.8.0-spark3.5
-    container_name: livy
     depends_on:
-      - spark-master
-      - spark-worker-1
-    ports:
-      - "8998:8998"
-    environment:
-      - USER=airflow
-      - HADOOP_USER_NAME=airflow
-      - SPARK_USER=airflow
-      - SPARK_SUBMIT_OPTS=-Duser.name=airflow
-      - JAVA_TOOL_OPTIONS=-Duser.name=airflow
+      spark-master:
+        condition: service_healthy
     volumes:
-      - ./spark/jobs:/opt/bitnami/spark/jobs
+      - ./spark/jobs:/opt/spark/jobs
+    healthcheck:
+      test: ["CMD-SHELL", "python3 -c \"import socket; socket.create_connection(('localhost', 8081), 5)\" || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    restart: unless-stopped
     networks:
       - db_network
 
@@ -128,6 +124,12 @@ services:
     container_name: redis
     ports:
       - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
     networks:
       - db_network
 
@@ -144,6 +146,12 @@ services:
       - "5433:5432"
     volumes:
       - airflow_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${AIRFLOW_DB_USER} -d ${AIRFLOW_DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
     networks:
       - db_network
 
@@ -154,12 +162,18 @@ services:
     env_file:
       - .env
     depends_on:
-      - airflow_db
-      - redis
-      - postgres
-      - clickhouse
-      - minio
-      - spark-master
+      airflow_db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      clickhouse:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+      spark-master:
+        condition: service_healthy
     environment:
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow_db:5432/${AIRFLOW_DB_NAME}
@@ -179,9 +193,16 @@ services:
       - "8080:8080"
     volumes:
       - ./dags:/opt/airflow/dags
-      - ./logs:/opt/airflow/logs
-      - ./plugins:/opt/airflow/plugins
+      - ./spark/jobs:/opt/airflow/spark/jobs
+      - airflow_logs:/opt/airflow/logs
+      - airflow_plugins:/opt/airflow/plugins
       - ./variables.json:/opt/airflow/variables.json
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8080/health || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 150s
     command: >
       bash -c "
         /opt/airflow/init.sh &&
@@ -198,7 +219,7 @@ services:
       - .env
     depends_on:
       airflow_webserver:
-        condition: service_started
+        condition: service_healthy
     environment:
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow_db:5432/${AIRFLOW_DB_NAME}
@@ -209,8 +230,9 @@ services:
       JAVA_HOME: "/usr/lib/jvm/java-17-openjdk-amd64"
     volumes:
       - ./dags:/opt/airflow/dags
-      - ./logs:/opt/airflow/logs
-      - ./plugins:/opt/airflow/plugins
+      - ./spark/jobs:/opt/airflow/spark/jobs
+      - airflow_logs:/opt/airflow/logs
+      - airflow_plugins:/opt/airflow/plugins
       - ./variables.json:/opt/airflow/variables.json
     command: ["airflow", "scheduler"]
     networks:
@@ -223,8 +245,8 @@ services:
     env_file:
       - .env
     depends_on:
-      airflow_scheduler:
-        condition: service_started
+      airflow_webserver:
+        condition: service_healthy
     environment:
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow_db:5432/${AIRFLOW_DB_NAME}
@@ -235,8 +257,9 @@ services:
       JAVA_HOME: "/usr/lib/jvm/java-17-openjdk-amd64"
     volumes:
       - ./dags:/opt/airflow/dags
-      - ./logs:/opt/airflow/logs
-      - ./plugins:/opt/airflow/plugins
+      - ./spark/jobs:/opt/airflow/spark/jobs
+      - airflow_logs:/opt/airflow/logs
+      - airflow_plugins:/opt/airflow/plugins
       - ./variables.json:/opt/airflow/variables.json
     command: ["airflow", "celery", "worker"]
     networks:
@@ -245,8 +268,9 @@ services:
 volumes:
   postgres_data:
   clickhouse_data:
-  minio_data:
   airflow_db:
+  airflow_logs:
+  airflow_plugins:
 
 networks:
   db_network:

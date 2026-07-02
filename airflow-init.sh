@@ -68,28 +68,14 @@ until curl -s http://spark-master:8080 > /dev/null 2>&1; do
     sleep 2
 done
 
-# Wait for Livy
-echo "🔍 Checking Livy..."
-until curl -sf http://livy:8998/sessions > /dev/null 2>&1; do
-  echo "Waiting for Livy..."
-  sleep 2
-done
-
-
 echo "🔗 Creating connections..."
 
-# Spark connection
+# Spark connection (standalone master, client deploy mode)
 add_connection_if_not_exists 'spark' \
   --conn-type 'spark' \
   --conn-host 'spark://spark-master' \
   --conn-port 7077 \
-  --conn-extra '{"deploy_mode": "cluster", "spark_binary": "spark-submit"}'
-
-add_connection_if_not_exists 'livy' \
-  --conn-type 'livy' \
-  --conn-host 'livy' \
-  --conn-port 8998 \
-  --conn-extra '{"auth_type": "NONE"}'
+  --conn-extra '{"deploy-mode": "client", "spark-binary": "spark-submit"}'
 
 # PostgreSQL connection (credentials from .env)
 add_connection_if_not_exists 'postgres' \

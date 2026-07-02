@@ -1,6 +1,5 @@
 apache-airflow-providers-postgres
 apache-airflow-providers-redis
-apache-airflow-providers-apache-livy
 apache-airflow-providers-apache-spark
 airflow-providers-clickhouse
 clickhouse-connect
