@@ -70,10 +70,10 @@ def make_spark(app_name: str) -> SparkSession:
         .config("spark.sql.warehouse.dir", "file:/tmp/spark-warehouse")
         .getOrCreate()
     )
-    # quiet and lean UI/logging
+    # quiet logging. NOTE: spark.ui.enabled / spark.eventLog.enabled are static
+    # configs in Spark 4.0 and cannot be set at runtime (raises
+    # CANNOT_MODIFY_CONFIG); pass them as spark-submit --conf if you need them.
     spark.sparkContext.setLogLevel("WARN")
-    spark.conf.set("spark.ui.enabled", "false")
-    spark.conf.set("spark.eventLog.enabled", "false")
     return spark
 
 # ---------- helpers ----------
