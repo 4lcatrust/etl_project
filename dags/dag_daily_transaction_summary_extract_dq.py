@@ -1,5 +1,6 @@
 from airflow import DAG
 from airflow.operators.empty import EmptyOperator
+from airflow.operators.python import PythonOperator
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 from datetime import datetime, timedelta
 from module.utilities import get_airflow_variables
@@ -14,12 +15,12 @@ default_args = {
     "retry_delay": timedelta(minutes=5),
 }
 
-# The Spark job now lives on the Airflow worker filesystem (bind-mounted), so the
-# client-mode driver can find it.
-SPARK_JOB = "/opt/airflow/spark/jobs/daily_transaction_summary_extract_dq.py"
+# Spark jobs are bind-mounted onto the Airflow worker so the client-mode driver finds them.
+EXTRACT_JOB = "/opt/airflow/spark/jobs/daily_transaction_summary_extract_dq.py"
+TRANSFORM_JOB = "/opt/airflow/spark/jobs/daily_transaction_summary_transform.py"
+SINK_TABLE = "daily_transaction_summary"
 
-# Baked into the custom-airflow image (see Dockerfile.airflow) and shipped to
-# executors via --jars — avoids the fragile ~558MB Ivy download at submit time.
+# Baked into the custom-airflow image (see Dockerfile.airflow), shipped to executors via --jars.
 EXTRA_JARS = ",".join([
     "/opt/extra-jars/hadoop-aws-3.4.1.jar",
     "/opt/extra-jars/bundle-2.24.6.jar",
@@ -40,7 +41,7 @@ SPARK_CONF = {
     "spark.network.timeout": "600s",
     "spark.executor.heartbeatInterval": "60s",
 
-    # modest shuffle/file sizes (also passed as script args)
+    # modest shuffle/file sizes
     "spark.sql.shuffle.partitions": "8",
     "spark.sql.files.maxRecordsPerFile": "500000",
 
@@ -49,14 +50,12 @@ SPARK_CONF = {
     "spark.hadoop.fs.s3a.committer.name": "directory",
     "spark.hadoop.fs.s3a.fast.upload": "true",
 
-    # client deploy mode: executors must be able to reach the driver, which runs
-    # inside the airflow worker. Use the hyphenated alias (see docker-compose) —
-    # Spark rejects RPC hostnames containing underscores.
+    # client deploy mode: executors reach the driver via the hyphenated worker alias
+    # (Spark rejects RPC hostnames with underscores).
     "spark.driver.host": "airflow-worker",
     "spark.driver.bindAddress": "0.0.0.0",
 
-    # MinIO (S3A). NOTE: credentials still passed via conf here; hardened to a
-    # Hadoop JCEKS credential provider in the follow-up cred step.
+    # MinIO (S3A). Creds via conf here; JCEKS hardening is a follow-up.
     "spark.hadoop.fs.s3a.aws.credentials.provider": "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider",
     "spark.hadoop.fs.s3a.access.key": get_airflow_variables("MINIO_ACCESS_KEY"),
     "spark.hadoop.fs.s3a.secret.key": get_airflow_variables("MINIO_SECRET_KEY"),
@@ -65,6 +64,40 @@ SPARK_CONF = {
     "spark.hadoop.fs.s3a.path.style.access": "true",
     "spark.hadoop.fs.s3a.connection.ssl.enabled": "false",
 }
+
+
+def load_to_clickhouse(**context):
+    """Ingest the gold Parquet for this run's date straight from MinIO into the
+    datamart ReplacingMergeTree via ClickHouse's s3() table function, then dedup."""
+    import clickhouse_connect
+
+    exec_date = context["ds"]
+    client = clickhouse_connect.get_client(
+        host=get_airflow_variables("CLICKHOUSE_CONN"),
+        port=8123,
+        username=get_airflow_variables("CLICKHOUSE_USER"),
+        password=get_airflow_variables("CLICKHOUSE_PASSWORD"),
+    )
+    s3_glob = (
+        f"http://minio:9000/transformed/{SINK_TABLE}/ingestion_date={exec_date}/*.parquet"
+    )
+    client.command(
+        f"""
+        INSERT INTO datamart.{SINK_TABLE}
+            (transaction_date, item_category, total_transaction_value,
+             total_goods_sold, count_transacting_customer)
+        SELECT transaction_date, item_category, total_transaction_value,
+               total_goods_sold, count_transacting_customer
+        FROM s3({{url:String}}, {{key:String}}, {{secret:String}}, 'Parquet')
+        """,
+        parameters={
+            "url": s3_glob,
+            "key": get_airflow_variables("MINIO_ACCESS_KEY"),
+            "secret": get_airflow_variables("MINIO_SECRET_KEY"),
+        },
+    )
+    client.command(f"OPTIMIZE TABLE datamart.{SINK_TABLE} FINAL")
+
 
 with DAG(
     dag_id="dag_daily_transaction_summary_extract_dq",
@@ -79,7 +112,7 @@ with DAG(
     extract_dq = SparkSubmitOperator(
         task_id="extract_dq",
         conn_id="spark",
-        application=SPARK_JOB,
+        application=EXTRACT_JOB,
         name="daily_transaction_summary_extract_and_dq",
         jars=EXTRA_JARS,
         conf=SPARK_CONF,
@@ -97,6 +130,28 @@ with DAG(
         verbose=False,
     )
 
+    transform = SparkSubmitOperator(
+        task_id="transform",
+        conn_id="spark",
+        application=TRANSFORM_JOB,
+        name="daily_transaction_summary_transform",
+        jars=EXTRA_JARS,
+        conf=SPARK_CONF,
+        application_args=[
+            "--exec_date", "{{ ds }}",
+            "--staging_path", "s3a://staging",
+            "--transformed_path", "s3a://transformed",
+            "--shuffle_partitions", "8",
+            "--coalesce_out", "1",
+        ],
+        verbose=False,
+    )
+
+    load = PythonOperator(
+        task_id="load",
+        python_callable=load_to_clickhouse,
+    )
+
     end = EmptyOperator(task_id="end")
 
-    start >> extract_dq >> end
+    start >> extract_dq >> transform >> load >> end
