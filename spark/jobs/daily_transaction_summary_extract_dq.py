@@ -156,7 +156,9 @@ def main():
     for schema, table in TABLE_SOURCE:
         df = read_table(spark, args.pg_url, args.pg_user, args.pg_pass, schema, table)
         out = df.coalesce(args.coalesce_out) if args.coalesce_out > 0 else df
-        path = f"{args.staging_path.rstrip('/')}/{args.exec_date}.{schema}.{table}.parquet"
+        # Hive-style layout: <staging>/<schema>/<table>/ingestion_date=<exec_date>/*.parquet
+        # so readers can partition-prune on ingestion_date and reruns overwrite one date.
+        path = f"{args.staging_path.rstrip('/')}/{schema}/{table}/ingestion_date={args.exec_date}"
         try:
             out.write.mode("overwrite").parquet(path)
             log.info(f"✅ Extracted & saved {table} → {path}")
