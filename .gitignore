@@ -21,3 +21,6 @@ pat.key
 # Secrets — never commit. Copy the *.example templates and fill in real values.
 .env
 variables.json
+
+# Local project memory (not shared)
+CLAUDE.md
