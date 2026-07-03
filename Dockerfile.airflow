@@ -1,4 +1,6 @@
-FROM apache/airflow:2.10.5
+# Python 3.10 to match the apache/spark:4.0.3 executors (PySpark requires the
+# driver and workers to run the same Python minor version).
+FROM apache/airflow:2.10.5-python3.10
 
 USER root
 WORKDIR /opt/airflow
@@ -22,7 +24,8 @@ ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ARG SPARK_VERSION=4.0.3
 ENV SPARK_HOME=/opt/spark
 RUN set -eux; \
-    curl -fSL "https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.tgz" -o /tmp/spark.tgz; \
+    curl -fSL "https://dlcdn.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.tgz" -o /tmp/spark.tgz \
+    || curl -fSL "https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.tgz" -o /tmp/spark.tgz; \
     mkdir -p "${SPARK_HOME}"; \
     tar -xzf /tmp/spark.tgz -C "${SPARK_HOME}" --strip-components=1; \
     rm /tmp/spark.tgz; \
@@ -53,7 +56,7 @@ USER airflow
 
 # Install Python dependencies for DAGs
 ARG AIRFLOW_VERSION=2.10.5
-ARG PYTHON_VERSION=3.12
+ARG PYTHON_VERSION=3.10
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt \
     --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
