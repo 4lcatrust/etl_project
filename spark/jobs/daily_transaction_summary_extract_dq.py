@@ -179,12 +179,15 @@ def main():
                 "metric": k,
                 "value": float(v),
                 "processed_at": datetime.now().isoformat(),
-                "exec_date": args.exec_date,
             })
 
     dq_df = spark.createDataFrame(dq_rows)
-    dq_out = f"{args.dq_path.rstrip('/')}/metrics.parquet"
-    dq_df.write.mode("overwrite").partitionBy("exec_date").parquet(dq_out)
+    # Same Hive-style layout as the staging tables:
+    # <dq_path>/dq_metrics/ingestion_date=<exec_date>/*.parquet. Writing directly
+    # to the partition dir with overwrite replaces just this date (a static
+    # partitionBy overwrite would wipe every date's metrics).
+    dq_out = f"{args.dq_path.rstrip('/')}/dq_metrics/ingestion_date={args.exec_date}"
+    dq_df.write.mode("overwrite").parquet(dq_out)
     log.info(f"✅ Wrote {len(dq_rows)} DQ metrics → {dq_out}")
 
     # thresholds
