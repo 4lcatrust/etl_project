@@ -29,6 +29,21 @@ RUN set -eux; \
     test -x "${SPARK_HOME}/bin/spark-submit"
 ENV PATH="${SPARK_HOME}/bin:${PATH}"
 
+# Bake the S3A + JDBC jars into the image instead of resolving them via Ivy at
+# submit time (the ~558MB AWS SDK bundle is too fragile to pull on every run).
+# The DAG ships these to executors with --jars.
+ARG HADOOP_AWS_VERSION=3.4.1
+ARG AWS_SDK_BUNDLE_VERSION=2.24.6
+ARG POSTGRES_JDBC_VERSION=42.7.5
+RUN set -eux; mkdir -p /opt/extra-jars; cd /opt/extra-jars; \
+    curl -fSL --retry 5 --retry-delay 10 --retry-all-errors -O \
+      "https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/${HADOOP_AWS_VERSION}/hadoop-aws-${HADOOP_AWS_VERSION}.jar"; \
+    curl -fSL --retry 5 --retry-delay 10 --retry-all-errors -O \
+      "https://repo1.maven.org/maven2/software/amazon/awssdk/bundle/${AWS_SDK_BUNDLE_VERSION}/bundle-${AWS_SDK_BUNDLE_VERSION}.jar"; \
+    curl -fSL --retry 5 --retry-delay 10 --retry-all-errors -O \
+      "https://repo1.maven.org/maven2/org/postgresql/postgresql/${POSTGRES_JDBC_VERSION}/postgresql-${POSTGRES_JDBC_VERSION}.jar"; \
+    ls -la /opt/extra-jars
+
 # Copy Airflow initialization script
 COPY airflow-init.sh /opt/airflow/init.sh
 RUN chmod +x /opt/airflow/init.sh

@@ -18,10 +18,12 @@ default_args = {
 # client-mode driver can find it.
 SPARK_JOB = "/opt/airflow/spark/jobs/daily_transaction_summary_extract_dq.py"
 
-# Resolved by Ivy at submit time: PostgreSQL JDBC + S3A (MinIO) for Spark 4.0 / Hadoop 3.4.
-SPARK_PACKAGES = ",".join([
-    "org.postgresql:postgresql:42.7.5",
-    "org.apache.hadoop:hadoop-aws:3.4.1",
+# Baked into the custom-airflow image (see Dockerfile.airflow) and shipped to
+# executors via --jars — avoids the fragile ~558MB Ivy download at submit time.
+EXTRA_JARS = ",".join([
+    "/opt/extra-jars/hadoop-aws-3.4.1.jar",
+    "/opt/extra-jars/bundle-2.24.6.jar",
+    "/opt/extra-jars/postgresql-42.7.5.jar",
 ])
 
 SPARK_CONF = {
@@ -78,7 +80,7 @@ with DAG(
         conn_id="spark",
         application=SPARK_JOB,
         name="daily_transaction_summary_extract_and_dq",
-        packages=SPARK_PACKAGES,
+        jars=EXTRA_JARS,
         conf=SPARK_CONF,
         application_args=[
             "--pg_url", get_airflow_variables("POSTGRES_JDBC_URL"),
