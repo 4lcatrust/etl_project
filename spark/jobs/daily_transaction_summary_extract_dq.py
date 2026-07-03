@@ -146,11 +146,14 @@ def main():
     spark.conf.set("spark.sql.files.maxRecordsPerFile", args.records_per_file)
     spark.conf.set("spark.sql.parquet.compression.codec", "snappy")
 
-    # early probe write (clear S3A misconfig fast)
-    probe = f"{args.staging_path.rstrip('/')}/_probe_{datetime.now().strftime('%Y%m%d%H%M%S')}"
+    # early probe write (clear S3A misconfig fast), then delete it so probes
+    # don't accumulate in the bucket
+    probe = f"{args.staging_path.rstrip('/')}/_probe/{datetime.now().strftime('%Y%m%d%H%M%S')}"
     from pyspark.sql import Row
     spark.createDataFrame([Row(ok=1)]).write.mode("overwrite").parquet(probe)
     log.info(f"✅ S3A probe write OK at {probe}")
+    probe_path = spark._jvm.org.apache.hadoop.fs.Path(probe)
+    probe_path.getFileSystem(spark._jsc.hadoopConfiguration()).delete(probe_path, True)
 
     dataframes = {}
     for schema, table in TABLE_SOURCE:
