@@ -272,7 +272,11 @@ services:
       - ./variables.json:/opt/airflow/variables.json
     command: ["airflow", "celery", "worker"]
     networks:
-      - db_network
+      db_network:
+        # Spark rejects RPC hostnames with underscores; expose a hyphenated
+        # alias the driver can advertise (spark.driver.host in the DAG).
+        aliases:
+          - airflow-worker
 
 volumes:
   postgres_data:

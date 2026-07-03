@@ -50,8 +50,9 @@ SPARK_CONF = {
     "spark.hadoop.fs.s3a.fast.upload": "true",
 
     # client deploy mode: executors must be able to reach the driver, which runs
-    # inside the airflow_worker container.
-    "spark.driver.host": "airflow_worker",
+    # inside the airflow worker. Use the hyphenated alias (see docker-compose) —
+    # Spark rejects RPC hostnames containing underscores.
+    "spark.driver.host": "airflow-worker",
     "spark.driver.bindAddress": "0.0.0.0",
 
     # MinIO (S3A). NOTE: credentials still passed via conf here; hardened to a
