@@ -1,0 +1,16 @@
+# ==== postgres_dim_payment_vld.yaml ====
+table: dim_payment
+primary_key: payment_key
+
+schema:
+  - name: payment_key
+    type: string
+  - name: trans_type
+    type: string
+  - name: bank_name
+    type: string
+
+validation_rules:
+  - id: not_null_payment_key
+    rule: not_null
+    columns: ["payment_key"]

@@ -1,0 +1,3 @@
+# Config YAMLs, not DAGs — exclude this whole tree from the DAG file processor.
+# (Regexp syntax, applied recursively to config/ and config/validation/.)
+.*

@@ -1,0 +1,37 @@
+# ==== postgres_table_list.yaml ====
+# Source-level manifest for the Postgres bronze ingestion (ported from boreas's
+# <src>_table_list.yaml). The bronze DAG factory reads this to fan out one mapped
+# extract task per table; each table's schema + rules live in
+# config/validation/postgres_<table>_vld.yaml.
+db_name: postgres
+schema_name_default: public
+
+# boreas templates incremental/initial/reconcile SQL windows here (appended as
+# --filter_condition fragments to the source SELECT). deso-query's demo tables are
+# static snapshot dims/facts with no updated_at column, so we load them in full and
+# leave the windows unset. Retained (commented) as the contract for timestamped
+# sources arriving later (e.g. the MySQL source in Phase D).
+#
+# filter_conditions:
+#   incremental_load:
+#     - "AND updated_at >= TIMESTAMP '{start_date}'"
+#     - "AND updated_at <  TIMESTAMP '{end_date}'"
+
+tables:
+  - schema_name: public
+    table_name: dim_customer
+
+  - schema_name: public
+    table_name: dim_item
+
+  - schema_name: public
+    table_name: dim_payment
+
+  - schema_name: public
+    table_name: dim_store
+
+  - schema_name: public
+    table_name: dim_time
+
+  - schema_name: public
+    table_name: fct_transactions

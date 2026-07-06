@@ -1,0 +1,26 @@
+# ==== postgres_dim_time_vld.yaml ====
+table: dim_time
+primary_key: time_key
+
+schema:
+  - name: time_key
+    type: string
+  - name: date
+    type: string
+  - name: hour
+    type: int32
+  - name: day
+    type: int32
+  - name: week
+    type: string
+  - name: month
+    type: int32
+  - name: quarter
+    type: string
+  - name: year
+    type: int32
+
+validation_rules:
+  - id: not_null_time_key
+    rule: not_null
+    columns: ["time_key"]

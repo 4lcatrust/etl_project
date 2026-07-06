@@ -1,0 +1,18 @@
+# ==== postgres_dim_store_vld.yaml ====
+table: dim_store
+primary_key: store_key
+
+schema:
+  - name: store_key
+    type: string
+  - name: division
+    type: string
+  - name: district
+    type: string
+  - name: upazila
+    type: string
+
+validation_rules:
+  - id: not_null_store_key
+    rule: not_null
+    columns: ["store_key"]

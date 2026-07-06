@@ -1,0 +1,28 @@
+# ==== postgres_dim_item_vld.yaml ====
+table: dim_item
+primary_key: item_key
+
+schema:
+  - name: item_key
+    type: string
+  - name: item_name
+    type: string
+  - name: desc
+    type: string
+  - name: unit_price
+    type: float32
+  - name: man_country
+    type: string
+  - name: supplier
+    type: string
+  - name: unit
+    type: string
+
+validation_rules:
+  - id: not_null_item_key
+    rule: not_null
+    columns: ["item_key"]
+
+  - id: positive_unit_price
+    rule: positive_number
+    columns: ["unit_price"]
