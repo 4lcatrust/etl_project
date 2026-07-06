@@ -23,6 +23,7 @@ mc mb minio/staging || true
 mc mb minio/staging-dq || true
 mc mb minio/transformed || true
 mc mb minio/transformed-dq || true
+mc mb minio/iceberg-warehouse || true
 
 echo "✅ Buckets created. Passing control to MinIO process."
 

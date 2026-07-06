@@ -47,6 +47,15 @@ RUN set -eux; mkdir -p /opt/extra-jars; cd /opt/extra-jars; \
       "https://repo1.maven.org/maven2/org/postgresql/postgresql/${POSTGRES_JDBC_VERSION}/postgresql-${POSTGRES_JDBC_VERSION}.jar"; \
     ls -la /opt/extra-jars
 
+# Iceberg Spark runtime for Spark 4.0 / Scala 2.13
+ARG ICEBERG_VERSION=1.10.2
+ARG SPARK_VERSION_SHORT=4.0
+ARG SCALA_VERSION=2.13
+RUN set -eux; cd /opt/extra-jars; \
+    curl -fSL --retry 5 --retry-delay 10 --retry-all-errors -O \
+      "https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-spark-runtime-${SPARK_VERSION_SHORT}_${SCALA_VERSION}/${ICEBERG_VERSION}/iceberg-spark-runtime-${SPARK_VERSION_SHORT}_${SCALA_VERSION}-${ICEBERG_VERSION}.jar"; \
+    ls -la /opt/extra-jars
+
 # Copy Airflow initialization script
 COPY airflow-init.sh /opt/airflow/init.sh
 RUN chmod +x /opt/airflow/init.sh
