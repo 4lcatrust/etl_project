@@ -93,10 +93,9 @@ flowchart LR
 1. Clone the repository.
 2. Open terminal / command prompt and change directory to the project folder (`deso-query/`)
 3. Build Airflow image with `docker build -t custom-airflow:latest -f Dockerfile.airflow .`
-4. Build Livy image with `docker compose build livy`
-5. Start services with `docker-compose up -d`.
-6. Trigger the ETL DAG in Airflow.
+4. Start services with `docker-compose up -d`.
+5. Trigger the ETL DAG in Airflow.
 
 ---
 
-For more details, see the [dags/dag_daily_transaction_summary.py](dags/dag_daily_transaction_summary.py)
+For more details, see the [dags/dag_daily_transaction_summary_extract_dq.py](dags/dag_daily_transaction_summary_extract_dq.py)
