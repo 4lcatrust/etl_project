@@ -1,3 +1,13 @@
+# ---------- Scala bronze-extractor build stage ----------
+# Compiles the Phase B bronze-extract JAR (spark/scala/) so it lands in /opt/extra-jars
+# alongside the other job dependencies. Client-mode only for now (B1): the driver runs in
+# this image (airflow_worker), so it needs the jar locally. Cluster-mode (B2) additionally
+# needs it on spark-worker-1, delivered separately via a shared volume.
+FROM sbtscala/scala-sbt:eclipse-temurin-17.0.19_10_1.12.13_2.13.18 AS scala-builder
+WORKDIR /build
+COPY spark/scala/ .
+RUN sbt -batch assembly
+
 # Python 3.10 to match the apache/spark:4.0.3 executors (PySpark requires the
 # driver and workers to run the same Python minor version).
 FROM apache/airflow:2.10.5-python3.10
@@ -55,6 +65,9 @@ RUN set -eux; cd /opt/extra-jars; \
     curl -fSL --retry 5 --retry-delay 10 --retry-all-errors -O \
       "https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-spark-runtime-${SPARK_VERSION_SHORT}_${SCALA_VERSION}/${ICEBERG_VERSION}/iceberg-spark-runtime-${SPARK_VERSION_SHORT}_${SCALA_VERSION}-${ICEBERG_VERSION}.jar"; \
     ls -la /opt/extra-jars
+
+# Bronze-extractor JAR, compiled in the scala-builder stage above.
+COPY --from=scala-builder /build/target/scala-2.13/*.jar /opt/extra-jars/
 
 # Copy Airflow initialization script
 COPY airflow-init.sh /opt/airflow/init.sh
