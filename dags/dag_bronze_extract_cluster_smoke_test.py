@@ -71,6 +71,13 @@ SPARK_CONF = {
     "spark.sql.shuffle.partitions": "8",
     "spark.sql.files.maxRecordsPerFile": "500000",
 
+    # Force spark-submit to use the standalone REST client (port 6066) instead of the legacy
+    # Netty RPC client. Spark 4.0 reads this on the SUBMIT side too:
+    #   useRest = sparkProperties.getOrElse("spark.master.rest.enabled", "false").toBoolean
+    # Without it the legacy client targets the REST HTTP port and dies on "Too large frame".
+    # (The master enables the server via SPARK_MASTER_OPTS; both sides need the flag.)
+    "spark.master.rest.enabled": "true",
+
     # Spark 4.0's SimplifyCasts optimizer can emit an invalid plan on collation-aware
     # StringType casts (PLAN_VALIDATION_FAILED_RULE_IN_BATCH). We already avoid no-op casts
     # in the job; exclude the rule as a belt-and-suspenders guard for the remaining casts.
