@@ -3,7 +3,7 @@
   "POSTGRES_JDBC_URL": "jdbc:postgresql://postgres_db:5432/public",
   "POSTGRES_USER": "postgres",
   "POSTGRES_PASSWORD": "change-me",
-  "MYSQL_JDBC_URL": "jdbc:mysql://mysql_db:3306/app",
+  "MYSQL_JDBC_URL": "jdbc:mysql://mysql_db:3306/app?allowPublicKeyRetrieval=true&useSSL=false",
   "MYSQL_USER": "app_user",
   "MYSQL_PASSWORD": "change-me",
   "CLICKHOUSE_CONN": "clickhouse_db",
