@@ -1,0 +1,30 @@
+# ==== mysql_customers_vld.yaml ====
+table: customers
+primary_key: id
+
+schema:
+  - name: id
+    type: int64
+  - name: full_name
+    type: string
+  - name: email
+    type: string
+  - name: is_active
+    type: boolean
+  - name: credit_limit
+    type: numeric(10,2)
+  - name: created_at
+    type: timestamp
+
+validation_rules:
+  - id: not_null_id
+    rule: not_null
+    columns: ["id"]
+
+  - id: not_null_email
+    rule: not_null
+    columns: ["email"]
+
+  - id: positive_credit_limit
+    rule: positive_number
+    columns: ["credit_limit"]

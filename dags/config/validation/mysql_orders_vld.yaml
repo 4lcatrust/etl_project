@@ -1,0 +1,24 @@
+# ==== mysql_orders_vld.yaml ====
+table: orders
+primary_key: id
+
+schema:
+  - name: id
+    type: int64
+  - name: customer_id
+    type: int64
+  - name: amount
+    type: numeric(10,2)
+  - name: status
+    type: string
+  - name: ordered_at
+    type: timestamp
+
+validation_rules:
+  - id: not_null_id
+    rule: not_null
+    columns: ["id"]
+
+  - id: positive_amount
+    rule: positive_number
+    columns: ["amount"]

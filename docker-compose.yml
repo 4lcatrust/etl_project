@@ -23,6 +23,30 @@ services:
     networks:
       - db_network
 
+  # DB Source #2 (MySQL OLTP) — proves multi-source ingestion via the same Scala JAR.
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql-init.sql:/docker-entrypoint-initdb.d/mysql-init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p$${MYSQL_ROOT_PASSWORD} --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 90s
+    restart: unless-stopped
+    networks:
+      - db_network
+
   # DB Sink
   clickhouse:
     image: clickhouse/clickhouse-server:24.8-alpine 
@@ -204,6 +228,8 @@ services:
         condition: service_healthy
       postgres:
         condition: service_healthy
+      mysql:
+        condition: service_healthy
       clickhouse:
         condition: service_healthy
       minio:
@@ -313,6 +339,7 @@ services:
 
 volumes:
   postgres_data:
+  mysql_data:
   clickhouse_data:
   airflow_db:
   airflow_logs:

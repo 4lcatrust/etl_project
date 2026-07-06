@@ -1,16 +1,18 @@
 from airflow.models import Variable
 
-def get_airflow_variables(key : str):
-    airflow_variables = {
-        "LOCAL_AIRFLOW_PATH" : Variable.get("LOCAL_AIRFLOW_PATH"),
-        "POSTGRES_JDBC_URL" : Variable.get("POSTGRES_JDBC_URL"),
-        "POSTGRES_USER" : Variable.get("POSTGRES_USER"),
-        "POSTGRES_PASSWORD" : Variable.get("POSTGRES_PASSWORD"),
-        "CLICKHOUSE_CONN" : Variable.get("CLICKHOUSE_CONN"),
-        "CLICKHOUSE_USER" : Variable.get("CLICKHOUSE_USER"),
-        "CLICKHOUSE_PASSWORD" : Variable.get("CLICKHOUSE_PASSWORD"),
-        "MINIO_ACCESS_KEY" : Variable.get("MINIO_ACCESS_KEY"),
-        "MINIO_SECRET_KEY" : Variable.get("MINIO_SECRET_KEY"),
-        "MINIO_ENDPOINT" : Variable.get("MINIO_ENDPOINT")
-    }
-    return airflow_variables[key]
+# Known Variable keys, kept as a documented allow-list. Resolution is lazy (only the
+# requested key hits the metadata DB) so one source's missing Variables don't break
+# another source's DAG, and callers don't pay N Variable.get() calls per invocation.
+KNOWN_VARIABLES = {
+    "LOCAL_AIRFLOW_PATH",
+    "POSTGRES_JDBC_URL", "POSTGRES_USER", "POSTGRES_PASSWORD",
+    "MYSQL_JDBC_URL", "MYSQL_USER", "MYSQL_PASSWORD",
+    "CLICKHOUSE_CONN", "CLICKHOUSE_USER", "CLICKHOUSE_PASSWORD",
+    "MINIO_ACCESS_KEY", "MINIO_SECRET_KEY", "MINIO_ENDPOINT",
+}
+
+
+def get_airflow_variables(key: str):
+    if key not in KNOWN_VARIABLES:
+        raise KeyError(f"Unknown Airflow variable key: {key}")
+    return Variable.get(key)

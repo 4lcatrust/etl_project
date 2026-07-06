@@ -100,17 +100,20 @@ object BronzeExtract {
     Set("string", "utf8", "json", "jsonb").contains(colType.toLowerCase.trim)
 
   /** Build the source SELECT, quoting identifiers and honoring alias_name/expr_override
-    * (port of build_select_sql, minus the Beam-only ::TEXT cast trick). */
-  def buildSelectSql(schemaName: String, tableName: String, schema: List[ColumnDef]): String = {
+    * (port of build_select_sql, minus the Beam-only ::TEXT cast trick). `quote` is the
+    * source dialect's identifier quote char: `"` for Postgres, `` ` `` for MySQL. */
+  def buildSelectSql(schemaName: String, tableName: String, schema: List[ColumnDef],
+                     quote: String = "\""): String = {
+    def q(id: String): String = s"$quote$id$quote"
     val exprs = schema.map { col =>
       val alias = col.alias_name.getOrElse(col.name)
       col.expr_override match {
-        case Some(expr) => s"""$expr AS "$alias""""
-        case None if alias != col.name => s""""${col.name}" AS "$alias""""
-        case None                      => s""""${col.name}""""
+        case Some(expr) => s"$expr AS ${q(alias)}"
+        case None if alias != col.name => s"${q(col.name)} AS ${q(alias)}"
+        case None                      => q(col.name)
       }
     }
-    s"""SELECT ${exprs.mkString(", ")} FROM $schemaName."$tableName" WHERE 1=1"""
+    s"SELECT ${exprs.mkString(", ")} FROM $schemaName.${q(tableName)} WHERE 1=1"
   }
 
   def addFilterConditions(sql: String, conditions: List[String]): String =
@@ -172,18 +175,23 @@ object BronzeExtract {
     import spark.implicits._
 
     // ---------- 1. read ----------
+    // Identifier quote char for the source dialect: `"` (Postgres, default) or `` ` `` (MySQL).
+    val identQuote = args.opt("identifier_quote").getOrElse("\"")
     val baseSql = args.opt("query").getOrElse(
-      buildSelectSql(args.req("schema_name"), tableName, schema)
+      buildSelectSql(args.req("schema_name"), tableName, schema, identQuote)
     )
     val sql = addFilterConditions(baseSql, args.filterConditions)
     println(s"[BronzeExtract] source SQL:\n$sql")
 
+    // JDBC driver class; defaults to Postgres so existing callers are unchanged. MySQL
+    // passes --jdbc_driver com.mysql.cj.jdbc.Driver (the same JAR serves both sources).
+    val jdbcDriver = args.opt("jdbc_driver").getOrElse("org.postgresql.Driver")
     var reader = spark.read.format("jdbc")
       .option("url", args.req("jdbc_url"))
       .option("query", sql)
       .option("user", args.req("username"))
       .option("password", args.req("password"))
-      .option("driver", "org.postgresql.Driver")
+      .option("driver", jdbcDriver)
     args.optInt("fetch_size").foreach(fs => reader = reader.option("fetchsize", fs))
     for {
       numPartitions   <- args.optInt("num_partitions")

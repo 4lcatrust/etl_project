@@ -23,10 +23,13 @@ from module.utilities import get_airflow_variables
 
 BRONZE_EXTRACTOR_JAR = "/opt/extra-jars/bronze-extractor-assembly-0.1.0.jar"
 
+# Both JDBC drivers ship on every run (harmless when unused) so one factory serves all
+# sources; --jdbc_driver picks the right one per source.
 EXTRA_JARS = ",".join([
     "/opt/extra-jars/hadoop-aws-3.4.1.jar",
     "/opt/extra-jars/bundle-2.24.6.jar",
     "/opt/extra-jars/postgresql-42.7.5.jar",
+    "/opt/extra-jars/mysql-connector-j-8.4.0.jar",
     "/opt/extra-jars/iceberg-spark-runtime-4.0_2.13-1.10.2.jar",
 ])
 
@@ -87,8 +90,9 @@ def bronze_dataset(db_name: str) -> Dataset:
     return Dataset(f"iceberg://bronze/{db_name}")
 
 
-def _build_arg_sets(source: str, db_name: str, schema_name_default: str,
-                    tables: list, jdbc_url_var: str, user_var: str, password_var: str):
+def _build_arg_sets(source: str, db_name: str, schema_name_default: str, tables: list,
+                    jdbc_url_var: str, user_var: str, password_var: str,
+                    jdbc_driver: str, identifier_quote: str):
     """One application_args list per table, for the mapped extract task."""
     arg_sets = []
     for t in tables:
@@ -99,6 +103,8 @@ def _build_arg_sets(source: str, db_name: str, schema_name_default: str,
             "--jdbc_url", get_airflow_variables(jdbc_url_var),
             "--username", get_airflow_variables(user_var),
             "--password", get_airflow_variables(password_var),
+            "--jdbc_driver", jdbc_driver,
+            "--identifier_quote", identifier_quote,
             "--schema_name", schema_name,
             "--table_name", table_name,
             "--db_name", db_name,
@@ -112,9 +118,14 @@ def _build_arg_sets(source: str, db_name: str, schema_name_default: str,
 
 
 def build_bronze_dag(*, source: str, jdbc_url_var: str, user_var: str, password_var: str,
-                     db_name: str = None, conn_id: str = "spark", spark_conf: dict = None,
-                     schedule=None, tags: list = None) -> DAG:
-    """Build the bronze DAG for `source` from config/<source>_table_list.yaml."""
+                     db_name: str = None, jdbc_driver: str = "org.postgresql.Driver",
+                     identifier_quote: str = '"', conn_id: str = "spark",
+                     spark_conf: dict = None, schedule=None, tags: list = None) -> DAG:
+    """Build the bronze DAG for `source` from config/<source>_table_list.yaml.
+
+    jdbc_driver / identifier_quote default to Postgres; MySQL passes
+    com.mysql.cj.jdbc.Driver and a backtick.
+    """
     table_list = load_table_list(source)
     db_name = db_name or table_list.get("db_name", source)
     schema_name_default = table_list.get("schema_name_default", "public")
@@ -122,7 +133,8 @@ def build_bronze_dag(*, source: str, jdbc_url_var: str, user_var: str, password_
 
     conf = spark_conf if spark_conf is not None else client_spark_conf()
     arg_sets = _build_arg_sets(
-        source, db_name, schema_name_default, tables, jdbc_url_var, user_var, password_var
+        source, db_name, schema_name_default, tables, jdbc_url_var, user_var, password_var,
+        jdbc_driver, identifier_quote,
     )
 
     default_args = {
