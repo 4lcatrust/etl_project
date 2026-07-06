@@ -219,7 +219,10 @@ object BronzeExtract {
     val quarantineTable = s"$catalog.quarantine.${dbName}__$tableName"
     val auditTable = s"$catalog.audit.validation_summary"
 
-    val bronzeCols = (schema.map(c => s""""${c.alias_name.getOrElse(c.name)}" ${sparkTypeFor(c.`type`)}""") :+
+    // Spark SQL quotes identifiers with backticks, not double quotes (double quotes are
+    // string literals) -- unlike the Postgres-side buildSelectSql, which correctly uses
+    // double quotes since that SQL runs against Postgres.
+    val bronzeCols = (schema.map(c => s"`${c.alias_name.getOrElse(c.name)}` ${sparkTypeFor(c.`type`)}") :+
       "ingestion_date DATE").mkString(", ")
     spark.sql(s"CREATE NAMESPACE IF NOT EXISTS $catalog.bronze")
     spark.sql(s"CREATE NAMESPACE IF NOT EXISTS $catalog.quarantine")
