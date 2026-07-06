@@ -77,6 +77,15 @@ add_connection_if_not_exists 'spark' \
   --conn-port 7077 \
   --conn-extra '{"deploy-mode": "client", "spark-binary": "spark-submit"}'
 
+# Spark connection (standalone master, cluster deploy mode) — Phase B2. Targets the REST
+# submission server (port 6066) so the driver runs on spark-worker-1 and SparkSubmitOperator
+# can poll its status. Kept separate so the client-mode 'spark' connection stays untouched.
+add_connection_if_not_exists 'spark_cluster' \
+  --conn-type 'spark' \
+  --conn-host 'spark://spark-master' \
+  --conn-port 6066 \
+  --conn-extra '{"deploy-mode": "cluster", "spark-binary": "spark-submit"}'
+
 # PostgreSQL connection (credentials from .env)
 add_connection_if_not_exists 'postgres' \
   --conn-type 'postgres' \

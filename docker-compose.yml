@@ -80,9 +80,16 @@ services:
     container_name: spark-master
     entrypoint: ["/opt/spark/bin/spark-class"]
     command: ["org.apache.spark.deploy.master.Master", "--host", "spark-master", "--port", "7077", "--webui-port", "8080"]
+    environment:
+      # Enable the standalone REST submission server (port 6066) so cluster deploy-mode
+      # submissions (Phase B2) return a driver id that SparkSubmitOperator can poll via
+      # `spark-submit --status`. spark-class honors SPARK_MASTER_OPTS for the Master class.
+      # Local docker network only — the REST server is not exposed beyond the host.
+      - SPARK_MASTER_OPTS=-Dspark.master.rest.enabled=true
     ports:
       - "7077:7077"
       - "8000:8080"
+      - "6066:6066"
     volumes:
       - ./spark/jobs:/opt/spark/jobs
     healthcheck:
@@ -92,6 +99,26 @@ services:
       retries: 12
       start_period: 20s
     restart: unless-stopped
+    networks:
+      - db_network
+
+  # One-shot: publish the baked bronze-extract + dependency jars from the custom-airflow
+  # image into a shared volume so spark-worker-1 (the driver's home in cluster deploy-mode)
+  # can reach them by local path. Reuses custom-airflow's already-populated /opt/extra-jars,
+  # so there's no second image to build or duplicate downloads. Runs as root to write the
+  # freshly-created (root-owned) volume; curl'd jars are world-readable (644) for the worker.
+  spark_jars_init:
+    image: custom-airflow:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    container_name: spark_jars_init
+    user: root
+    entrypoint: ["bash", "-c"]
+    command: ["cp -av /opt/extra-jars/. /shared-jars/ && ls -la /shared-jars"]
+    volumes:
+      - spark_extra_jars:/shared-jars
+    restart: "no"
     networks:
       - db_network
 
@@ -106,8 +133,14 @@ services:
     depends_on:
       spark-master:
         condition: service_healthy
+      # Wait until the jars are in the shared volume before the worker (and any driver it
+      # hosts in cluster mode) starts, so /opt/extra-jars is populated on first use.
+      spark_jars_init:
+        condition: service_completed_successfully
     volumes:
       - ./spark/jobs:/opt/spark/jobs
+      # Cluster-mode driver + executors resolve the app/dependency jars from here (read-only).
+      - spark_extra_jars:/opt/extra-jars:ro
     healthcheck:
       test: ["CMD-SHELL", "python3 -c \"import socket; socket.create_connection(('localhost', 8081), 5)\" || exit 1"]
       interval: 10s
@@ -284,6 +317,9 @@ volumes:
   airflow_db:
   airflow_logs:
   airflow_plugins:
+  # Bronze-extract + dependency jars, published by spark_jars_init, mounted into spark-worker-1
+  # so cluster deploy-mode drivers/executors can reach them (Phase B2).
+  spark_extra_jars:
 
 networks:
   db_network:
