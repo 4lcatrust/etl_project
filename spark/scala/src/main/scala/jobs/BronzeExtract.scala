@@ -200,9 +200,17 @@ object BronzeExtract {
     val rawDf = reader.load()
 
     // ---------- 2. coerce to canonical types ----------
+    // Only cast when the JDBC-read type differs from the canonical target. Casting a column to
+    // its own type is a no-op that Spark 4.0's SimplifyCasts optimizer mishandles under the
+    // collation-aware StringType (PLAN_VALIDATION_FAILED_RULE_IN_BATCH: "previously resolved and
+    // now became unresolved"), so we skip it rather than lean on the optimizer to remove it.
+    import org.apache.spark.sql.types.DataType
+    val rawTypes = rawDf.schema.fields.map(f => f.name -> f.dataType).toMap
     val castExprs = schema.map { c =>
       val alias = c.alias_name.getOrElse(c.name)
-      col(alias).cast(sparkTypeFor(c.`type`)).as(alias)
+      val target = DataType.fromDDL(sparkTypeFor(c.`type`))
+      if (rawTypes.get(alias).contains(target)) col(alias)
+      else col(alias).cast(target).as(alias)
     }
     val typedDf = rawDf.select(castExprs: _*).withColumn("ingestion_date", lit(ingestionDate).cast("date"))
     val inputCount = typedDf.count()

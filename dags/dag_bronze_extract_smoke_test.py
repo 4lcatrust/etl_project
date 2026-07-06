@@ -68,6 +68,11 @@ SPARK_CONF = {
     "spark.sql.shuffle.partitions": "8",
     "spark.sql.files.maxRecordsPerFile": "500000",
 
+    # Spark 4.0's SimplifyCasts optimizer can emit an invalid plan on collation-aware
+    # StringType casts (PLAN_VALIDATION_FAILED_RULE_IN_BATCH). We already avoid no-op casts
+    # in the job; exclude the rule as a belt-and-suspenders guard for the remaining casts.
+    "spark.sql.optimizer.excludedRules": "org.apache.spark.sql.catalyst.optimizer.SimplifyCasts",
+
     "spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version": "2",
     "spark.hadoop.fs.s3a.committer.name": "directory",
     "spark.hadoop.fs.s3a.fast.upload": "true",
