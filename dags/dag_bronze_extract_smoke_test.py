@@ -27,7 +27,7 @@ EXTRA_JARS = ",".join([
     "/opt/extra-jars/iceberg-spark-runtime-4.0_2.13-1.10.2.jar",
 ])
 
-# dim_item schema (see postgres-init.sql). "desc" needs no special handling here since
+# item schema (see postgres-init.sql). "desc" needs no special handling here since
 # Scala reads it as a plain column name via the --query override below.
 SCHEMA = [
     {"name": "item_key", "type": "string"},
@@ -44,11 +44,11 @@ VALIDATION_RULES = [
     {"id": "positive_unit_price", "rule": "positive_number", "columns": ["unit_price"]},
 ]
 
-# Real dim_item data has no bad rows, so union in one synthetic bad row (negative
+# Real item data has no bad rows, so union in one synthetic bad row (negative
 # unit_price) to prove the quarantine path works, without mutating the source table.
 SMOKE_QUERY = """
 SELECT item_key, item_name, "desc", unit_price, man_country, supplier, unit
-FROM public.dim_item WHERE 1=1
+FROM public.item WHERE 1=1
 UNION ALL
 SELECT 'SMOKE_TEST_BAD_ROW', 'Bad Item', 'seeded bad row for validation test', -50.0, 'XX', 'Test', 'ea'
 """
@@ -111,7 +111,7 @@ with DAG(
     start = EmptyOperator(task_id="start")
 
     bronze_extract = SparkSubmitOperator(
-        task_id="bronze_extract_dim_item",
+        task_id="bronze_extract_item",
         conn_id="spark",
         application=BRONZE_EXTRACTOR_JAR,
         java_class="jobs.BronzeExtract",
@@ -123,7 +123,7 @@ with DAG(
             "--username", get_airflow_variables("POSTGRES_USER"),
             "--password", get_airflow_variables("POSTGRES_PASSWORD"),
             "--schema_name", "public",
-            "--table_name", "dim_item",
+            "--table_name", "item",
             "--db_name", "postgres",
             "--primary_key", "item_key",
             "--schema_json", json.dumps(SCHEMA),
