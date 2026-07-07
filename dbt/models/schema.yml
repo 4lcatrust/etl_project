@@ -19,10 +19,25 @@ models:
     description: Latest full snapshot of the transaction facts.
     columns:
       - name: item_key
-        tests: [not_null]
+        tests:
+        - not_null
+        - relationships:
+            to: ref('silver_item')
+            field: item_key
+      - name: time_key
+        tests:
+        - not_null
+        - relationships:
+            to: ref('silver_time')
+            field: time_key
 
   - name: silver_monthly_sales
     description: Monthly per-item sales rollup from the daily silver tables.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - sales_month
+            - item_key
     columns:
       - name: sales_month
         tests: [not_null]

@@ -5,7 +5,7 @@ profile: 'deso_dbt'
 
 model-paths: ["models"]
 macro-paths: ["macros"]
-
+packages-install-path: "{{ env_var('DBT_PACKAGES_DIR', 'dbt_packages') }}"
 # Medallion layers over the Iceberg lake. bronze = thin ClickHouse views over the
 # iceberg() table function; silver = deduped current-state tables; gold = served datamart.
 # +schema is used verbatim as the ClickHouse database (see macros/generate_schema_name.sql).

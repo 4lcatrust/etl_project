@@ -77,6 +77,15 @@ COPY --from=scala-builder /build/target/scala-2.13/*.jar /opt/extra-jars/
 # pinned stack. The silver/gold DAG invokes it as /opt/dbt-venv/bin/dbt.
 RUN python3 -m venv /opt/dbt-venv && \
     /opt/dbt-venv/bin/pip install --no-cache-dir "dbt-clickhouse>=1.8,<1.9"
+  
+RUN mkdir -p /tmp/dbt-build /opt/dbt-packages && \
+    chmod -R a+rX /opt/dbt-packages
+
+COPY dbt/dbt_project.yml dbt/packages.yml /tmp/dbt-build/
+RUN cd /tmp/dbt-build && \
+    export DBT_PACKAGES_DIR=/opt/dbt-packages && \
+    /opt/dbt-venv/bin/dbt deps && \
+    rm -rf /tmp/dbt-build
 
 # docling (PDF -> structured rows) in an isolated venv; torch/models are heavy and must not
 # collide with Airflow's stack. dag_bronze_pdf invokes it as /opt/docling-venv/bin/python.

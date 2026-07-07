@@ -25,6 +25,7 @@ DBT_ENV = {
     "MINIO_ACCESS_KEY": get_airflow_variables("MINIO_ACCESS_KEY"),
     "MINIO_SECRET_KEY": get_airflow_variables("MINIO_SECRET_KEY"),
     "MINIO_ENDPOINT": "http://minio:9000",
+    "DBT_PACKAGES_DIR": "/opt/dbt-packages",
 }
 
 # Datasets that chain the medallion layers across the split DAGs.
