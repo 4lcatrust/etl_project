@@ -1,7 +1,8 @@
 {{
     config(
         materialized='table',
-        order_by='(transaction_date, item_category)'
+        order_by='(transaction_date, item_category)',
+        tags=['gold_daily']
         )
 }}
 -- Gold datamart: daily transaction summary by (date, item_category). Reproduces the

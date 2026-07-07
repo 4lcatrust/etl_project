@@ -1,7 +1,8 @@
 {{
     config(
         materialized='table',
-        order_by='time_key'
+        order_by='time_key',
+        tags=['silver_daily']
         )
 }}
 -- Current-state time: one row per time_key, with a real Date derived from the

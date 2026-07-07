@@ -1,6 +1,7 @@
 {{
     config(
-        materialized='table'
+        materialized='table',
+        tags=['silver_daily']
         )
 }}
 -- Current-state facts: transactions has no natural key, so instead of per-row dedup

@@ -1,7 +1,8 @@
 {{
     config(
         materialized='table',
-        order_by='item_key'
+        order_by='item_key',
+        tags=['silver_daily']
         )
 }}
 -- Current-state item: one row per item_key (latest ingested snapshot wins), with the

@@ -21,10 +21,26 @@ models:
       - name: item_key
         tests: [not_null]
 
+  - name: silver_monthly_sales
+    description: Monthly per-item sales rollup from the daily silver tables.
+    columns:
+      - name: sales_month
+        tests: [not_null]
+      - name: item_key
+        tests: [not_null]
+
   - name: daily_transaction_summary
     description: Gold datamart — daily transaction summary by date and item category.
     columns:
       - name: transaction_date
+        tests: [not_null]
+      - name: item_category
+        tests: [not_null]
+
+  - name: monthly_transaction_summary
+    description: Gold datamart — monthly transaction summary by month and item category.
+    columns:
+      - name: sales_month
         tests: [not_null]
       - name: item_category
         tests: [not_null]
