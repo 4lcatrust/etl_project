@@ -9,7 +9,7 @@ select
     toFloat64(sum(f.total_price))                     as total_transaction_value,
     toInt64(sum(f.quantity))                          as total_goods_sold,
     toInt64(count(distinct f.customer_key))           as count_transacting_customer
-from {{ ref('silver_fct_transactions') }} f
-inner join {{ ref('silver_dim_time') }} t on f.time_key = t.time_key
-left  join {{ ref('silver_dim_item') }} i on f.item_key = i.item_key
+from {{ ref('silver_transactions') }} f
+inner join {{ ref('silver_time') }} t on f.time_key = t.time_key
+left  join {{ ref('silver_item') }} i on f.item_key = i.item_key
 group by transaction_date, item_category

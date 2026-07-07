@@ -1,11 +1,11 @@
 {{ config(materialized='table', order_by='time_key') }}
--- Current-state dim_time: one row per time_key, with a real Date derived from the
+-- Current-state time: one row per time_key, with a real Date derived from the
 -- year/month/day parts. Guard the parts to valid ranges (the legacy Spark job dropped
 -- rows whose MAKE_DATE came back null). assumeNotNull the key + derived date so neither is
 -- a nullable MergeTree sort key (here and downstream in gold).
 with deduped as (
     select time_key, year, month, day
-    from {{ ref('br_postgres_dim_time') }}
+    from {{ ref('br_postgres_time') }}
     where year between 1970 and 2100
       and month between 1 and 12
       and day between 1 and 31
