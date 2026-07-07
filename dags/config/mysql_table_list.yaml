@@ -2,8 +2,10 @@
 # Source manifest for the MySQL bronze ingestion. Same contract as postgres; the DAG
 # binds it to the MySQL driver + backtick identifier quoting. In MySQL the "schema" is
 # the database (app), set as schema_name_default below.
+# db_name = the lakehouse namespace (iceberg.bronze.mysql__*), independent of the source.
+# schema_name_default = the actual MySQL database to read FROM; must match MYSQL_DATABASE.
 db_name: mysql
-schema_name_default: app
+schema_name_default: deso
 
 tables:
   - table_name: customers
