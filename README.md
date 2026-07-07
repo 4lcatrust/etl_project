@@ -98,4 +98,4 @@ flowchart LR
 
 ---
 
-For more details, see the [dags/dag_daily_transaction_summary_extract_dq.py](dags/dag_daily_transaction_summary_extract_dq.py)
+For more details, see the config-driven bronze ingestion in [dags/dag_bronze_postgres.py](dags/dag_bronze_postgres.py) (and `dag_bronze_mysql` / `dag_bronze_api`) and the dbt silver/gold transforms in [dags/dag_silver_gold_dbt.py](dags/dag_silver_gold_dbt.py).
