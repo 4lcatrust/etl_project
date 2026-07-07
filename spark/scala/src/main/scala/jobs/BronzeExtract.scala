@@ -175,37 +175,48 @@ object BronzeExtract {
     import spark.implicits._
 
     // ---------- 1. read ----------
-    // Identifier quote char for the source dialect: `"` (Postgres, default) or `` ` `` (MySQL).
-    val identQuote = args.opt("identifier_quote").getOrElse("\"")
-    val baseSql = args.opt("query").getOrElse(
-      buildSelectSql(args.req("schema_name"), tableName, schema, identQuote)
-    )
-    val sql = addFilterConditions(baseSql, args.filterConditions)
-    println(s"[BronzeExtract] source SQL:\n$sql")
+    // Two source families share this one validation+Iceberg engine: JDBC (Postgres/MySQL) or a
+    // JSON file on MinIO (--input_path) that a Python connector landed (REST API, etc.). The
+    // rest of the pipeline (cast, validate, split, write, audit) is identical either way.
+    val rawDf = args.opt("input_path") match {
+      case Some(path) =>
+        // NDJSON (one record per line) written by the connector; schema is inferred then
+        // coerced to the declared canonical types in step 2, same as the JDBC path.
+        println(s"[BronzeExtract] reading JSON source: $path")
+        spark.read.json(path)
+      case None =>
+        // Identifier quote char for the source dialect: `"` (Postgres, default) or `` ` `` (MySQL).
+        val identQuote = args.opt("identifier_quote").getOrElse("\"")
+        val baseSql = args.opt("query").getOrElse(
+          buildSelectSql(args.req("schema_name"), tableName, schema, identQuote)
+        )
+        val sql = addFilterConditions(baseSql, args.filterConditions)
+        println(s"[BronzeExtract] source SQL:\n$sql")
 
-    // JDBC driver class; defaults to Postgres so existing callers are unchanged. MySQL
-    // passes --jdbc_driver com.mysql.cj.jdbc.Driver (the same JAR serves both sources).
-    val jdbcDriver = args.opt("jdbc_driver").getOrElse("org.postgresql.Driver")
-    var reader = spark.read.format("jdbc")
-      .option("url", args.req("jdbc_url"))
-      .option("query", sql)
-      .option("user", args.req("username"))
-      .option("password", args.req("password"))
-      .option("driver", jdbcDriver)
-    args.optInt("fetch_size").foreach(fs => reader = reader.option("fetchsize", fs))
-    for {
-      numPartitions   <- args.optInt("num_partitions")
-      partitionColumn <- args.opt("partition_column")
-      lowerBound      <- args.optDouble("lower_bound")
-      upperBound      <- args.optDouble("upper_bound")
-    } {
-      reader = reader
-        .option("numPartitions", numPartitions)
-        .option("partitionColumn", partitionColumn)
-        .option("lowerBound", lowerBound)
-        .option("upperBound", upperBound)
+        // JDBC driver class; defaults to Postgres so existing callers are unchanged. MySQL
+        // passes --jdbc_driver com.mysql.cj.jdbc.Driver (the same JAR serves both sources).
+        val jdbcDriver = args.opt("jdbc_driver").getOrElse("org.postgresql.Driver")
+        var reader = spark.read.format("jdbc")
+          .option("url", args.req("jdbc_url"))
+          .option("query", sql)
+          .option("user", args.req("username"))
+          .option("password", args.req("password"))
+          .option("driver", jdbcDriver)
+        args.optInt("fetch_size").foreach(fs => reader = reader.option("fetchsize", fs))
+        for {
+          numPartitions   <- args.optInt("num_partitions")
+          partitionColumn <- args.opt("partition_column")
+          lowerBound      <- args.optDouble("lower_bound")
+          upperBound      <- args.optDouble("upper_bound")
+        } {
+          reader = reader
+            .option("numPartitions", numPartitions)
+            .option("partitionColumn", partitionColumn)
+            .option("lowerBound", lowerBound)
+            .option("upperBound", upperBound)
+        }
+        reader.load()
     }
-    val rawDf = reader.load()
 
     // ---------- 2. coerce to canonical types ----------
     // Only cast when the JDBC-read type differs from the canonical target. Casting a column to
