@@ -47,6 +47,25 @@ services:
     networks:
       - db_network
 
+  # Mock REST API source (Phase F) — serves static JSON so the API ingestion path is
+  # self-contained (no external egress). The connector fetches http://mock_api:8000/products.json.
+  mock_api:
+    image: python:3.12-slim
+    container_name: mock_api
+    working_dir: /srv
+    command: ["python", "-m", "http.server", "8000"]
+    volumes:
+      - ./mock-api:/srv:ro
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8000/products.json')\" || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - db_network
+
   # DB Sink
   clickhouse:
     image: clickhouse/clickhouse-server:24.8-alpine 

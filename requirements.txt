@@ -4,3 +4,4 @@ apache-airflow-providers-apache-spark
 airflow-providers-clickhouse
 clickhouse-connect
 pendulum
+boto3

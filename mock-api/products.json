@@ -1,0 +1,20 @@
+{
+  "data": [
+    {"id": 1,  "sku": "SKU-0001", "name": "Wireless Mouse",        "price": 18.50,  "in_stock": true,  "rating": 4.3, "category": "peripherals"},
+    {"id": 2,  "sku": "SKU-0002", "name": "Mechanical Keyboard",   "price": 72.00,  "in_stock": true,  "rating": 4.7, "category": "peripherals"},
+    {"id": 3,  "sku": "SKU-0003", "name": "USB-C Hub",             "price": 34.99,  "in_stock": false, "rating": 4.1, "category": "accessories"},
+    {"id": 4,  "sku": "SKU-0004", "name": "1080p Webcam",          "price": 45.00,  "in_stock": true,  "rating": 3.9, "category": "peripherals"},
+    {"id": 5,  "sku": "SKU-0005", "name": "Noise-Cancel Headset",  "price": 129.90, "in_stock": true,  "rating": 4.6, "category": "audio"},
+    {"id": 6,  "sku": "SKU-0006", "name": "Laptop Stand",          "price": 27.25,  "in_stock": true,  "rating": 4.2, "category": "accessories"},
+    {"id": 7,  "sku": "SKU-0007", "name": "27in Monitor",          "price": 219.00, "in_stock": true,  "rating": 4.5, "category": "displays"},
+    {"id": 8,  "sku": "SKU-0008", "name": "Desk Mat XL",           "price": 15.00,  "in_stock": false, "rating": 4.0, "category": "accessories"},
+    {"id": 9,  "sku": "SKU-0009", "name": "Portable SSD 1TB",      "price": 98.49,  "in_stock": true,  "rating": 4.8, "category": "storage"},
+    {"id": 10, "sku": "SKU-0010", "name": "HDMI Cable 2m",         "price": 8.99,   "in_stock": true,  "rating": 4.1, "category": "cables"},
+    {"id": 11, "sku": "SKU-0011", "name": "Bluetooth Speaker",     "price": 54.00,  "in_stock": true,  "rating": 4.4, "category": "audio"},
+    {"id": 12, "sku": "SKU-0012", "name": "Ergonomic Chair",       "price": 349.00, "in_stock": false, "rating": 4.6, "category": "furniture"},
+    {"id": 13, "sku": "SKU-0013", "name": "LED Desk Lamp",         "price": 39.90,  "in_stock": true,  "rating": 4.2, "category": "lighting"},
+    {"id": 14, "sku": "SKU-0014", "name": "Broken Price Item",     "price": -5.00,  "in_stock": true,  "rating": 3.0, "category": "misc"},
+    {"id": 15, "sku": null,       "name": "Missing SKU Item",      "price": 12.00,  "in_stock": true,  "rating": 3.5, "category": "misc"}
+  ],
+  "next": null
+}

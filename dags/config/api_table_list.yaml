@@ -1,0 +1,9 @@
+# ==== api_table_list.yaml ====
+# REST API source manifest. base_url + per-table endpoint drive the Python connector;
+# the vld files (config/validation/api_<table>_vld.yaml) drive the shared BronzeExtract.
+db_name: api
+base_url: http://mock_api:8000
+
+tables:
+  - table_name: products
+    endpoint: products.json

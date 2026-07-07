@@ -1,0 +1,32 @@
+# ==== api_products_vld.yaml ====
+table: products
+primary_key: id
+
+schema:
+  - name: id
+    type: int64
+  - name: sku
+    type: string
+  - name: name
+    type: string
+  - name: price
+    type: float64
+  - name: in_stock
+    type: boolean
+  - name: rating
+    type: float64
+  - name: category
+    type: string
+
+validation_rules:
+  - id: not_null_id
+    rule: not_null
+    columns: ["id"]
+
+  - id: not_null_sku
+    rule: not_null
+    columns: ["sku"]
+
+  - id: positive_price
+    rule: positive_number
+    columns: ["price"]
