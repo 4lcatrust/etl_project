@@ -1,0 +1,9 @@
+# ==== pdf_table_list.yaml ====
+# PDF source manifest. pdf_path is parsed by docling into rows; the vld file
+# (config/validation/pdf_<table>_vld.yaml) drives the shared BronzeExtract, same as
+# the API source. One document type = one table here.
+db_name: pdf
+
+tables:
+  - table_name: price_list
+    pdf_path: /opt/airflow/pdf/price_list.pdf

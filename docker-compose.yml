@@ -288,6 +288,8 @@ services:
       - ./dags:/opt/airflow/dags
       - ./spark/jobs:/opt/airflow/spark/jobs
       - ./dbt:/opt/airflow/dbt
+      - ./docling:/opt/airflow/docling
+      - ./pdf:/opt/airflow/pdf
       - airflow_logs:/opt/airflow/logs
       - airflow_plugins:/opt/airflow/plugins
       - ./variables.json:/opt/airflow/variables.json
@@ -331,6 +333,8 @@ services:
       - ./dags:/opt/airflow/dags
       - ./spark/jobs:/opt/airflow/spark/jobs
       - ./dbt:/opt/airflow/dbt
+      - ./docling:/opt/airflow/docling
+      - ./pdf:/opt/airflow/pdf
       - airflow_logs:/opt/airflow/logs
       - airflow_plugins:/opt/airflow/plugins
       - ./variables.json:/opt/airflow/variables.json
@@ -364,6 +368,8 @@ services:
       - ./dags:/opt/airflow/dags
       - ./spark/jobs:/opt/airflow/spark/jobs
       - ./dbt:/opt/airflow/dbt
+      - ./docling:/opt/airflow/docling
+      - ./pdf:/opt/airflow/pdf
       - airflow_logs:/opt/airflow/logs
       - airflow_plugins:/opt/airflow/plugins
       - ./variables.json:/opt/airflow/variables.json

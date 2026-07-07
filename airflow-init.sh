@@ -117,6 +117,11 @@ add_connection_if_not_exists 'minio' \
 echo "🔧 Creating spark pool (2 slots)..."
 airflow pools set spark 2 "Concurrent client-mode Spark drivers (memory cap)" || echo "⚠️ Failed to set spark pool"
 
+# docling pool: 1 slot so the heavy PDF parse (torch models) never runs more than once at a
+# time and stays within the worker mem_limit alongside the Spark drivers.
+echo "🔧 Creating docling pool (1 slot)..."
+airflow pools set docling 1 "Concurrent docling PDF parses (memory cap)" || echo "⚠️ Failed to set docling pool"
+
 echo "📊 Importing variables..."
 if [[ -f /opt/airflow/variables.json ]]; then
     if airflow variables import /opt/airflow/variables.json; then

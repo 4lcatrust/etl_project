@@ -1,0 +1,24 @@
+# ==== pdf_price_list_vld.yaml ====
+# docling extracts the table as text, so numeric columns arrive as strings; BronzeExtract
+# CASTs them to the declared canonical types (unit_price string -> DOUBLE) on read.
+table: price_list
+primary_key: sku
+
+schema:
+  - name: sku
+    type: string
+  - name: product_name
+    type: string
+  - name: unit_price
+    type: float64
+  - name: category
+    type: string
+
+validation_rules:
+  - id: not_null_sku
+    rule: not_null
+    columns: ["sku"]
+
+  - id: positive_unit_price
+    rule: positive_number
+    columns: ["unit_price"]

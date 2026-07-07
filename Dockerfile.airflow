@@ -78,6 +78,19 @@ COPY --from=scala-builder /build/target/scala-2.13/*.jar /opt/extra-jars/
 RUN python3 -m venv /opt/dbt-venv && \
     /opt/dbt-venv/bin/pip install --no-cache-dir "dbt-clickhouse>=1.8,<1.9"
 
+# docling (PDF -> structured rows) in an isolated venv; torch/models are heavy and must not
+# collide with Airflow's stack. dag_bronze_pdf invokes it as /opt/docling-venv/bin/python.
+# CPU-only torch keeps the image lean; layout/table models are pre-downloaded (HF_HOME) via a
+# warm-up convert (also a fail-fast build check) so runtime needs no network and OCR stays off.
+ENV HF_HOME=/opt/docling-models
+COPY pdf/price_list.pdf /tmp/warmup.pdf
+RUN python3 -m venv /opt/docling-venv && \
+    /opt/docling-venv/bin/pip install --no-cache-dir --upgrade pip && \
+    /opt/docling-venv/bin/pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu && \
+    /opt/docling-venv/bin/pip install --no-cache-dir "docling>=2.7,<3" boto3 && \
+    OMP_NUM_THREADS=2 /opt/docling-venv/bin/python -c "from docling.datamodel.base_models import InputFormat; from docling.datamodel.pipeline_options import PdfPipelineOptions; from docling.document_converter import DocumentConverter, PdfFormatOption; o=PdfPipelineOptions(); o.do_ocr=False; o.do_table_structure=True; DocumentConverter(format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=o)}).convert('/tmp/warmup.pdf'); print('docling warmup OK')" && \
+    chmod -R a+rX /opt/docling-models && rm -f /tmp/warmup.pdf
+
 # Copy Airflow initialization script
 COPY airflow-init.sh /opt/airflow/init.sh
 RUN chmod +x /opt/airflow/init.sh
