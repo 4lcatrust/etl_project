@@ -1,5 +1,5 @@
-# ==== postgres_dim_item_vld.yaml ====
-table: dim_item
+# ==== postgres_item_vld.yaml ====
+table: item
 primary_key: item_key
 
 schema:

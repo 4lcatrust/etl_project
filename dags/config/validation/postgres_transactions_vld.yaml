@@ -1,6 +1,6 @@
-# ==== postgres_fct_transactions_vld.yaml ====
-table: fct_transactions
-# fct_transactions has no single-column natural key; payment_key is used only for the
+# ==== postgres_transactions_vld.yaml ====
+table: transactions
+# transactions has no single-column natural key; payment_key is used only for the
 # audit table's offending-id sampling, not as a uniqueness guarantee.
 primary_key: payment_key
 

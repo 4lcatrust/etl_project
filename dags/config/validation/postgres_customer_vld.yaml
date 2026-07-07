@@ -1,5 +1,5 @@
-# ==== postgres_dim_customer_vld.yaml ====
-table: dim_customer
+# ==== postgres_customer_vld.yaml ====
+table: customer
 primary_key: customer_key
 
 schema:

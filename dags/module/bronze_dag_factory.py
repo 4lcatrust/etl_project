@@ -6,25 +6,18 @@ table list, one mapped instance per table. Each instance loads its own
 <source>_<table>_vld.yaml and passes schema_json / validation_rules_json to the shared
 Scala bronze-extract JAR (jobs.BronzeExtract), which writes iceberg.bronze/quarantine/audit.
 
-Modernizes boreas (17 hand-written per-source DAG modules + Python-loop fan-out) into one
-factory + dynamic task mapping. A `bronze_ready` marker emits a Dataset so the Phase E
+One factory + dynamic task mapping. A `bronze_ready` marker emits a Dataset so the Phase E
 silver/gold DAGs can be scheduled off it.
 """
 import json
 from datetime import datetime, timedelta
-
 from airflow import DAG
 from airflow.datasets import Dataset
 from airflow.operators.empty import EmptyOperator
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
-
 from module.config_loader import load_table_list, load_validation
 from module.utilities import get_airflow_variables
-
 BRONZE_EXTRACTOR_JAR = "/opt/extra-jars/bronze-extractor-assembly-0.1.0.jar"
-
-# Both JDBC drivers ship on every run (harmless when unused) so one factory serves all
-# sources; --jdbc_driver picks the right one per source.
 EXTRA_JARS = ",".join([
     "/opt/extra-jars/hadoop-aws-3.4.1.jar",
     "/opt/extra-jars/bundle-2.24.6.jar",
@@ -32,7 +25,6 @@ EXTRA_JARS = ",".join([
     "/opt/extra-jars/mysql-connector-j-8.4.0.jar",
     "/opt/extra-jars/iceberg-spark-runtime-4.0_2.13-1.10.2.jar",
 ])
-
 
 def client_spark_conf() -> dict:
     """Client deploy-mode Spark conf (driver in airflow_worker). Mirrors the verified
@@ -84,11 +76,9 @@ def client_spark_conf() -> dict:
         "spark.sql.catalog.iceberg.client.region": "us-east-1",
     }
 
-
 def bronze_dataset(db_name: str) -> Dataset:
     """The Dataset that a source's bronze refresh produces (Phase E schedules off it)."""
     return Dataset(f"iceberg://bronze/{db_name}")
-
 
 def _build_arg_sets(source: str, db_name: str, schema_name_default: str, tables: list,
                     jdbc_url_var: str, user_var: str, password_var: str,
@@ -115,7 +105,6 @@ def _build_arg_sets(source: str, db_name: str, schema_name_default: str, tables:
             "--catalog", "iceberg",
         ])
     return arg_sets
-
 
 def build_bronze_dag(*, source: str, jdbc_url_var: str, user_var: str, password_var: str,
                      db_name: str = None, jdbc_driver: str = "org.postgresql.Driver",
@@ -168,7 +157,6 @@ def build_bronze_dag(*, source: str, jdbc_url_var: str, user_var: str, password_
             verbose=True,
         ).expand(application_args=arg_sets)
 
-        # Emits the source's bronze Dataset once every mapped table extract succeeds.
         bronze_ready = EmptyOperator(task_id="bronze_ready", outlets=[bronze_dataset(db_name)])
 
         start >> extract >> bronze_ready

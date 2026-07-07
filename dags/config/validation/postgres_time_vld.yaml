@@ -1,5 +1,5 @@
-# ==== postgres_dim_time_vld.yaml ====
-table: dim_time
+# ==== postgres_time_vld.yaml ====
+table: time
 primary_key: time_key
 
 schema:

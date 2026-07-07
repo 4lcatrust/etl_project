@@ -19,19 +19,19 @@ schema_name_default: public
 
 tables:
   - schema_name: public
-    table_name: dim_customer
+    table_name: customer
 
   - schema_name: public
-    table_name: dim_item
+    table_name: item
 
   - schema_name: public
-    table_name: dim_payment
+    table_name: payment
 
   - schema_name: public
-    table_name: dim_store
+    table_name: store
 
   - schema_name: public
-    table_name: dim_time
+    table_name: time
 
   - schema_name: public
-    table_name: fct_transactions
+    table_name: transactions

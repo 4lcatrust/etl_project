@@ -1,5 +1,5 @@
-# ==== postgres_dim_payment_vld.yaml ====
-table: dim_payment
+# ==== postgres_payment_vld.yaml.yaml ====
+table: payment
 primary_key: payment_key
 
 schema:

@@ -1,5 +1,5 @@
-# ==== postgres_dim_store_vld.yaml ====
-table: dim_store
+# ==== postgres_store_vld.yaml ====
+table: store
 primary_key: store_key
 
 schema:
