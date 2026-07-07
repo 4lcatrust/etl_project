@@ -79,19 +79,19 @@ object BronzeExtract {
   /** Canonical Spark SQL type string for a declared column type; used both for the post-read CAST
     * and the Iceberg CREATE TABLE DDL, so the two stay in sync. */
   def sparkTypeFor(colType: String): String = colType.toLowerCase.trim match {
-    case decimalRe(p, s)                     => s"DECIMAL($p,$s)"
-    case "numeric" | "decimal"                => "DECIMAL(38,9)"
-    case "string" | "utf8"                    => "STRING"
-    case "int64"                              => "BIGINT"
-    case "int32"                              => "INT"
-    case "float64"                            => "DOUBLE"
-    case "float32"                             => "FLOAT"
-    case "bool" | "boolean"                   => "BOOLEAN"
-    case "bytes"                                => "BINARY"
-    case "json" | "jsonb"                     => "STRING"
-    case "date"                                 => "DATE"
-    case "time"                                 => "STRING" // no first-class Spark/Iceberg TIME type; keep as text
-    case t if t.startsWith("timestamp")        => "TIMESTAMP"
+    case decimalRe(p, s)                => s"DECIMAL($p,$s)"
+    case "numeric" | "decimal"          => "DECIMAL(38,9)"
+    case "string"  | "utf8"             => "STRING"
+    case "int64"                        => "BIGINT"
+    case "int32"                        => "INT"
+    case "float64"                      => "DOUBLE"
+    case "float32"                      => "FLOAT"
+    case "bool"    | "boolean"          => "BOOLEAN"
+    case "bytes"                        => "BINARY"
+    case "json"    | "jsonb"            => "STRING"
+    case "date"                         => "DATE"
+    case "time"                         => "STRING" // no first-class Spark/Iceberg TIME type; keep as text
+    case t if t.startsWith("timestamp") => "TIMESTAMP"
     case other =>
       throw new IllegalArgumentException(s"Unknown column type '$other'")
   }
