@@ -19,11 +19,8 @@ until mc alias set minio http://localhost:9000 "${MINIO_ROOT_USER}" "${MINIO_ROO
 done
 
 echo "✅ mc alias set successful. Creating buckets..."
-mc mb minio/staging || true
-mc mb minio/staging-dq || true
-mc mb minio/transformed || true
-mc mb minio/transformed-dq || true
-mc mb minio/iceberg-warehouse || true
+mc mb minio/staging || true            # API connector landing (NDJSON)
+mc mb minio/iceberg-warehouse || true  # Iceberg lake (bronze/silver/gold via Spark + ClickHouse)
 
 echo "✅ Buckets created. Passing control to MinIO process."
 

@@ -9,12 +9,6 @@
   "CLICKHOUSE_CONN": "clickhouse_db",
   "CLICKHOUSE_USER": "clickhouse",
   "CLICKHOUSE_PASSWORD": "change-me",
-  "CLICKHOUSE_JDBC_URL": "jdbc:clickhouse://clickhouse_db:8123/default",
-  "CLICKHOUSE_DRIVER": "com.clickhouse.jdbc.ClickHouseDriver",
-  "POSTGRES_DRIVER": "org.postgresql.Driver",
-  "CLICKHOUSE_JAR_PATH": "/opt/airflow/dags/driver/clickhouse-jdbc-0.4.6.jar",
-  "POSTGRES_JAR_PATH": "/opt/airflow/dags/driver/postgresql-42.7.5.jar",
-  "DQ_METRICS_TABLE": "data_quality.dq_metrics",
   "MINIO_ACCESS_KEY": "change-me",
   "MINIO_SECRET_KEY": "change-me",
   "MINIO_ENDPOINT": "http://minio:9000"

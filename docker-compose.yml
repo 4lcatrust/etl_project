@@ -80,7 +80,6 @@ services:
       - "9009:9000"
     volumes:
       - clickhouse_data:/var/lib/clickhouse
-      - ./clickhouse/clickhouse-init.sql:/docker-entrypoint-initdb.d/clickhouse-init.sql
       - ./clickhouse/clickhouse-config.xml:/etc/clickhouse-server/config.xml
       - ./clickhouse/clickhouse-user.xml:/etc/clickhouse-server/users.xml
     healthcheck:
