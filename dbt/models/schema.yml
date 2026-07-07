@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: silver_dim_item
+    description: Current-state item dimension (deduped from append-only bronze).
+    columns:
+      - name: item_key
+        tests: [not_null, unique]
+
+  - name: silver_dim_time
+    description: Current-state time dimension with a derived transaction_date.
+    columns:
+      - name: time_key
+        tests: [not_null, unique]
+      - name: transaction_date
+        tests: [not_null]
+
+  - name: silver_fct_transactions
+    description: Latest full snapshot of the transaction facts.
+    columns:
+      - name: item_key
+        tests: [not_null]
+
+  - name: daily_transaction_summary
+    description: Gold datamart — daily transaction summary by date and item category.
+    columns:
+      - name: transaction_date
+        tests: [not_null]
+      - name: item_category
+        tests: [not_null]

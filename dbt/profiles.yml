@@ -1,0 +1,16 @@
+# dbt-clickhouse connection. Credentials come from the environment set by the Airflow
+# dbt task (get_airflow_variables -> BashOperator env). HTTP interface on 8123.
+deso_dbt:
+  target: prod
+  outputs:
+    prod:
+      type: clickhouse
+      driver: http
+      host: clickhouse_db
+      port: 8123
+      user: "{{ env_var('CLICKHOUSE_USER') }}"
+      password: "{{ env_var('CLICKHOUSE_PASSWORD') }}"
+      schema: datamart
+      secure: false
+      connect_timeout: 30
+      send_receive_timeout: 300

@@ -73,6 +73,11 @@ RUN set -eux; cd /opt/extra-jars; \
 # Bronze-extractor JAR, compiled in the scala-builder stage above.
 COPY --from=scala-builder /build/target/scala-2.13/*.jar /opt/extra-jars/
 
+# dbt (dbt-clickhouse) in an isolated venv so its deps don't collide with Airflow's
+# pinned stack. The silver/gold DAG invokes it as /opt/dbt-venv/bin/dbt.
+RUN python3 -m venv /opt/dbt-venv && \
+    /opt/dbt-venv/bin/pip install --no-cache-dir "dbt-clickhouse>=1.8,<1.9"
+
 # Copy Airflow initialization script
 COPY airflow-init.sh /opt/airflow/init.sh
 RUN chmod +x /opt/airflow/init.sh

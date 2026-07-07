@@ -29,3 +29,8 @@ CLAUDE.md
 spark/scala/target/
 spark/scala/project/target/
 spark/scala/project/project/
+
+# dbt artifacts
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/

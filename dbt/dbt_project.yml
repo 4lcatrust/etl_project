@@ -1,0 +1,22 @@
+name: 'deso_dbt'
+version: '1.0.0'
+config-version: 2
+profile: 'deso_dbt'
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+
+# Medallion layers over the Iceberg lake. bronze = thin ClickHouse views over the
+# iceberg() table function; silver = deduped current-state tables; gold = served datamart.
+# +schema is used verbatim as the ClickHouse database (see macros/generate_schema_name.sql).
+models:
+  deso_dbt:
+    bronze:
+      +schema: bronze
+      +materialized: view
+    silver:
+      +schema: silver
+      +materialized: table
+    gold:
+      +schema: gold
+      +materialized: table
