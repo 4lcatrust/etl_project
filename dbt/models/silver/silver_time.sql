@@ -1,17 +1,26 @@
-{{ config(materialized='table', order_by='time_key') }}
+{{
+    config(
+        materialized='table',
+        order_by='time_key'
+        )
+}}
 -- Current-state time: one row per time_key, with a real Date derived from the
 -- year/month/day parts. Guard the parts to valid ranges (the legacy Spark job dropped
 -- rows whose MAKE_DATE came back null). assumeNotNull the key + derived date so neither is
 -- a nullable MergeTree sort key (here and downstream in gold).
-with deduped as (
-    select time_key, year, month, day
-    from {{ ref('br_postgres_time') }}
-    where year between 1970 and 2100
-      and month between 1 and 12
-      and day between 1 and 31
-    qualify row_number() over (partition by time_key order by ingestion_date desc) = 1
+WITH deduped AS (
+    SELECT
+        time_key,
+        year,
+        month,
+        day
+    FROM {{ ref('br_postgres_time') }}
+    WHERE year BETWEEN 1970 AND 2100
+      AND month BETWEEN 1 AND 12
+      AND day BETWEEN 1 AND 31
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY time_key ORDER BY ingestion_date DESC) = 1
 )
-select
-    assumeNotNull(time_key) as time_key,
-    assumeNotNull(makeDate(year, month, day)) as transaction_date
-from deduped
+SELECT
+    assumeNotNull(time_key) AS time_key,
+    assumeNotNull(makeDate(year, month, day)) AS transaction_date
+FROM deduped
