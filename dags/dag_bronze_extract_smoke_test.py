@@ -113,6 +113,7 @@ with DAG(
     bronze_extract = SparkSubmitOperator(
         task_id="bronze_extract_item",
         conn_id="spark",
+        pool="spark",
         application=BRONZE_EXTRACTOR_JAR,
         java_class="jobs.BronzeExtract",
         name="bronze-extract-smoke-test",

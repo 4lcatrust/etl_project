@@ -367,9 +367,10 @@ services:
       - airflow_logs:/opt/airflow/logs
       - airflow_plugins:/opt/airflow/plugins
       - ./variables.json:/opt/airflow/variables.json
-    # Cap concurrent tasks to 2 so at most 2 client-mode Spark drivers (each ~2g) run in
-    # this container at once — the main guard against host OOM. Raise with more RAM.
-    command: ["airflow", "celery", "worker", "--concurrency", "2"]
+    # Worker runs up to 4 tasks at once; the `spark` Airflow pool (2 slots) separately caps
+    # concurrent client-mode Spark drivers (the ~2g memory hogs), so the extra slots serve
+    # light dbt/marker tasks without letting Spark drivers stack up and OOM the host.
+    command: ["airflow", "celery", "worker", "--concurrency", "4"]
     networks:
       db_network:
         # Spark rejects RPC hostnames with underscores; expose a hyphenated

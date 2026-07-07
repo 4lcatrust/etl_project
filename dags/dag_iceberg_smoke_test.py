@@ -86,6 +86,7 @@ with DAG(
     smoke_test = SparkSubmitOperator(
         task_id="iceberg_smoke_test",
         conn_id="spark",
+        pool="spark",
         application=SMOKE_TEST_JOB,
         name="iceberg-smoke-test",
         jars=EXTRA_JARS,

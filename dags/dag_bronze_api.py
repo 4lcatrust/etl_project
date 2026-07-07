@@ -78,6 +78,7 @@ with DAG(
     bronze_extract = SparkSubmitOperator(
         task_id="bronze_extract",
         conn_id="spark",
+        pool="spark",  # cap concurrent Spark drivers (memory)
         application=BRONZE_EXTRACTOR_JAR,
         java_class="jobs.BronzeExtract",
         name=f"bronze-extract-{_db_name}-{_table_name}",

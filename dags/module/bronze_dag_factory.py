@@ -149,6 +149,7 @@ def build_bronze_dag(*, source: str, jdbc_url_var: str, user_var: str, password_
         extract = SparkSubmitOperator.partial(
             task_id="bronze_extract",
             conn_id=conn_id,
+            pool="spark",  # cap concurrent Spark drivers (memory); see the spark pool
             application=BRONZE_EXTRACTOR_JAR,
             java_class="jobs.BronzeExtract",
             name=f"bronze-extract-{source}",

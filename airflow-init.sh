@@ -111,6 +111,12 @@ add_connection_if_not_exists 'minio' \
   --conn-password "${MINIO_ROOT_PASSWORD}" \
   --conn-extra '{"endpoint_url": "http://minio:9000"}'
 
+# Spark pool: cap concurrent client-mode Spark drivers (each ~2g JVM in airflow_worker)
+# regardless of worker/DAG concurrency, so many queued Spark tasks can't OOM the host.
+# `pools set` is idempotent (upsert).
+echo "🔧 Creating spark pool (2 slots)..."
+airflow pools set spark 2 "Concurrent client-mode Spark drivers (memory cap)" || echo "⚠️ Failed to set spark pool"
+
 echo "📊 Importing variables..."
 if [[ -f /opt/airflow/variables.json ]]; then
     if airflow variables import /opt/airflow/variables.json; then
