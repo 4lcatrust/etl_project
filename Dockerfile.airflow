@@ -115,9 +115,11 @@ RUN chmod +x /opt/airflow/init.sh
 # Switch back to airflow user
 USER airflow
 
-# Install Python dependencies for DAGs
+# Install Python dependencies for DAGs. The Airflow constraints file is vendored
+# (constraints-airflow.txt = constraints-2.10.5/constraints-3.10.txt) so repeated rebuilds
+# don't refetch it from raw.githubusercontent.com (which rate-limits to HTTP 429). Refresh it
+# if AIRFLOW_VERSION/PYTHON_VERSION change.
 ARG AIRFLOW_VERSION=2.10.5
 ARG PYTHON_VERSION=3.10
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt \
-    --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
+COPY requirements.txt constraints-airflow.txt ./
+RUN pip install --no-cache-dir -r requirements.txt --constraint constraints-airflow.txt
