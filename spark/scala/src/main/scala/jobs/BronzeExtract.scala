@@ -265,6 +265,13 @@ object BronzeExtract {
          |) USING iceberg PARTITIONED BY (ingestion_date)""".stripMargin
     )
 
+    // Idempotent per ingestion_date: clear this run's partition before appending so a retry
+    // or manual re-run of the same date replaces rather than duplicates. The predicate is
+    // partition-aligned, so Iceberg resolves it as a metadata-only partition delete.
+    val datePred = s"ingestion_date = date'$ingestionDate'"
+    spark.sql(s"DELETE FROM $bronzeTable WHERE $datePred")
+    spark.sql(s"DELETE FROM $quarantineTable WHERE $datePred")
+
     validDf.writeTo(bronzeTable).append()
     println(s"[BronzeExtract] Extracted & saved $tableName -> $bronzeTable")
     if (invalidCount > 0) {
@@ -296,6 +303,9 @@ object BronzeExtract {
       "violated_rules", "invalid_row_ids", "ingestion_date"
     ).withColumn("ingestion_date", col("ingestion_date").cast("date"))
 
+    // Audit is partitioned only by ingestion_date (shared across all tables), so scope the
+    // idempotency delete to this db/table/date row-wise -- don't wipe other tables' audit rows.
+    spark.sql(s"DELETE FROM $auditTable WHERE db_name = '$dbName' AND table_name = '$tableName' AND $datePred")
     auditRow.writeTo(auditTable).append()
     println(s"[BronzeExtract] Audit: input=$inputCount valid=$validCount invalid=$invalidCount -> $auditTable")
 
