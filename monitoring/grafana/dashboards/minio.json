@@ -73,7 +73,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "minio_cluster_health_status",
+          "expr": "minio_cluster_health_status{job=\"minio\"}",
           "datasource": {
             "type": "prometheus",
             "uid": "prometheus"
@@ -129,7 +129,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "minio_cluster_usage_object_total",
+          "expr": "minio_cluster_usage_object_total{job=\"minio\"}",
           "datasource": {
             "type": "prometheus",
             "uid": "prometheus"
@@ -185,7 +185,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "minio_cluster_bucket_total",
+          "expr": "minio_cluster_bucket_total{job=\"minio\"}",
           "datasource": {
             "type": "prometheus",
             "uid": "prometheus"
@@ -241,7 +241,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "minio_cluster_usage_total_bytes",
+          "expr": "minio_cluster_usage_total_bytes{job=\"minio\"}",
           "datasource": {
             "type": "prometheus",
             "uid": "prometheus"
@@ -290,7 +290,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "(minio_cluster_capacity_usable_total_bytes - minio_cluster_capacity_usable_free_bytes) / minio_cluster_capacity_usable_total_bytes * 100",
+          "expr": "(minio_cluster_capacity_usable_total_bytes{job=\"minio\"} - minio_cluster_capacity_usable_free_bytes{job=\"minio\"}) / minio_cluster_capacity_usable_total_bytes{job=\"minio\"} * 100",
           "legendFormat": "used %",
           "datasource": {
             "type": "prometheus",
@@ -340,7 +340,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "minio_cluster_capacity_usable_total_bytes",
+          "expr": "minio_cluster_capacity_usable_total_bytes{job=\"minio\"}",
           "legendFormat": "total",
           "datasource": {
             "type": "prometheus",
@@ -349,7 +349,7 @@
         },
         {
           "refId": "B",
-          "expr": "minio_cluster_capacity_usable_free_bytes",
+          "expr": "minio_cluster_capacity_usable_free_bytes{job=\"minio\"}",
           "legendFormat": "free",
           "datasource": {
             "type": "prometheus",
@@ -399,7 +399,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "rate(minio_node_io_read_bytes[5m])",
+          "expr": "rate(minio_node_io_read_bytes{job=\"minio\"}[5m])",
           "legendFormat": "read",
           "datasource": {
             "type": "prometheus",
@@ -408,7 +408,7 @@
         },
         {
           "refId": "B",
-          "expr": "rate(minio_node_io_write_bytes[5m])",
+          "expr": "rate(minio_node_io_write_bytes{job=\"minio\"}[5m])",
           "legendFormat": "write",
           "datasource": {
             "type": "prometheus",
@@ -458,7 +458,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "minio_node_process_resident_memory_bytes",
+          "expr": "minio_node_process_resident_memory_bytes{job=\"minio\"}",
           "legendFormat": "resident",
           "datasource": {
             "type": "prometheus",
@@ -508,7 +508,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "rate(minio_node_process_cpu_total_seconds[5m])",
+          "expr": "rate(minio_node_process_cpu_total_seconds{job=\"minio\"}[5m])",
           "legendFormat": "cpu cores",
           "datasource": {
             "type": "prometheus",
@@ -558,7 +558,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "minio_node_go_routine_total",
+          "expr": "minio_node_go_routine_total{job=\"minio\"}",
           "legendFormat": "goroutines",
           "datasource": {
             "type": "prometheus",
@@ -567,7 +567,7 @@
         },
         {
           "refId": "B",
-          "expr": "minio_node_file_descriptor_open_total",
+          "expr": "minio_node_file_descriptor_open_total{job=\"minio\"}",
           "legendFormat": "open fds",
           "datasource": {
             "type": "prometheus",
@@ -617,7 +617,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "minio_cluster_drive_online_total",
+          "expr": "minio_cluster_drive_online_total{job=\"minio\"}",
           "legendFormat": "drives online",
           "datasource": {
             "type": "prometheus",
@@ -626,7 +626,7 @@
         },
         {
           "refId": "B",
-          "expr": "minio_cluster_nodes_online_total",
+          "expr": "minio_cluster_nodes_online_total{job=\"minio\"}",
           "legendFormat": "nodes online",
           "datasource": {
             "type": "prometheus",
