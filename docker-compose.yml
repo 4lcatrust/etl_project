@@ -273,7 +273,11 @@ services:
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow_db:5432/${AIRFLOW_DB_NAME}
       AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow_db:5432/${AIRFLOW_DB_NAME}
       AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
-      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: 'true'
+      # Show the config page but mask sensitive values (secret_key, DB URL w/ password) --
+      # 'true' would expose them verbatim in the UI's Admin -> Configuration.
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: 'non-sensitive-only'
+      # Mask secret-like Variable/Connection fields in the UI and logs (default, made explicit).
+      AIRFLOW__CORE__HIDE_SENSITIVE_VAR_CONN_FIELDS: 'true'
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
       JAVA_HOME: "/usr/lib/jvm/java-17-openjdk-amd64"
       AIRFLOW_DB_HOST: airflow_db
