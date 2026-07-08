@@ -1,0 +1,26 @@
+# statsd-exporter mapping: fold Airflow's dotted StatsD names (which embed dag_id/task_id/
+# pool/state) into Prometheus labels so cardinality lives in labels, not metric names.
+# Unmatched metrics still pass through with their name sanitized (default behavior).
+mappings:
+  # airflow.dagrun.duration.success.<dag_id> / .failed.<dag_id>
+  - match: "airflow.dagrun.duration.*.*"
+    name: "airflow_dagrun_duration_seconds"
+    labels:
+      outcome: "$1"
+      dag_id: "$2"
+
+  # airflow.ti.finish.<dag_id>.<task_id>.<state>
+  - match: "airflow.ti.finish.*.*.*"
+    name: "airflow_task_finish_total"
+    labels:
+      dag_id: "$1"
+      task_id: "$2"
+      state: "$3"
+
+  # airflow.pool.open_slots.<pool> / running_slots.<pool> / queued_slots.<pool>
+  - match: "airflow.pool.*.*"
+    name: "airflow_pool_slots"
+    labels:
+      slot_type: "$1"
+      pool: "$2"
+  # Any other airflow.* metric passes through with dots -> underscores (default behavior).

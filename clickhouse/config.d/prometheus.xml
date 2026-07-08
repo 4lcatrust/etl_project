@@ -1,0 +1,13 @@
+<clickhouse>
+    <!-- Native Prometheus metrics endpoint (scraped by the optional `monitoring` profile's
+         Prometheus at clickhouse:9363/metrics). Free and always-on: it only serves metrics
+         when polled, so it adds no meaningful overhead when the profile isn't running. -->
+    <prometheus>
+        <endpoint>/metrics</endpoint>
+        <port>9363</port>
+        <metrics>true</metrics>
+        <events>true</events>
+        <asynchronous_metrics>true</asynchronous_metrics>
+        <errors>true</errors>
+    </prometheus>
+</clickhouse>

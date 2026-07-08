@@ -1,0 +1,11 @@
+# Auto-provision the Prometheus datasource so Grafana is usable on first start.
+# Import dashboards from grafana.com (e.g. ClickHouse / Airflow boards) against this source.
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true
+    editable: true

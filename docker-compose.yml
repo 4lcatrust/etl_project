@@ -87,6 +87,7 @@ services:
       - clickhouse_data:/var/lib/clickhouse
       - ./clickhouse/clickhouse-config.xml:/etc/clickhouse-server/config.xml
       - ./clickhouse/clickhouse-user.xml:/etc/clickhouse-server/users.xml
+      - ./clickhouse/config.d/prometheus.xml:/etc/clickhouse-server/config.d/prometheus.xml
     healthcheck:
       test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8123/ping || exit 1"]
       interval: 10s
@@ -280,6 +281,12 @@ services:
       AIRFLOW__WEBSERVER__WEB_SERVER_WORKER_TIMEOUT: "240"
       AIRFLOW__WEBSERVER__WORKER_REFRESH_INTERVAL: "3600"
       AIRFLOW__LOGGING__LOGGING_LEVEL: "INFO"
+      # Metrics: emit StatsD to the monitoring profile's statsd-exporter. Off unless
+      # AIRFLOW_STATSD_ON=True (set it together with `--profile monitoring`).
+      AIRFLOW__METRICS__STATSD_ON: ${AIRFLOW_STATSD_ON:-False}
+      AIRFLOW__METRICS__STATSD_HOST: statsd-exporter
+      AIRFLOW__METRICS__STATSD_PORT: "9125"
+      AIRFLOW__METRICS__STATSD_PREFIX: airflow
     cpus: "0.8"
     mem_limit: "2g"
     ports:
@@ -329,6 +336,12 @@ services:
       AIRFLOW__WEBSERVER__RBAC: "True"
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
       JAVA_HOME: "/usr/lib/jvm/java-17-openjdk-amd64"
+      # Metrics: emit StatsD to the monitoring profile's statsd-exporter. Off unless
+      # AIRFLOW_STATSD_ON=True (set it together with `--profile monitoring`).
+      AIRFLOW__METRICS__STATSD_ON: ${AIRFLOW_STATSD_ON:-False}
+      AIRFLOW__METRICS__STATSD_HOST: statsd-exporter
+      AIRFLOW__METRICS__STATSD_PORT: "9125"
+      AIRFLOW__METRICS__STATSD_PREFIX: airflow
     volumes:
       - ./dags:/opt/airflow/dags
       - ./spark/jobs:/opt/airflow/spark/jobs
@@ -364,6 +377,12 @@ services:
       AIRFLOW__WEBSERVER__RBAC: "True"
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
       JAVA_HOME: "/usr/lib/jvm/java-17-openjdk-amd64"
+      # Metrics: emit StatsD to the monitoring profile's statsd-exporter. Off unless
+      # AIRFLOW_STATSD_ON=True (set it together with `--profile monitoring`).
+      AIRFLOW__METRICS__STATSD_ON: ${AIRFLOW_STATSD_ON:-False}
+      AIRFLOW__METRICS__STATSD_HOST: statsd-exporter
+      AIRFLOW__METRICS__STATSD_PORT: "9125"
+      AIRFLOW__METRICS__STATSD_PREFIX: airflow
     volumes:
       - ./dags:/opt/airflow/dags
       - ./spark/jobs:/opt/airflow/spark/jobs
@@ -384,6 +403,60 @@ services:
         aliases:
           - airflow-worker
 
+  # ---------- Observability (opt-in) ----------
+  # Off by default so the base stack keeps its current footprint on a 16GB host. Start with:
+  #   docker compose --profile monitoring up -d
+  # Prometheus scrapes ClickHouse's native /metrics (always-on) and, when
+  # AIRFLOW_STATSD_ON=True, Airflow metrics via statsd-exporter. Grafana visualizes both.
+  statsd-exporter:
+    image: prom/statsd-exporter:v0.27.1
+    container_name: statsd_exporter
+    profiles: ["monitoring"]
+    mem_limit: "128m"
+    command:
+      - "--statsd.mapping-config=/etc/statsd/mapping.yml"
+      - "--statsd.listen-udp=:9125"
+      - "--web.listen-address=:9102"
+    volumes:
+      - ./monitoring/statsd_mapping.yml:/etc/statsd/mapping.yml:ro
+    networks:
+      - db_network
+
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    container_name: prometheus
+    profiles: ["monitoring"]
+    mem_limit: "512m"
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.retention.time=7d"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - db_network
+
+  grafana:
+    image: grafana/grafana:11.2.0
+    container_name: grafana
+    profiles: ["monitoring"]
+    mem_limit: "512m"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-admin}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+    volumes:
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - grafana_data:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - db_network
+
 volumes:
   postgres_data:
   mysql_data:
@@ -394,6 +467,9 @@ volumes:
   # Bronze-extract + dependency jars, published by spark_jars_init, mounted into spark-worker-1
   # so cluster deploy-mode drivers/executors can reach them (Phase B2).
   spark_extra_jars:
+  # Monitoring profile TSDB / dashboards (only used when --profile monitoring is active).
+  prometheus_data:
+  grafana_data:
 
 networks:
   db_network:

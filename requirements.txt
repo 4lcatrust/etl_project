@@ -5,3 +5,6 @@ airflow-providers-clickhouse
 clickhouse-connect
 pendulum
 boto3
+# StatsD client so Airflow can emit metrics to the monitoring profile's statsd-exporter
+# (only active when AIRFLOW_STATSD_ON=True; harmless otherwise). Pinned via constraints.
+statsd
