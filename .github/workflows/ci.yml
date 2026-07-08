@@ -1,0 +1,51 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # Fast, dependency-light: the config-vs-engine contract checks. No Airflow.
+  config-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: pytest -m "not airflow"
+
+  # DAG-integrity: parse every DAG with the real Airflow + Spark provider (pinned via the
+  # vendored constraints) and assert the hardening guards. Env-var Variables come from conftest.
+  dag-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+      - name: Install Airflow + providers (pinned)
+        run: |
+          pip install "apache-airflow==2.10.5" -r requirements.txt \
+            --constraint constraints-airflow.txt
+          pip install -r requirements-dev.txt
+      - run: pytest -m airflow
+
+  # Compile the Scala bronze-extract job so a broken change fails CI, not the image build.
+  scala-compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: sbt
+      - uses: sbt/setup-sbt@v1
+      - run: sbt compile
+        working-directory: spark/scala
