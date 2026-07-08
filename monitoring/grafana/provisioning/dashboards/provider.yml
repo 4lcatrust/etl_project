@@ -1,0 +1,14 @@
+# Load provisioned dashboards from the bind-mounted /etc/grafana/dashboards dir.
+apiVersion: 1
+
+providers:
+  - name: deso
+    orgId: 1
+    folder: ""
+    type: file
+    disableDeletion: false
+    allowUiUpdates: true
+    updateIntervalSeconds: 30
+    options:
+      path: /etc/grafana/dashboards
+      foldersFromFilesStructure: false
