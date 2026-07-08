@@ -1,0 +1,6 @@
+# Test/CI-only dependencies (not installed into the runtime images).
+# The `airflow`-marked tests additionally need apache-airflow==2.10.5 +
+# apache-airflow-providers-apache-spark, installed with the vendored
+# constraints-airflow.txt in CI (see .github/workflows/ci.yml).
+pytest>=8,<9
+pyyaml>=6

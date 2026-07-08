@@ -12,7 +12,7 @@ dags/.ipynb_checkpoints
 dags/__pycache__/
 dags/test*
 dags/module/__pycache__/*.pyc
-dags/.pytest_cache/
+.pytest_cache/
 **/.minio.sys/
 **/.minio.sys/**
 minio/data/
