@@ -13,13 +13,13 @@ the `docling` pool + the worker mem_limit keep it from competing with Spark for 
 NB: keep the literal word "airflow" here — the DagBag safe-mode heuristic needs it.
 """
 import json
-from datetime import datetime, timedelta
 
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.operators.empty import EmptyOperator
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 
+from module.alerts import default_args
 from module.bronze_dag_factory import (
     BRONZE_EXTRACTOR_JAR,
     EXTRA_JARS,
@@ -51,19 +51,9 @@ PDF_ENV = {
     "MINIO_SECRET_KEY": get_airflow_variables("MINIO_SECRET_KEY"),
 }
 
-default_args = {
-    "owner": "airflow",
-    "depends_on_past": False,
-    "start_date": datetime(2024, 1, 1),
-    "email_on_failure": False,
-    "email_on_retry": False,
-    "retries": 0,
-    "retry_delay": timedelta(minutes=5),
-}
-
 with DAG(
     dag_id="dag_bronze_pdf",
-    default_args=default_args,
+    default_args=default_args(),
     schedule=None,
     catchup=False,
     tags=["bronze", "pdf", "docling"],

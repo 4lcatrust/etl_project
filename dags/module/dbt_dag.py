@@ -4,13 +4,12 @@ Each DAG runs `dbt run` + `dbt test` for one dbt selection (by tag), in the isol
 /opt/dbt-venv, writing artifacts to /tmp (the project dir is a read-only bind mount).
 A `done` marker emits an optional Dataset so the next layer can be scheduled off it.
 """
-from datetime import datetime, timedelta
-
 from airflow import DAG
 from airflow.datasets import Dataset
 from airflow.operators.bash import BashOperator
 from airflow.operators.empty import EmptyOperator
 
+from module.alerts import default_args
 from module.utilities import get_airflow_variables
 
 DBT_DIR = "/opt/airflow/dbt"
@@ -32,24 +31,13 @@ DBT_ENV = {
 SILVER_DAILY = Dataset("dbt://deso/silver_daily")
 SILVER_MONTHLY = Dataset("dbt://deso/silver_monthly")
 
-_default_args = {
-    "owner": "airflow",
-    "depends_on_past": False,
-    "start_date": datetime(2024, 1, 1),
-    "email_on_failure": False,
-    "email_on_retry": False,
-    "retries": 0,
-    "retry_delay": timedelta(minutes=5),
-}
-
-
 def build_dbt_dag(*, dag_id: str, select: str, schedule, description: str,
                   outlets: list = None, tags: list = None) -> DAG:
     """dbt run + test for one selection. `select` is a dbt node selector (e.g.
     `+tag:silver_daily`); `schedule` is a Dataset list or cron string."""
     with DAG(
         dag_id=dag_id,
-        default_args=_default_args,
+        default_args=default_args(),
         schedule=schedule,
         catchup=False,
         tags=tags or ["dbt"],

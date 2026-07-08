@@ -10,11 +10,11 @@ One factory + dynamic task mapping. A `bronze_ready` marker emits a Dataset so t
 silver/gold DAGs can be scheduled off it.
 """
 import json
-from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.datasets import Dataset
 from airflow.operators.empty import EmptyOperator
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
+from module.alerts import default_args
 from module.config_loader import load_table_list, load_validation
 from module.utilities import get_airflow_variables
 BRONZE_EXTRACTOR_JAR = "/opt/extra-jars/bronze-extractor-assembly-0.1.0.jar"
@@ -126,19 +126,9 @@ def build_bronze_dag(*, source: str, jdbc_url_var: str, user_var: str, password_
         jdbc_driver, identifier_quote,
     )
 
-    default_args = {
-        "owner": "airflow",
-        "depends_on_past": False,
-        "start_date": datetime(2024, 1, 1),
-        "email_on_failure": False,
-        "email_on_retry": False,
-        "retries": 0,
-        "retry_delay": timedelta(minutes=5),
-    }
-
     with DAG(
         dag_id=f"dag_bronze_{source}",
-        default_args=default_args,
+        default_args=default_args(),
         schedule=schedule,
         catchup=False,
         tags=tags or ["bronze", source, "config-driven"],

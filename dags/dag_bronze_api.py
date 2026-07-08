@@ -9,13 +9,13 @@ Then a bronze_ready marker emits Dataset("iceberg://bronze/api") for downstream 
 NB: keep the literal word "airflow" here — the DagBag safe-mode heuristic needs it.
 """
 import json
-from datetime import datetime, timedelta
 
 from airflow import DAG
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.python import PythonOperator
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 
+from module.alerts import default_args
 from module.api_connector import fetch_and_land
 from module.bronze_dag_factory import (
     BRONZE_EXTRACTOR_JAR,
@@ -41,19 +41,9 @@ BUCKET = "staging"
 OBJECT_KEY = f"api/{_table_name}/ingestion_date={{{{ ds }}}}/data.json"
 INPUT_PATH = f"s3a://{BUCKET}/{OBJECT_KEY}"
 
-default_args = {
-    "owner": "airflow",
-    "depends_on_past": False,
-    "start_date": datetime(2024, 1, 1),
-    "email_on_failure": False,
-    "email_on_retry": False,
-    "retries": 0,
-    "retry_delay": timedelta(minutes=5),
-}
-
 with DAG(
     dag_id="dag_bronze_api",
-    default_args=default_args,
+    default_args=default_args(),
     schedule=None,
     catchup=False,
     tags=["bronze", "api", "rest"],
