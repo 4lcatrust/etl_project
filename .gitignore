@@ -24,6 +24,7 @@ variables.json
 
 # Local project memory (not shared)
 CLAUDE.md
+.claude/
 
 # sbt/Scala build artifacts
 spark/scala/target/
