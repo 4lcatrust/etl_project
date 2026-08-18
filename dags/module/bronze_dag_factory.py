@@ -10,9 +10,12 @@ One factory + dynamic task mapping. A `bronze_ready` marker emits a Dataset so t
 silver/gold DAGs can be scheduled off it.
 """
 import json
+import clickhouse_connect
 from airflow import DAG
 from airflow.datasets import Dataset
+from airflow.models import Variable
 from airflow.operators.empty import EmptyOperator
+from airflow.operators.python import PythonOperator
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 from module.alerts import default_args
 from module.config_loader import load_table_list, load_validation
@@ -79,6 +82,54 @@ def client_spark_conf() -> dict:
 def bronze_dataset(db_name: str) -> Dataset:
     """The Dataset that a source's bronze refresh produces (Phase E schedules off it)."""
     return Dataset(f"iceberg://bronze/{db_name}")
+
+def check_bronze_quality(db_name: str, table_name: str, ingestion_date: str) -> None:
+    """Read back the audit row jobs.BronzeExtract just wrote for this (db, table, date) and
+    fail the task if the run returned zero rows or quarantined more than a tunable share of
+    them. Without this gate, bronze_extract exits Airflow status SUCCESS and still emits its
+    Dataset -- silently rebuilding silver/gold off empty or mostly-garbage bronze -- on a
+    source outage, a rotated credential, or a validation-rules regression. Raising here makes
+    it a normal task failure, so it gets the same retries + notify_failure alerting as any
+    other task; no separate alerting mechanism needed.
+
+    db_name/table_name come from our own *_table_list.yaml (trusted config, not external
+    input); ingestion_date is Airflow's own {{ ds }} render (always YYYY-MM-DD).
+    """
+    endpoint = get_airflow_variables("MINIO_ENDPOINT")
+    access_key = get_airflow_variables("MINIO_ACCESS_KEY")
+    secret_key = get_airflow_variables("MINIO_SECRET_KEY")
+    # Operational knob, not a per-source secret -- follows module.alerts' precedent
+    # (ALERT_SLACK_WEBHOOK) of Variable.get(default_var=...) directly rather than the
+    # KNOWN_VARIABLES allow-list, which is reserved for required per-source credentials.
+    threshold = float(Variable.get("BRONZE_QUARANTINE_THRESHOLD", default_var="0.5"))
+
+    client = clickhouse_connect.get_client(
+        host="clickhouse", port=8123,
+        username=get_airflow_variables("CLICKHOUSE_USER"),
+        password=get_airflow_variables("CLICKHOUSE_PASSWORD"),
+    )
+    result = client.query(f"""
+        SELECT input_rows, valid_rows, invalid_rows
+        FROM iceberg('{endpoint}/iceberg-warehouse/audit/validation_summary', '{access_key}', '{secret_key}')
+        WHERE db_name = '{db_name}' AND table_name = '{table_name}'
+          AND ingestion_date = toDate('{ingestion_date}')
+        ORDER BY run_ts DESC
+        LIMIT 1
+    """)
+    if not result.result_rows:
+        raise ValueError(
+            f"quality_gate: no audit row found for {db_name}.{table_name}@{ingestion_date} "
+            "-- bronze_extract may not have written one"
+        )
+    input_rows, _valid_rows, invalid_rows = result.result_rows[0]
+    if input_rows == 0:
+        raise ValueError(f"quality_gate: {db_name}.{table_name}@{ingestion_date} extracted 0 rows")
+    quarantine_rate = invalid_rows / input_rows
+    if quarantine_rate > threshold:
+        raise ValueError(
+            f"quality_gate: {db_name}.{table_name}@{ingestion_date} quarantined "
+            f"{invalid_rows}/{input_rows} rows ({quarantine_rate:.0%}) > {threshold:.0%} threshold"
+        )
 
 def _build_arg_sets(source: str, db_name: str, schema_name_default: str, tables: list,
                     jdbc_url_var: str, user_var: str, password_var: str,
@@ -148,8 +199,19 @@ def build_bronze_dag(*, source: str, jdbc_url_var: str, user_var: str, password_
             verbose=True,
         ).expand(application_args=arg_sets)
 
+        # One quality-gate check per table (see check_bronze_quality). Depending on the whole
+        # `extract` expand group (not a per-index 1:1 mapping) is deliberately simple: every
+        # table's audit row must exist and pass before any table's gate runs.
+        quality_gate = PythonOperator.partial(
+            task_id="quality_gate",
+            python_callable=check_bronze_quality,
+        ).expand(op_kwargs=[
+            {"db_name": db_name, "table_name": t["table_name"], "ingestion_date": "{{ ds }}"}
+            for t in tables
+        ])
+
         bronze_ready = EmptyOperator(task_id="bronze_ready", outlets=[bronze_dataset(db_name)])
 
-        start >> extract >> bronze_ready
+        start >> extract >> quality_gate >> bronze_ready
 
     return dag

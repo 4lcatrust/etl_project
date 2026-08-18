@@ -21,6 +21,7 @@ from module.bronze_dag_factory import (
     BRONZE_EXTRACTOR_JAR,
     EXTRA_JARS,
     bronze_dataset,
+    check_bronze_quality,
     client_spark_conf,
 )
 from module.config_loader import load_table_list, load_validation
@@ -87,6 +88,12 @@ with DAG(
         verbose=True,
     )
 
+    quality_gate = PythonOperator(
+        task_id="quality_gate",
+        python_callable=check_bronze_quality,
+        op_kwargs={"db_name": _db_name, "table_name": _table_name, "ingestion_date": "{{ ds }}"},
+    )
+
     bronze_ready = EmptyOperator(task_id="bronze_ready", outlets=[bronze_dataset(_db_name)])
 
-    start >> fetch_products >> bronze_extract >> bronze_ready
+    start >> fetch_products >> bronze_extract >> quality_gate >> bronze_ready

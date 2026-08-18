@@ -17,6 +17,7 @@ import json
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.operators.empty import EmptyOperator
+from airflow.operators.python import PythonOperator
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 
 from module.alerts import default_args
@@ -24,6 +25,7 @@ from module.bronze_dag_factory import (
     BRONZE_EXTRACTOR_JAR,
     EXTRA_JARS,
     bronze_dataset,
+    check_bronze_quality,
     client_spark_conf,
 )
 from module.config_loader import load_table_list, load_validation
@@ -98,6 +100,12 @@ with DAG(
         verbose=True,
     )
 
+    quality_gate = PythonOperator(
+        task_id="quality_gate",
+        python_callable=check_bronze_quality,
+        op_kwargs={"db_name": _db_name, "table_name": _table_name, "ingestion_date": "{{ ds }}"},
+    )
+
     bronze_ready = EmptyOperator(task_id="bronze_ready", outlets=[bronze_dataset(_db_name)])
 
-    start >> parse_pdf >> bronze_extract >> bronze_ready
+    start >> parse_pdf >> bronze_extract >> quality_gate >> bronze_ready
