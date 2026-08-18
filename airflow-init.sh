@@ -20,9 +20,27 @@ add_connection_if_not_exists() {
     fi
 }
 
-# Admin credentials come from the environment (.env); fall back to demo defaults.
+# Required secrets: refuse to boot rather than silently falling back to a well-known
+# admin/admin login. Checked here (not just in compose) because this script is the first
+# thing every `docker compose up` runs, regardless of which services are involved.
+if [[ -z "${AIRFLOW_ADMIN_PASSWORD:-}" ]]; then
+    echo "❌ AIRFLOW_ADMIN_PASSWORD is not set in .env -- refusing to start with a default admin login." >&2
+    exit 1
+fi
+if [[ -z "${GRAFANA_ADMIN_PASSWORD:-}" ]]; then
+    # Grafana itself is a separate --profile monitoring container this script never touches,
+    # but its own undocumented internal default is also "admin" -- this is still the earliest,
+    # most visible place to catch a missing .env secret before anything boots weak.
+    echo "❌ GRAFANA_ADMIN_PASSWORD is not set in .env -- refusing to start with a default admin login." >&2
+    exit 1
+fi
+if [[ -z "${REDIS_PASSWORD:-}" ]]; then
+    echo "❌ REDIS_PASSWORD is not set in .env -- refusing to start with an unauthenticated Celery broker." >&2
+    exit 1
+fi
+
+# Admin username isn't a secret; the password now always comes from .env (validated above).
 AIRFLOW_ADMIN_USER="${AIRFLOW_ADMIN_USER:-admin}"
-AIRFLOW_ADMIN_PASSWORD="${AIRFLOW_ADMIN_PASSWORD:-admin}"
 
 # Check if user already exists to avoid errors on restart
 if ! airflow users list 2>/dev/null | grep -q "^${AIRFLOW_ADMIN_USER} \|${AIRFLOW_ADMIN_USER}$"; then

@@ -138,12 +138,15 @@ services:
       # Enable the standalone REST submission server (port 6066) so cluster deploy-mode
       # submissions (Phase B2) return a driver id that SparkSubmitOperator can poll via
       # `spark-submit --status`. spark-class honors SPARK_MASTER_OPTS for the Master class.
-      # Local docker network only — the REST server is not exposed beyond the host.
       - SPARK_MASTER_OPTS=-Dspark.master.rest.enabled=true
     ports:
       - "7077:7077"
       - "8000:8080"
-      - "6066:6066"
+      # 6066 (the REST submission API) is deliberately NOT published to the host: it takes an
+      # arbitrary jar + class name with no authentication, so publishing it is an unauthenticated
+      # RCE surface on the Spark cluster. spark_cluster's SparkSubmitOperator connection (in
+      # airflow-init.sh) reaches it fine over db_network via the "spark-master" service name --
+      # cluster-mode submission never needed the host port at all.
     volumes:
       - ./spark/jobs:/opt/spark/jobs
     healthcheck:
@@ -208,15 +211,16 @@ services:
     networks:
       - db_network
 
-  # Redis
+  # Redis (Celery broker). Auth required: an unauthenticated broker lets anything reaching
+  # this port inject/tamper Celery tasks, which is code execution inside airflow_worker. No
+  # host port publish either -- only the Airflow services (on db_network) need it.
   redis:
     image: redis:alpine
     container_name: redis
     mem_limit: "512m"
-    ports:
-      - "6379:6379"
+    command: ["redis-server", "--requirepass", "${REDIS_PASSWORD}"]
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "--no-auth-warning", "ping"]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -275,7 +279,7 @@ services:
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow_db:5432/${AIRFLOW_DB_NAME}
       AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow_db:5432/${AIRFLOW_DB_NAME}
-      AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
+      AIRFLOW__CELERY__BROKER_URL: redis://:${REDIS_PASSWORD}@redis:6379/0
       # Show the config page but mask sensitive values (secret_key, DB URL w/ password) --
       # 'true' would expose them verbatim in the UI's Admin -> Configuration.
       AIRFLOW__WEBSERVER__EXPOSE_CONFIG: 'non-sensitive-only'
@@ -339,7 +343,7 @@ services:
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow_db:5432/${AIRFLOW_DB_NAME}
       AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow_db:5432/${AIRFLOW_DB_NAME}
-      AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
+      AIRFLOW__CELERY__BROKER_URL: redis://:${REDIS_PASSWORD}@redis:6379/0
       AIRFLOW__WEBSERVER__RBAC: "True"
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
       JAVA_HOME: "/usr/lib/jvm/java-17-openjdk-amd64"
@@ -380,7 +384,7 @@ services:
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow_db:5432/${AIRFLOW_DB_NAME}
       AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow_db:5432/${AIRFLOW_DB_NAME}
-      AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
+      AIRFLOW__CELERY__BROKER_URL: redis://:${REDIS_PASSWORD}@redis:6379/0
       AIRFLOW__WEBSERVER__RBAC: "True"
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
       JAVA_HOME: "/usr/lib/jvm/java-17-openjdk-amd64"
@@ -451,7 +455,9 @@ services:
     profiles: ["monitoring"]
     mem_limit: "512m"
     environment:
-      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-admin}
+      # No :-admin fallback: airflow-init.sh already refuses to boot the stack if this is
+      # unset, so a bare ${GRAFANA_ADMIN_PASSWORD} here is never silently "admin".
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD}
       GF_USERS_ALLOW_SIGN_UP: "false"
       GF_ANALYTICS_REPORTING_ENABLED: "false"
     volumes:
