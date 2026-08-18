@@ -15,67 +15,32 @@
 
     <!-- Users and ACL. -->
     <users>
-        <!-- If user name was not specified, 'default' user is used. -->
+        <!-- 'default' is intentionally DISABLED. This project's only working ClickHouse
+             credential is CLICKHOUSE_USER/CLICKHOUSE_PASSWORD (docker-compose.yml), which the
+             official image's entrypoint auto-creates with full privileges via
+             CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=1, entirely independent of this file. Both
+             dbt (dbt/profiles.yml: env_var('CLICKHOUSE_USER')) and the Airflow Connection
+             (airflow-init.sh, conn-login set to CLICKHOUSE_USER) already use only that account;
+             nothing in this codebase authenticates as 'default'.
+
+             Previously 'default' shipped with an EMPTY password, <ip>::/0</ip> (open to any
+             network), and access_management=1 (can create users / grant rights): an
+             unauthenticated remote admin account, reachable on the published 8123/9009 ports.
+             Neutralized below via an unreachable password hash, loopback-only network, and
+             access_management off, rather than just adding a password, since nothing needs
+             this account to actually work. See users.d/ to reverse this if that ever changes. -->
         <default>
-            <!-- See also the files in users.d directory where the password can be overridden.
+            <!-- SHA256 of 32 cryptographically random bytes nobody knows (generated with
+                 Python's secrets module, not a hash of any word/phrase): this account can
+                 never log in with a password. Combined with the loopback-only network below,
+                 'default' cannot be reached at all from another container (db_network) or the
+                 host. -->
+            <password_sha256_hex>a808b94a791ac3617616a074273c7a7f3f2e8d7185974a00f9de5d44fd96c597</password_sha256_hex>
 
-                 Password could be specified in plaintext or in SHA256 (in hex format).
-
-                 If you want to specify password in plaintext (not recommended), place it in 'password' element.
-                 Example: <password>qwerty</password>.
-                 Password could be empty.
-
-                 If you want to specify SHA256, place it in 'password_sha256_hex' element.
-                 Example: <password_sha256_hex>65e84be33532fb784c48129675f9eff3a682b27168c0ea744b2cf58ee02337c5</password_sha256_hex>
-                 Restrictions of SHA256: impossibility to connect to ClickHouse using MySQL JS client (as of July 2019).
-
-                 If you want to specify double SHA1, place it in 'password_double_sha1_hex' element.
-                 Example: <password_double_sha1_hex>e395796d6546b1b65db9d665cd43f0e858dd4303</password_double_sha1_hex>
-
-                 If you want to specify a previously defined LDAP server (see 'ldap_servers' in the main config) for authentication,
-                  place its name in 'server' element inside 'ldap' element.
-                 Example: <ldap><server>my_ldap_server</server></ldap>
-
-                 If you want to authenticate the user via Kerberos (assuming Kerberos is enabled, see 'kerberos' in the main config),
-                  place 'kerberos' element instead of 'password' (and similar) elements.
-                 The name part of the canonical principal name of the initiator must match the user name for authentication to succeed.
-                 You can also place 'realm' element inside 'kerberos' element to further restrict authentication to only those requests
-                  whose initiator's realm matches it.
-                 Example: <kerberos />
-                 Example: <kerberos><realm>EXAMPLE.COM</realm></kerberos>
-
-                 How to generate decent password:
-                 Execute: PASSWORD=$(base64 < /dev/urandom | head -c8); echo "$PASSWORD"; echo -n "$PASSWORD" | sha256sum | tr -d '-'
-                 In first line will be password and in second - corresponding SHA256.
-
-                 How to generate double SHA1:
-                 Execute: PASSWORD=$(base64 < /dev/urandom | head -c8); echo "$PASSWORD"; echo -n "$PASSWORD" | sha1sum | tr -d '-' | xxd -r -p | sha1sum | tr -d '-'
-                 In first line will be password and in second - corresponding double SHA1.
-            -->
-            <password></password>
-
-            <!-- List of networks with open access.
-
-                 To open access from everywhere, specify:
-                    <ip>::/0</ip>
-
-                 To open access only from localhost, specify:
-                    <ip>::1</ip>
-                    <ip>127.0.0.1</ip>
-
-                 Each element of list has one of the following forms:
-                 <ip> IP-address or network mask. Examples: 213.180.204.3 or 10.0.0.1/8 or 10.0.0.1/255.255.255.0
-                     2a02:6b8::3 or 2a02:6b8::3/64 or 2a02:6b8::3/ffff:ffff:ffff:ffff::.
-                 <host> Hostname. Example: server01.clickhouse.com.
-                     To check access, DNS query is performed, and all received addresses compared to peer address.
-                 <host_regexp> Regular expression for host names. Example, ^server\d\d-\d\d-\d\.clickhouse\.com$
-                     To check access, DNS PTR query is performed for peer address and then regexp is applied.
-                     Then, for result of PTR query, another DNS query is performed and all received addresses compared to peer address.
-                     Strongly recommended that regexp is ends with $
-                 All results of DNS requests are cached till server restart.
-            -->
+            <!-- Loopback only: unreachable from db_network or a published host port. -->
             <networks>
-                <ip>::/0</ip>
+                <ip>127.0.0.1</ip>
+                <ip>::1</ip>
             </networks>
 
             <!-- Settings profile for user. -->
@@ -84,18 +49,9 @@
             <!-- Quota for user. -->
             <quota>default</quota>
 
-            <!-- User can create other users and grant rights to them. -->
-            <access_management>1</access_management>
-
-            <!-- User can manipulate named collections. -->
-            <named_collection_control>1</named_collection_control>
-
-            <!-- User permissions can be granted here -->
-            <!--
-            <grants>
-                <query>GRANT ALL ON *.*</query>
-            </grants>
-            -->
+            <!-- No admin rights: this account is unreachable, so it should also carry none. -->
+            <access_management>0</access_management>
+            <named_collection_control>0</named_collection_control>
         </default>
     </users>
 
