@@ -47,6 +47,14 @@ VALIDATION_RULES = [
     {"id": "positive_unit_price", "rule": "positive_number", "columns": ["unit_price"]},
 ]
 
+# db_name is deliberately "smoke", NOT "postgres" -- it must never collide with
+# dag_bronze_postgres's real iceberg.bronze.postgres__item. Since Phase H made bronze writes
+# idempotent (DELETE the run's ingestion_date partition, then append), a smoke run sharing the
+# real db_name would REPLACE the production item partition (and its audit row) with these 265
+# seeded rows, including the deliberately-bad SMOKE_TEST_BAD_ROW. This lands in its own
+# isolated iceberg.bronze.smoke__item / iceberg.quarantine.smoke__item / audit rows instead.
+SMOKE_DB_NAME = "smoke"
+
 # Real item data has no bad rows, so union in one synthetic bad row (negative
 # unit_price) to prove the quarantine path works, without mutating the source table.
 SMOKE_QUERY = """
@@ -135,7 +143,7 @@ with DAG(
             "--password", get_airflow_variables("POSTGRES_PASSWORD"),
             "--schema_name", "public",
             "--table_name", "item",
-            "--db_name", "postgres",
+            "--db_name", SMOKE_DB_NAME,
             "--primary_key", "item_key",
             "--schema_json", json.dumps(SCHEMA),
             "--validation_rules_json", json.dumps(VALIDATION_RULES),
